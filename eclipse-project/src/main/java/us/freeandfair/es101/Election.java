@@ -15,5 +15,9 @@ package us.freeandfair.es101;
  * @description An election is a formal indication of choices in one or more contests.
  */
 public class Election {
-
+	Voter aVoter;
+	Adversary anAdversary;
+	VotingSystem aVotingSystem;
+	Vote aVote;
+	Tally theTally;
 }

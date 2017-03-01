@@ -12,7 +12,13 @@
 package us.freeandfair.es101;
 
 /**
- * @description The legally recognized means by which a voter can express his or her choices in one or more contests in an election.
+ * @description The legally recognized means by which a voter can express his or
+ *              her choices in one or more contests in an election.
+ * 
+ * @explanation A ballot is the legally recognized means by which a voter can
+ *              express his or her choices for one or more contests in an
+ *              election. A ballot contains a set of votes corresponding to the
+ *              contests being decided in the election.
  */
 public class Ballot {
 

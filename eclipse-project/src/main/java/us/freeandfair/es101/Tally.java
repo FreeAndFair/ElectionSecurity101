@@ -15,5 +15,5 @@ package us.freeandfair.es101;
  * @description The count of all the votes in an election.
  */
 public class Tally {
-
+	UserInterface aUI;
 }

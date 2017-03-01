@@ -15,5 +15,5 @@ package us.freeandfair.es101;
  * @description A person or entity that wishes to manipulate the outcome of an election.
  */
 public class Adversary {
-
+	UserInterface aUI;
 }

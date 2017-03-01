@@ -15,5 +15,5 @@ package us.freeandfair.es101;
  * @description A person who is eligible to vote in an election.
  */
 public class Voter {
-
+	VotingSystem aVotingSystem;
 }
