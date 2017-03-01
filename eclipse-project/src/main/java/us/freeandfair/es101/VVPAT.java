@@ -20,4 +20,8 @@ public class VVPAT {
 	  //@ assert false;
 	  return null;
   }
+  void printVVPAT() {
+	  assert false;
+	  //@ assert false;
+  }
 }

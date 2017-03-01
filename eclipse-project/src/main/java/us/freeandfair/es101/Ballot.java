@@ -21,5 +21,9 @@ package us.freeandfair.es101;
  *              contests being decided in the election.
  */
 public class Ballot {
-
+// A blank ballot is printed.
+	void printBallot() {
+		assert false;
+		//@ assert false;
+	}
 }

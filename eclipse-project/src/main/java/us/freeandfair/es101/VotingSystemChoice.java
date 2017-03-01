@@ -12,11 +12,14 @@
 package us.freeandfair.es101;
 
 /**
- * @description The count of all the votes in an election.
+ * @description <description>
+ * @explanation <explanation>
+ * @bon OPTIONAL_BON_TYPENAME
  */
-public class Tally {
-	UserInterface my_ui;
-	int my_legitimate_tally;
-	int my_hacked_tally;
-//	The unmanipulated vote is added to the tally.
+public class VotingSystemChoice extends UserInterface {
+//	Voter chooses to vote using the hand count method.
+	void voterMakesChoice() {
+		assert false;
+		//@ assert false;
+	}
 }

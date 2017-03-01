@@ -11,13 +11,15 @@
  */
 package us.freeandfair.es101;
 
+import java.util.Vector;
+
 /**
  * @description An election is a formal indication of choices in one or more contests.
  */
 public class Election {
-	Voter aVoter;
-	Adversary anAdversary;
-	VotingSystem aVotingSystem;
-	Vote aVote;
-	Tally theTally;
+	Voter my_voter;
+	Adversary my_adversary;
+	VotingSystem my_voting_system;
+	Vector<Vote> my_votes;
+	Tally my_tally;
 }

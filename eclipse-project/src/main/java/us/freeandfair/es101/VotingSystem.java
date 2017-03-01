@@ -15,5 +15,6 @@ package us.freeandfair.es101;
  * @description The operational means by which a voter captures their contest choices.
  */
 public class VotingSystem {
-	UserInterface aUI;
+	UserInterface my_ui;
+//	Voter votes in the election.
 }

@@ -15,5 +15,8 @@ package us.freeandfair.es101;
  * @description Any kind of artifact that is meant to provide a voter evidence of a voting system's or election's correct operation.
  */
 public class Receipt {
-
+	void printReceipt() {
+		assert false;
+		//@ assert false;
+	}
 }
