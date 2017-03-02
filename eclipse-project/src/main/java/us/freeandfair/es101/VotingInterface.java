@@ -13,8 +13,12 @@
 package us.freeandfair.es101;
 
 /**
- * @description A voting interface is the medium through which a voter makes his
- *              or her contest choices known to the voting system.
+ * The medium through which a voter makes his or her contest choices known 
+ * to the voting system.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class VotingInterface {
 

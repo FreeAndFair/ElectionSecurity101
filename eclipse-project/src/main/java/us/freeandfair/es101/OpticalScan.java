@@ -13,8 +13,12 @@
 package us.freeandfair.es101;
 
 /**
- * @description A voting system that uses a digital system to automatically
- *              interpret voter intent from marked paper ballots.
+ * A voting system that uses a digital system to automatically interpret voter intent 
+ * from marked paper ballots.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class OpticalScan extends VotingSystem {
 

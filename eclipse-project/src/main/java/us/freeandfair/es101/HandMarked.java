@@ -13,8 +13,11 @@
 package us.freeandfair.es101;
 
 /**
- * @description A paper ballot that is hand-marked by a voter to capture their
- *              contest choices.
+ * A paper ballot that is hand-marked by a voter to capture their contest choices.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class HandMarked {
 

@@ -13,7 +13,11 @@
 package us.freeandfair.es101;
 
 /**
- * @description A citizen who is standing for election.
+ * A citizen who is standing for election.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman 
  */
 public class Candidate {
 

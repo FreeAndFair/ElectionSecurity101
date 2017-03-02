@@ -13,15 +13,27 @@
 package us.freeandfair.es101;
 
 /**
- * @description A voter-verifiable paper-based auditing trail.
+ * A voter-verifiable paper-based audit trail.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class VVPAT {
+  /**
+   * ???
+   * 
+   * @return the resulting Vote.
+   */
   Vote convertToVote() {
     assert false;
     // @ assert false;
     return null;
   }
 
+  /**
+   * Prints a VVPAT to the printer.
+   */
   void printVVPAT() {
     assert false;
     // @ assert false;

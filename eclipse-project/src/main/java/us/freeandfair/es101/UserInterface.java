@@ -13,8 +13,12 @@
 package us.freeandfair.es101;
 
 /**
- * @description The digital medium through which a voter or electional authority
- *              interacts with a digital voting system.
+ * The digital medium through which a voter or electoral authority interacts with a 
+ * digital voting system.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class UserInterface {
 

@@ -16,6 +16,10 @@ package us.freeandfair.es101;
  * @description <description>
  * @explanation <explanation>
  * @bon OPTIONAL_BON_TYPENAME
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class Scenarios {
 

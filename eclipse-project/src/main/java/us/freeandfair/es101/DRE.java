@@ -13,7 +13,11 @@
 package us.freeandfair.es101;
 
 /**
- * @description A direct recording electronic voting system which has no VVPAT.
+ * A direct recording electronic voting system which has no VVPAT.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class DRE extends VotingSystem {
 

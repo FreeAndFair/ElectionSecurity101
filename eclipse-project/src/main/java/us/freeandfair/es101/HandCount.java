@@ -13,8 +13,11 @@
 package us.freeandfair.es101;
 
 /**
- * @description The count of all the votes in an election using no digital
- *              assistance in which all votes are manually counted.
+ * A voting system using no digital assistance in which all votes are manually counted.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class HandCount extends VotingSystem {
 

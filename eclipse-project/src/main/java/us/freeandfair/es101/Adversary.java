@@ -13,9 +13,15 @@
 package us.freeandfair.es101;
 
 /**
- * @description A person or entity that wishes to manipulate the outcome of an
- *              election.
+ * A person or entity that wishes to manipulate the outcome of an election.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class Adversary {
-  UserInterface my_ui;
+  /**
+   * The user interface displayed to the adversary.
+   */
+  private UserInterface my_ui;
 }

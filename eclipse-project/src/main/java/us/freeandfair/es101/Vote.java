@@ -13,9 +13,17 @@
 package us.freeandfair.es101;
 
 /**
- * @description The expression of a contest choice.
+ * The expression of a contest choice.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class Vote {
+  /**
+   * ? 
+   * @return the VVPAT.
+   */
   VVPAT convertToVVPAT() {
     assert false;
     // @ assert false;

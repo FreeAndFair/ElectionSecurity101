@@ -12,12 +12,49 @@
 
 package us.freeandfair.es101;
 
+import java.util.Map;
+
 /**
- * @description The count of all the votes in an election.
+ * The count of all the votes in an election.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class Tally {
-  UserInterface my_ui;
-  int my_legitimate_tally;
-  int my_hacked_tally;
-  // The unmanipulated vote is added to the tally.
+  /**
+   * The user interface that displays the tally.
+   */
+  private UserInterface my_ui;
+  
+  /**
+   * The legitimate tally values.
+   */
+  private Map<Candidate, Integer> my_legitimate_tally;
+  
+  /**
+   * The hacked tally values.
+   */
+  private Map<Candidate, Integer> my_hacked_tally;
+ 
+  /**
+   * Add an unmanipulated vote to the tally.
+   * 
+   * @param the_vote The vote.
+   */
+  public void addUnmanipulatedVote(final Vote the_vote) {
+    assert false;
+    //@ assert false;
+  }
+  
+  /**
+   * Add a vote to the tally.
+   * 
+   * @param the_original_vote The vote.
+   * @param the_manipulated_vote The manipulated vote.
+   */
+  public void addVote(final Vote the_original_vote, final Vote the_manipulated_vote) {
+    assert false;
+    //@ assert false;
+  }
 }

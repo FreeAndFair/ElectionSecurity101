@@ -13,8 +13,15 @@
 package us.freeandfair.es101;
 
 /**
- * @description A person who is eligible to vote in an election.
+ * A person who is eligible to vote in an election.
+ * 
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class Voter {
-  VotingSystem my_voting_system;
+  /**
+   * The voting system chosen by the voter.
+   */
+  private VotingSystem my_voting_system;
 }

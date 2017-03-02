@@ -16,9 +16,15 @@ package us.freeandfair.es101;
  * @description <description>
  * @explanation <explanation>
  * @bon OPTIONAL_BON_TYPENAME
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class VotingSystemChoice extends UserInterface {
-  // Voter chooses to vote using the hand count method.
+  /**
+   * Voter chooses to vote.
+   */
   void voterMakesChoice() {
     assert false;
     // @ assert false;

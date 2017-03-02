@@ -13,8 +13,11 @@
 package us.freeandfair.es101;
 
 /**
- * @description An action of an adversary with the intention of manipulating the
- *              outcome of an election.
+ * An action of an adversary with the intention of manipulating the outcome of an election.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class Manipulation {
 

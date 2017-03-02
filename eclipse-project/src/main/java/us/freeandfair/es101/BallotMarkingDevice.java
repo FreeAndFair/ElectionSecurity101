@@ -13,8 +13,12 @@
 package us.freeandfair.es101;
 
 /**
- * @description A system which permits voters to indicate their contest choices
- *              and then captures those voter choices on paper ballots.
+ * A system which permits voters to indicate their contest choices and then 
+ * captures those voter choices on paper ballots.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class BallotMarkingDevice extends VotingSystem {
 

@@ -13,9 +13,12 @@
 package us.freeandfair.es101;
 
 /**
- * @description An election scheme whereby one or more formal properties of the
- *              election can be independently checked by voters or election
- *              officials.
+ * An election scheme whereby one or more formal properties of the election can be 
+ * independently checked by voters or election officials.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class VerifiableElection extends VotingSystem {
 

@@ -13,8 +13,12 @@
 package us.freeandfair.es101;
 
 /**
- * @description An election carried out, in whole or in part, using the Internet
- *              for the transmission of votes.
+ * An election carried out, in whole or in part, using the Internet
+ * for the transmission of votes.
+ *  
+ * @version 1.0
+ * @author Joseph R. Kiniry
+ * @author Daniel M. Zimmerman
  */
 public class InternetElection extends VotingSystem {
 
