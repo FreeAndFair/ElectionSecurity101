@@ -76,8 +76,14 @@ public class Main {
   /**
    * The queue of incoming voter actions.
    */
-  private final Queue<Object> my_voter_action_queue = new ConcurrentLinkedQueue<Object>();
+  private final Queue<VoterAction> my_voter_action_queue = 
+      new ConcurrentLinkedQueue<VoterAction>();
 
+  /**
+   * The election we're running.
+   */
+  private final Election my_election;
+  
   /**
    * Constructs a new Main with the specified properties.
    * 
@@ -85,6 +91,7 @@ public class Main {
    */
   public Main(final Properties the_properties) {
     my_properties = the_properties;
+    my_election = new Election();
   }
 
   /**
