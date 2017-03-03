@@ -18,6 +18,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 /**
  * The main executable of the system. Starts the web server and an election
  * using the properties file specified on the command line.
@@ -27,6 +30,22 @@ import java.util.Properties;
  * @version 1.0
  */
 public class Main {
+  /**
+   * The name of the default properties resource.
+   */
+  public static final String DEFAULT_PROPERTIES = 
+      "us/freeandfair/es101/default.properties";
+  
+  /**
+   * The name of the logger.
+   */
+  public static final String LOGGER_NAME = "election";
+  
+  /**
+   * The logger.
+   */
+  private static final Logger LOGGER = LogManager.getLogger(LOGGER_NAME);
+  
   /**
    * The properties loaded from the properties file.
    */
@@ -45,7 +64,7 @@ public class Main {
    * Starts an election, including starting up the web server.
    */
   public void start() {
-    
+    LOGGER.info("starting election with properties: " + my_properties);
   }
   
   /**
@@ -54,8 +73,13 @@ public class Main {
    * @return The default properties.
    */
   private static Properties defaultProperties() {
-    // will later read this from an internal properties file that is known to be defined
-    return new Properties();
+    final Properties properties = new Properties();
+    try {
+      properties.load(ClassLoader.getSystemResourceAsStream(DEFAULT_PROPERTIES));
+    } catch (final IOException e) {
+      throw new RuntimeException("Error loading default properties file, aborting.");
+    }
+    return properties;
   }
   
   /**
@@ -67,22 +91,28 @@ public class Main {
    *  are supplied, a default election is started.
    */
   public static void main(final String... the_args) {
-    Properties properties = defaultProperties();
+    Properties properties;
     if (the_args.length > 0) {
       final File file = new File(the_args[0]);
       try {
-        properties.clear();
+        LOGGER.info("attempting to load properties from " + file);
+        properties = new Properties();
         properties.load(new FileInputStream(file));
       } catch (final IOException e) {
         // could not load properties that way, let's try XML
         try {
-          properties.clear();
+          LOGGER.info("load failed, attempting to load XML properties from " + file);
+          properties = new Properties();
           properties.loadFromXML(new FileInputStream(file));
         } catch (final IOException ex) {
           // could not load properties that way either, let's use defaults
+          LOGGER.info("load failed, loading default properties");
           properties = defaultProperties();
         }
       }
+    } else {
+      LOGGER.info("no property file specified, loading default properties");
+      properties = defaultProperties();
     }
     
     final Main main = new Main(properties);
