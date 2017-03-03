@@ -21,5 +21,18 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VoterAction {
-
+  /**
+   * The voting system that the voter used.
+   */
+  protected VotingSystem my_voting_system;
+  
+  /**
+   * The vote that the voter cast.
+   */
+  protected Vote my_vote;
+  
+  /**
+   * The vote after manipulation by the adversary.
+   */
+  protected Vote my_manipulated_vote;
 }
