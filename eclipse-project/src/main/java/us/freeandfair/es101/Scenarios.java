@@ -17,6 +17,11 @@ package us.freeandfair.es101;
  * @bon OPTIONAL_BON_TYPENAME
  */
 public class Scenarios {
+	Election my_election;
+	
+	void handMarkedAndCounted() {
+		
+	}
 
 }
 

@@ -15,5 +15,11 @@ package us.freeandfair.es101;
  * @description The digital medium through which a voter or electional authority interacts with a digital voting system.
  */
 public class UserInterface {
-
+	/**
+	 * The URL schema prefix used for any particular subtype.  The default
+	 * value of the prefix is empty.
+	 */
+	String my_url_schema() {
+		return "";
+	}
 }
