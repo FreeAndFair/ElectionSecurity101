@@ -1,3 +1,4 @@
+page(enable_refresh, refresh, title, enable_results, results, body) ::= <<
 <html>
 <head>
 $if(enable_refresh)$
@@ -16,3 +17,4 @@ $body$
 
 </body>
 </html>
+>>
