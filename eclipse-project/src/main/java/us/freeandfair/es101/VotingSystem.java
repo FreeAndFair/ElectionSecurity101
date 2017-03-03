@@ -21,9 +21,8 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystem {
-  /**
-   * The user interface of this voting system.
-   */
-  protected UserInterface my_ui;
-  // Voter votes in the election.
+  /** The voter's user interface of this voting system. */
+  protected UserInterface my_voter_ui;
+  /** The adversary's user interface of this voting system. */
+  protected UserInterface my_adversary_ui;
 }

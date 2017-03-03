@@ -26,6 +26,9 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Election {
+  protected String my_name;
+  protected String my_current_date;
+  
   /** The UI for choosing a voting system. */
   protected UserInterface my_voting_system_choice;
   

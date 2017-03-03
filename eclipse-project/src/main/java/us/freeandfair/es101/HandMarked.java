@@ -20,6 +20,6 @@ package us.freeandfair.es101;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class HandMarked {
+public class HandMarked extends VotingSystem {
 
 }

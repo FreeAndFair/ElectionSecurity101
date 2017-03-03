@@ -28,6 +28,7 @@ import spark.Response;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystemChoice extends UserInterface {
+  // @todo Add the collection of supported voting systems.
   
   /* (non-Javadoc)
    * @see us.freeandfair.es101.UserInterface#my_url_schema()
@@ -36,23 +37,12 @@ public class VotingSystemChoice extends UserInterface {
   public String schema() {
     return "voting_system_choice";
   }
-  
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.UserInterface#display()
-   */
-  @Override
-  public String display() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.display();
-  }
 
   /* (non-Javadoc)
    * @see us.freeandfair.es101.UserInterface#action()
    */
   /**
-    * Voter chooses to vote.
+    * Display the choices that the voter has to choose which a voting system to use.
     */
   @Override
   public String action(final Request the_request, final Response the_response) {

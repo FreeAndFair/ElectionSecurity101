@@ -27,35 +27,25 @@ import spark.Response;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class UserInterface {
+  /** The election associated with this UI. */
+  protected Election my_election;
+  
   /**
    * @return the URL schema prefix to which this UI responds.  This base 
    * abstract class returns an empty string.
    */
   //@ public normal_behavior ensures \result.equals("");
-  @Pure
-  public String schema() {
+  @Pure public String schema() {
     return "";
   }
 
   /**
-   * @return a string which is displayed to the voter as the UI.
-   */
-  //@ public normal_behavior ensures \result.equals("");
-  @Pure
-  public String display() {
-    assert false;
-    //@ assert false;
-    return "";
-  }
-
-  /**
-   * @return interpret the action the user just took in this UI.
+   * @return A string which is displayed to the voter as the UI.
    * @param the_request The request object providing information about the HTTP request
    * @param the_response The response object providing functionality for modifying the response
    */
   //@ public normal_behavior ensures \result.equals("");
-  @Pure
-  public String action(final Request the_request, final Response the_response) {
+  @Pure public String action(final Request the_request, final Response the_response) {
     assert false;
     //@ assert false;
     return "";

@@ -36,7 +36,7 @@ public class Scenarios {
    *             The ballot is inserted into the ballot box.
    */
   public void handMarkedAndCounted() {
-    my_election.my_voting_system_choice.display();
+    my_election.my_voting_system_choice.action(null, null);
     final String voting_system_choice = 
         my_election.my_voting_system_choice.action(null, null);
     assert "HAND-MARKED".equals(voting_system_choice);
