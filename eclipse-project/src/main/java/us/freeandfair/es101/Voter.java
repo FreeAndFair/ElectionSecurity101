@@ -6,14 +6,23 @@
  * @copyright 2017 Free & Fair
  * @license BSD 3-Clause License
  * @author Joseph Kiniry <kiniry@freeandfair.us>
- * @description A web-based demonstration that illustrates the relative 
- * security of various voting methods in common use in the United States.
+ * @author Daniel M. Zimmerman <dmz@freeandfair.us>
+ * @description A web-based demonstration that illustrates the relative security
+ *              of various voting methods in common use in the United States.
  */
+
 package us.freeandfair.es101;
 
 /**
- * @description A person who is eligible to vote in an election.
+ * A person who is eligible to vote in an election.
+ * 
+ * @version 1.0
+ * @author Joseph Kiniry <kiniry@freeandfair.us>
+ * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Voter {
-	VotingSystem aVotingSystem;
+  /**
+   * The voting system chosen by the voter.
+   */
+  private VotingSystem my_voting_system;
 }

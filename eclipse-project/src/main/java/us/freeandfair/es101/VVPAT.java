@@ -6,22 +6,37 @@
  * @copyright 2017 Free & Fair
  * @license BSD 3-Clause License
  * @author Joseph Kiniry <kiniry@freeandfair.us>
- * @description A web-based demonstration that illustrates the relative 
- * security of various voting methods in common use in the United States.
+ * @author Daniel M. Zimmerman <dmz@freeandfair.us>
+ * @description A web-based demonstration that illustrates the relative security
+ *              of various voting methods in common use in the United States.
  */
+
 package us.freeandfair.es101;
 
 /**
- * @description A voter-verifiable paper-based auditing trail.
+ * A voter-verifiable paper-based audit trail.
+ *  
+ * @version 1.0
+ * @author Joseph Kiniry <kiniry@freeandfair.us>
+ * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VVPAT {
+  /**
+   * ???
+   * 
+   * @return the resulting Vote.
+   */
   Vote convertToVote() {
-	  assert false;
-	  //@ assert false;
-	  return null;
+    assert false;
+    // @ assert false;
+    return null;
   }
+
+  /**
+   * Prints a VVPAT to the printer.
+   */
   void printVVPAT() {
-	  assert false;
-	  //@ assert false;
+    assert false;
+    // @ assert false;
   }
 }
