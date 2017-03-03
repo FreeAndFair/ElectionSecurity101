@@ -1,4 +1,4 @@
-results_banner(candidate_0_winning, candidate_0, votes_0, candidate_1_winning, candidate_1, votes_1) ::= <<
+tally(candidate_0_winning, candidate_0, votes_0, candidate_1_winning, candidate_1, votes_1) ::= <<
 <div align="center">
 <b>Current Results</b>
 
