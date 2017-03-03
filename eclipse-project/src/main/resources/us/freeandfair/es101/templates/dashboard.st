@@ -1,8 +1,17 @@
 dashboard(election) ::= <<
 <div align="center">
-<b>$election$.name</b>
-<i>$election$.date</i>
+<b>$election.my_name$</b>
+<i>$election.my_current_date$</i>
 
-$tally()$
+<p>In this election we have seen $election.my_total_voters$ submitting 
+$election.my_total_votes$.</p>
+
+<p>Unfortunately, an adversary has attempted to manipulate the election to ill ends
+$election.manipulation_count$ times!</p>
+
+<p> Consequently, the current <b>unmanipulated results</b> of this election are:
+$tally(election.my_legitimate_tally)$
+But the current <b>hacked results</b> of this election are:
+$tally(election.my_hacked_tally)$
 </div>
 >>
