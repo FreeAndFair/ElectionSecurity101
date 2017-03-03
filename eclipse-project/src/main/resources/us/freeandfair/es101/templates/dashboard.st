@@ -1,7 +1,7 @@
 dashboard(election) ::= <<
 <div align="center">
 <b>$election.my_name$</b>
-<i>$election.my_current_date$</i>
+<i>$election.my_date$</i>
 
 <p>In this election we have seen $election.my_total_voters$ submitting 
 $election.my_total_votes$.</p>

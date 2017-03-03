@@ -26,8 +26,11 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Election {
+  /** The name of this election. */
   protected String my_name;
-  protected String my_current_date;
+  
+  /** The date of this election. */
+  protected String my_date;
   
   /** The UI for choosing a voting system. */
   protected UserInterface my_voting_system_choice;
@@ -40,6 +43,9 @@ public class Election {
   
   /** The voting systems in use. */
   protected Collection<VotingSystem> my_voting_systems;
+  
+  /** The candidates. */
+  protected Collection<Candidate> my_candidates;
   
   /** The votes that have been cast. */
   protected List<Vote> my_votes;
