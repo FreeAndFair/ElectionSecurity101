@@ -13,6 +13,11 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
+import spark.Request;
+import spark.Response;
+
 /**
  * The digital medium through which a voter or electoral authority interacts with a 
  * digital voting system.
@@ -22,11 +27,37 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class UserInterface {
-	/**
-	 * The URL schema prefix used for any particular subtype.  The default
-	 * value of the prefix is empty.
-	 */
-	String my_url_schema() {
-		return "";
-	}
+  /**
+   * @return the URL schema prefix to which this UI responds.  This base 
+   * abstract class returns an empty string.
+   */
+  //@ public normal_behavior ensures \result.equals("");
+  @Pure
+  public String schema() {
+    return "";
+  }
+
+  /**
+   * @return a string which is displayed to the voter as the UI.
+   */
+  //@ public normal_behavior ensures \result.equals("");
+  @Pure
+  public String display() {
+    assert false;
+    //@ assert false;
+    return "";
+  }
+
+  /**
+   * @return interpret the action the user just took in this UI.
+   * @param the_request The request object providing information about the HTTP request
+   * @param the_response The response object providing functionality for modifying the response
+   */
+  //@ public normal_behavior ensures \result.equals("");
+  @Pure
+  public String action(final Request the_request, final Response the_response) {
+    assert false;
+    //@ assert false;
+    return "";
+  }
 }

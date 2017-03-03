@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * A person who is eligible to vote in an election.
  * 
@@ -24,5 +26,16 @@ public class Voter {
   /**
    * The voting system chosen by the voter.
    */
-  private VotingSystem my_voting_system;
+  protected VotingSystem my_voting_system;
+  
+  /**
+   * @return the choice the voter makes in the election.
+   */
+  @Pure public Vote vote() {
+    assert false;
+    //@ assert false;
+    my_voting_system.my_ui.action(null, null);
+    return null;
+  }
+  
 }

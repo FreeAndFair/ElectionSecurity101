@@ -16,6 +16,8 @@ package us.freeandfair.es101;
 import java.util.Collection;
 import java.util.List;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * A formal indication of choices in one or more contests.
  *  
@@ -24,18 +26,21 @@ import java.util.List;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Election {
+  /** The UI for choosing a voting system. */
+  protected UserInterface my_voting_system_choice;
+  
   /** The voter. */
-  private Voter my_voter;
+  protected Voter my_voter;
   
   /** The adversary. */
-  private Adversary my_adversary;
+  protected Adversary my_adversary;
   
   /** The voting systems in use. */
-  private Collection<VotingSystem> my_voting_systems;
+  protected Collection<VotingSystem> my_voting_systems;
   
   /** The votes that have been cast. */
-  private List<Vote> my_votes;
+  protected List<Vote> my_votes;
   
   /** The tally. */
-  private Tally my_tally;
+  protected Tally my_tally;
 }

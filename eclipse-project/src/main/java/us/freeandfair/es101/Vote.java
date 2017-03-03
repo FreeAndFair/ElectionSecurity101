@@ -27,7 +27,7 @@ public class Vote {
    */
   VVPAT convertToVVPAT() {
     assert false;
-    // @ assert false;
+    //@ assert false;
     return null;
   }
 }

@@ -13,6 +13,11 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
+import spark.Request;
+import spark.Response;
+
 /**
  * @description <description>
  * @explanation <explanation>
@@ -23,11 +28,37 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystemChoice extends UserInterface {
-  /**
-   * Voter chooses to vote.
+  
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#my_url_schema()
    */
-  void voterMakesChoice() {
+  @Pure @Override
+  public String schema() {
+    return "voting_system_choice";
+  }
+  
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#display()
+   */
+  @Override
+  public String display() {
+    // todo Auto-generated method stub
     assert false;
-    // @ assert false;
+    //@ assert false;
+    return super.display();
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#action()
+   */
+  /**
+    * Voter chooses to vote.
+    */
+  @Override
+  public String action(final Request the_request, final Response the_response) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.action(the_request, the_response);
   }
 }
