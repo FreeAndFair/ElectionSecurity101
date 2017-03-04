@@ -54,7 +54,7 @@ public final class StringTemplateUtil {
    * @return The group.
    */
   public static synchronized STGroup loadGroup(final String the_name) {
-    STGroup result = LOADED.get(the_name);
+    STGroup result = LOADED.get(TEMPLATE_PATH + the_name);
     if (result == null) {
       try {
         result = new STGroupFile(TEMPLATE_PATH + the_name + ".stg", '$', '$');

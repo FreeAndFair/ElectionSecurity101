@@ -110,9 +110,10 @@ public class Main {
     final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
     while (st_voting_systems.hasMoreTokens()) {
       try {
-      voting_systems.add((VotingSystem) 
-                         Class.forName(st_voting_systems.nextToken()).newInstance());
-      } catch (final Exception e) {
+        voting_systems.add((VotingSystem) 
+                           Class.forName(st_voting_systems.nextToken()).newInstance());
+      } catch (final ClassCastException | ClassNotFoundException | IllegalAccessException |
+                     InstantiationException e) {
         // ignoring malformed classnames
       }
     }
