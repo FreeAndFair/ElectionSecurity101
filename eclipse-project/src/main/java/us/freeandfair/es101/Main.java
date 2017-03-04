@@ -163,8 +163,9 @@ public class Main {
     }
     port(port_number);
     get("/", (the_req, the_resp) -> rootPage());
-    get("/voting_system_choice", (the_req, the_resp) -> 
-      (new VotingSystemChoice()).action(the_req, the_resp));
+    // for every voting system choice, create a callback for their schema
+    my_election.my_voting_systems.iterator().forEachRemaining(vs -> 
+        get(vs.schema(), (the_req, the_resp) -> vs.action(the_req, the_resp)));
   }
   
   /**
