@@ -20,6 +20,6 @@ package us.freeandfair.es101;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class Manipulation {
+public class Manipulation extends UserInterface {
 
 }

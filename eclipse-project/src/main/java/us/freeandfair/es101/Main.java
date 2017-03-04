@@ -163,8 +163,10 @@ public class Main {
     }
     port(port_number);
     get("/", (the_req, the_resp) -> rootPage());
-    get("/voting_system_choice", (the_req, the_resp) -> 
-      (new VotingSystemChoice()).action(the_req, the_resp));
+    get("/voting_system_choice", 
+        (the_req, the_resp) -> (new VotingSystemChoice()).action(the_req, the_resp));
+    get(my_election.my_adversary.schema(), 
+        (the_req, the_resp) -> my_election.my_adversary.action(the_req, the_resp));
   }
   
   /**
