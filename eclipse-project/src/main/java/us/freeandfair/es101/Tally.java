@@ -13,7 +13,9 @@
 
 package us.freeandfair.es101;
 
+import java.util.Collection;
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * The count of all the votes in an election.
@@ -31,13 +33,28 @@ public class Tally {
   /**
    * The legitimate tally values.
    */
-  protected SortedMap<String, Integer> my_legitimate_tally;
+  protected final SortedMap<String, Integer> my_legitimate_tally;
   
   /**
    * The hacked tally values.
    */
-  protected SortedMap<String, Integer> my_hacked_tally;
+  protected final SortedMap<String, Integer> my_hacked_tally;
  
+  /**
+   * Construct a new, zeroed Tally.
+   * 
+   * @param the_candidates The candidates.
+   */
+  public Tally(final Collection<String> the_candidates) {
+    my_legitimate_tally = new TreeMap<String, Integer>();
+    
+    for (final String c : the_candidates) {
+      my_legitimate_tally.put(c, 0);
+    }
+    
+    my_hacked_tally = new TreeMap<String, Integer>(my_legitimate_tally);
+  }
+  
   /**
    * Add an unmanipulated vote to the tally.
    * 

@@ -22,6 +22,11 @@ package us.freeandfair.es101;
  */
 public class Vote {
   /**
+   * The candidate for whom this vote was cast.
+   */
+  protected String my_candidate;
+  
+  /**
    * ? 
    * @return the VVPAT.
    */
