@@ -49,6 +49,6 @@ public class VotingSystemChoice extends UserInterface {
     // todo Auto-generated method stub
     assert false;
     //@ assert false;
-    return super.action(the_request, the_response);
+    return "VotingSystemChoice!";
   }
 }

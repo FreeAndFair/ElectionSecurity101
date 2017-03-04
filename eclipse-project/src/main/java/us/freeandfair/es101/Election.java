@@ -13,10 +13,9 @@
 
 package us.freeandfair.es101;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import org.jmlspecs.annotation.Pure;
 
 /**
  * A formal indication of choices in one or more contests.
@@ -45,11 +44,23 @@ public class Election {
   protected Collection<VotingSystem> my_voting_systems;
   
   /** The candidates. */
-  protected Collection<Candidate> my_candidates;
+  protected Collection<String> my_candidates;
   
   /** The votes that have been cast. */
   protected List<Vote> my_votes;
   
   /** The tally. */
   protected Tally my_tally;
+  
+  public Election(final String the_name,
+                  final String the_date,
+                  final Collection<VotingSystem> the_voting_systems,
+                  final Collection<String> the_candidates) {
+    my_name = the_name;
+    my_date = the_date;
+    my_voting_systems = the_voting_systems;
+    my_candidates = the_candidates;
+    my_votes = new ArrayList<Vote>();
+    my_tally = new Tally(my_candidates);
+  }
 }

@@ -16,12 +16,16 @@ package us.freeandfair.es101;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Queue;
+import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
 import us.freeandfair.es101.util.StringTemplateUtil;
@@ -91,7 +95,35 @@ public class Main {
    */
   public Main(final Properties the_properties) {
     my_properties = the_properties;
-    my_election = new Election();
+    my_election = parseProperties(the_properties);
+  }
+  
+  /**
+   * Parse all properties specified for this election and build the election instance.
+   * @param the_properties the properties that specify the election.
+   */
+  @Pure private static Election parseProperties(final Properties the_properties) {
+    final StringTokenizer st_voting_systems = 
+        new StringTokenizer(the_properties.getProperty("voting_systems", ","));
+    final StringTokenizer st_candidates = 
+        new StringTokenizer(the_properties.getProperty("candidates", ","));
+    final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
+    while (st_voting_systems.hasMoreTokens()) {
+      try {
+      voting_systems.add((VotingSystem) 
+                         Class.forName(st_voting_systems.nextToken()).newInstance());
+      } catch (final Exception e) {
+        // ignoring malformed classnames
+      }
+    }
+    final List<String> candidates = new ArrayList<String>();
+    while (st_candidates.hasMoreTokens()) {
+      candidates.add(st_candidates.nextToken());
+    }
+    return new Election(the_properties.getProperty("name"),
+                        the_properties.getProperty("date"),
+                        voting_systems,
+                        candidates);
   }
 
   /**
@@ -107,7 +139,7 @@ public class Main {
     page_template.add("refresh", "30");
     page_template.
         add("body", "Welcome to Free & Fair Election Security 101. " +
-                    "Are you a <a href=\"/voter\">voter</a> or an " +
+                    "Are you a <a href=\"voting_system_choice\">voter</a> or an " +
                     "<a href=\"/adversary\">adversary</a>?");
     return page_template.render();
   }
@@ -131,8 +163,10 @@ public class Main {
     }
     port(port_number);
     get("/", (the_req, the_resp) -> rootPage());
+    get("/voting_system_choice", (the_req, the_resp) -> 
+      (new VotingSystemChoice()).action(the_req, the_resp));
   }
-
+  
   /**
    * Creates a default set of properties.
    * 
