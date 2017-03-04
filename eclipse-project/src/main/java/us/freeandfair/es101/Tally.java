@@ -13,7 +13,7 @@
 
 package us.freeandfair.es101;
 
-import java.util.Map;
+import java.util.SortedMap;
 
 /**
  * The count of all the votes in an election.
@@ -31,12 +31,12 @@ public class Tally {
   /**
    * The legitimate tally values.
    */
-  private Map<Candidate, Integer> my_legitimate_tally;
+  private SortedMap<String, Integer> my_legitimate_tally;
   
   /**
    * The hacked tally values.
    */
-  private Map<Candidate, Integer> my_hacked_tally;
+  private SortedMap<String, Integer> my_hacked_tally;
  
   /**
    * Add an unmanipulated vote to the tally.

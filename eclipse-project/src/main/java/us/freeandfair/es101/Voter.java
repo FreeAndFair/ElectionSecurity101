@@ -34,7 +34,7 @@ public class Voter {
   @Pure public Vote vote() {
     assert false;
     //@ assert false;
-    my_voting_system.my_ui.action(null, null);
+    my_voting_system.my_voter_ui.action(null, null);
     return null;
   }
   

@@ -41,7 +41,7 @@ public class Scenarios {
         my_election.my_voting_system_choice.action(null, null);
     assert "HAND-MARKED".equals(voting_system_choice);
     final Vote vote = my_election.my_voter.vote();
-    my_election.my_adversary.my_ui.display();
+    my_election.my_adversary.my_ui.action(null, null);
     my_election.my_adversary.noManipulation();
     my_election.my_tally.addUnmanipulatedVote(vote);
     assert false;
