@@ -20,7 +20,7 @@ package us.freeandfair.es101;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class VotingSystem {
+public class VotingSystem extends UserInterface {
   /** The voter's user interface of this voting system. */
   protected UserInterface my_voter_ui;
   /** The adversary's user interface of this voting system. */
