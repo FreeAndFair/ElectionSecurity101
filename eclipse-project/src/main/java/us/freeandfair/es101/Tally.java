@@ -26,17 +26,17 @@ public class Tally {
   /**
    * The user interface that displays the tally.
    */
-  private UserInterface my_ui;
+  protected UserInterface my_ui;
   
   /**
    * The legitimate tally values.
    */
-  private SortedMap<String, Integer> my_legitimate_tally;
+  protected SortedMap<String, Integer> my_legitimate_tally;
   
   /**
    * The hacked tally values.
    */
-  private SortedMap<String, Integer> my_hacked_tally;
+  protected SortedMap<String, Integer> my_hacked_tally;
  
   /**
    * Add an unmanipulated vote to the tally.
