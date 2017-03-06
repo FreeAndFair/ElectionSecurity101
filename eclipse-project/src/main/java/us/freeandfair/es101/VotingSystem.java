@@ -94,7 +94,6 @@ public class VotingSystem extends UserInterface {
   public boolean canManipulateVote() {
     return true;
   }
-
   
   /**
    * @return true if an adversary can see the vote for this system, 
