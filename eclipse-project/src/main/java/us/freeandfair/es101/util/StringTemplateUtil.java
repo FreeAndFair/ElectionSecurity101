@@ -13,6 +13,7 @@
 
 package us.freeandfair.es101.util;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,19 +35,19 @@ public final class StringTemplateUtil {
    */
   // no need for cross-platform file separators because ST handles them properly
   private static final String TEMPLATE_PATH = "us/freeandfair/es101/templates/";
-  
+
   /**
    * The cache of already-loaded templates.
    */
   private static final Map<String, STGroup> LOADED = new HashMap<String, STGroup>();
-  
+
   /**
    * Private constructor to prevent instantiation of this class.
    */
   private StringTemplateUtil() {
     // do nothing
   }
-  
+
   /**
    * Gets one of our StringTemplate groups.
    * 
@@ -62,10 +63,10 @@ public final class StringTemplateUtil {
       } catch (final STException e) {
         throw new RuntimeException("Unable to load template group " + the_name, e);
       }
-    } 
+    }
     return result;
   }
-  
+
   /**
    * Gets one of our StringTemplates.
    * 
@@ -82,6 +83,7 @@ public final class StringTemplateUtil {
         throw new RuntimeException("Unable to load default template group.");
       }
     }
+
     return group.getInstanceOf(the_name);
   }
 }

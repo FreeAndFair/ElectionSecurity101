@@ -4,7 +4,7 @@ tally(tally_data) ::= <<
 <th>Candidate</th><th>Votes</th>
 $tally_data:{ candidate |
   <tr><td>$candidate$</td><td>$tally_data.(candidate)$</td></tr> 
- }
+ }$
  </table>
 </div>
 >>
