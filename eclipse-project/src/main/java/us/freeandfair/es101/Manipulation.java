@@ -33,11 +33,6 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Manipulation extends UserInterface {
-  /** 
-   * The election for this manipulation. 
-   */
-  protected final Election my_election;
-  
   /**
    * The queue of voter actions.
    */
@@ -55,7 +50,7 @@ public class Manipulation extends UserInterface {
    * @param the_queue The queue of voter actions.
    */
   public Manipulation(final Election the_election, final Queue<VoterAction> the_queue) {
-    my_election = the_election;
+    super(the_election);
     my_queue = the_queue;
     my_in_progress = Collections.synchronizedMap(new HashMap<Long, VoterAction>());
   }
