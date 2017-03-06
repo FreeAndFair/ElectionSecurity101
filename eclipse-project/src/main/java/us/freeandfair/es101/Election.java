@@ -16,6 +16,7 @@ package us.freeandfair.es101;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Queue;
 
 import org.jmlspecs.annotation.Pure;
 
@@ -68,7 +69,8 @@ public class Election {
   public Election(final String the_name,
                   final String the_date,
                   final Collection<VotingSystem> the_voting_systems,
-                  final Collection<String> the_candidates) {
+                  final Collection<String> the_candidates,
+                  final Queue<VoterAction> the_queue) {
     my_name = the_name;
     my_date = the_date;
     my_voting_systems = the_voting_systems;
@@ -76,5 +78,13 @@ public class Election {
     my_votes = new ArrayList<Vote>();
     my_tally = new Tally(my_candidates);
     my_adversary = new Adversary(this);
+    my_manipulation = new Manipulation(this, the_queue);
+  }
+
+  /**
+   * @return The tally for this election.
+   */
+  public Tally getTally() {
+    return my_tally;
   }
 }

@@ -103,11 +103,11 @@ public class Main {
    * @param the_properties the properties that specify the election.
    * @return a new instance of Election configured per the passed properties.
    */
-  @Pure private static Election parseProperties(final Properties the_properties) {
+  @Pure private Election parseProperties(final Properties the_properties) {
     final StringTokenizer st_voting_systems = 
-        new StringTokenizer(the_properties.getProperty("voting_systems", ","));
+        new StringTokenizer(the_properties.getProperty("voting_systems"), ",");
     final StringTokenizer st_candidates = 
-        new StringTokenizer(the_properties.getProperty("candidates", ","));
+        new StringTokenizer(the_properties.getProperty("candidates"), ",");
     final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
     while (st_voting_systems.hasMoreTokens()) {
       try {
@@ -125,7 +125,8 @@ public class Main {
     return new Election(the_properties.getProperty("name"),
                         the_properties.getProperty("date"),
                         voting_systems,
-                        candidates);
+                        candidates, 
+                        my_voter_action_queue);
   }
 
   /**
@@ -176,6 +177,12 @@ public class Main {
     // register the top-level adversary UI
     get(my_election.my_adversary.schema(), (the_request, the_response) ->
         my_election.my_adversary.action(the_request, the_response));
+    // register the top-level adversary UI
+    get(my_election.my_adversary.schema(), 
+        (the_req, the_resp) -> my_election.my_adversary.action(the_req, the_resp));
+    // register the top-level manipulation UI
+    get(my_election.my_manipulation.schema(),
+        (the_req, the_resp) -> my_election.my_manipulation.action(the_req, the_resp));
   }
   
   /**

@@ -14,6 +14,7 @@
 package us.freeandfair.es101;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -74,5 +75,19 @@ public class Tally {
   public void addVote(final Vote the_original_vote, final Vote the_manipulated_vote) {
     assert false;
     //@ assert false;
+  }
+  
+  /**
+   * @return the legitimate tally.
+   */
+  public Map<String, Integer> getLegitimateTally() {
+    return my_legitimate_tally; // note not worrying about ownership
+  }
+
+  /**
+   * @return the hacked tally.
+   */
+  public Map<String, Integer> getHackedTally() {
+    return my_hacked_tally; // note not worrying about ownership
   }
 }
