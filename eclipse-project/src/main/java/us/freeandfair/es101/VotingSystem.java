@@ -13,6 +13,11 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
+import spark.Request;
+import spark.Response;
+
 /**
  * The operational means by which a voter captures their contest choices.
  *  
@@ -25,4 +30,15 @@ public class VotingSystem extends UserInterface {
   protected UserInterface my_voter_ui;
   /** The adversary's user interface of this voting system. */
   protected UserInterface my_adversary_ui;
+  
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#action(spark.Request, spark.Response)
+   */
+  @Pure @Override
+  public String action(final Request the_request, final Response the_response) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.action(the_request, the_response);
+  }  
 }
