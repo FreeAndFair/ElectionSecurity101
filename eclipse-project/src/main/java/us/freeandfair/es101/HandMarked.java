@@ -14,6 +14,10 @@
 package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
+import org.stringtemplate.v4.ST;
+
+import spark.Request;
+import spark.Response;
 
 /**
  * A paper ballot that is hand-marked by a voter to capture their contest choices.
@@ -38,5 +42,29 @@ public class HandMarked extends VotingSystem {
   @Pure @Override
   public String schema() {
     return "/hand-marked";
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#explanationText()
+   */
+  @Pure @Override
+  protected String explanationText() {
+    return "A hand-marked ballot!";
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#canManipulateReceipt()
+   */
+  @Pure @Override
+  public boolean canManipulateReceipt() {
+    return false;
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#canManipulateVote()
+   */
+  @Pure @Override
+  public boolean canManipulateVote() {
+    return false;
   }
 }
