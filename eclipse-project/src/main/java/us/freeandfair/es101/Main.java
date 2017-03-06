@@ -171,6 +171,9 @@ public class Main {
     // register the top-level voting system choice UI
     get(my_election.my_voting_system_choice.schema(), (the_request, the_response) ->
         my_election.my_voting_system_choice.action(the_request, the_response));
+    // register the top-level adversary UI
+    get(my_election.my_adversary.schema(), (the_request, the_response) ->
+        my_election.my_adversary.action(the_request, the_response));
   }
   
   /**
