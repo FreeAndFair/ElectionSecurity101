@@ -63,6 +63,5 @@ public class Adversary extends UserInterface {
     adversary_template.add("election", my_election);
     page_template.add("body", adversary_template.render());
     return page_template.render();
-
   }
 }

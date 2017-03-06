@@ -4,9 +4,9 @@ adversary(election) ::= <<
 <i>$election.my_date$</i>
 
 <p>The current <b>unmanipulated results</b> of this election are:
-$tally(election.my_tally.my_legitimate_tally)$</p>
+$tally(election.tally.legitimateTally)$</p>
 <p>The current <b>hacked results</b> of this election are:
-$tally(election.my_tally.my_hacked_tally)$</p>
+$tally(election.tally.hackedTally)$</p>
 
 <h2><a href="/manipulation">Manipulate a Vote</a></h2>
 </div>

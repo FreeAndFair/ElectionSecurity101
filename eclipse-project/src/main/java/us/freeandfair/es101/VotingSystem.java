@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import java.util.Queue;
+
 /**
  * The operational means by which a voter captures their contest choices.
  *  
@@ -23,6 +25,26 @@ package us.freeandfair.es101;
 public class VotingSystem extends UserInterface {
   /** The voter's user interface of this voting system. */
   protected UserInterface my_voter_ui;
+  
   /** The adversary's user interface of this voting system. */
   protected UserInterface my_adversary_ui;
+  
+  /** The voter action queue on which this voting system can enqueue votes. */
+  protected Queue<VoterAction> my_queue;
+  
+  /** 
+   * @return true if an adversary can manipulate the receipt for this system, 
+   * false otherwise. 
+   * */
+  public boolean canManipulateReceipt() {
+    return true;
+  }
+  
+  /** 
+   * @return true if an adversary can manipulate the vote for this system, 
+   * false otherwise. 
+   */
+  public boolean canManipulateVote() {
+    return true;
+  }
 }

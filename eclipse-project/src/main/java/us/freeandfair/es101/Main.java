@@ -102,11 +102,11 @@ public class Main {
    * Parse all properties specified for this election and build the election instance.
    * @param the_properties the properties that specify the election.
    */
-  @Pure private static Election parseProperties(final Properties the_properties) {
+  @Pure private Election parseProperties(final Properties the_properties) {
     final StringTokenizer st_voting_systems = 
-        new StringTokenizer(the_properties.getProperty("voting_systems", ","));
+        new StringTokenizer(the_properties.getProperty("voting_systems"), ",");
     final StringTokenizer st_candidates = 
-        new StringTokenizer(the_properties.getProperty("candidates", ","));
+        new StringTokenizer(the_properties.getProperty("candidates"), ",");
     final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
     while (st_voting_systems.hasMoreTokens()) {
       try {
@@ -124,7 +124,8 @@ public class Main {
     return new Election(the_properties.getProperty("name"),
                         the_properties.getProperty("date"),
                         voting_systems,
-                        candidates);
+                        candidates, 
+                        my_voter_action_queue);
   }
 
   /**
@@ -169,6 +170,8 @@ public class Main {
         get(vs.schema(), (the_req, the_resp) -> vs.action(the_req, the_resp)));
     get(my_election.my_adversary.schema(), 
         (the_req, the_resp) -> my_election.my_adversary.action(the_req, the_resp));
+    get(my_election.my_manipulation.schema(),
+        (the_req, the_resp) -> my_election.my_manipulation.action(the_req, the_resp));
   }
   
   /**
