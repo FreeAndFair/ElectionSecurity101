@@ -28,9 +28,6 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Adversary extends UserInterface {
-  /** The election for this adversary. */
-  protected final Election my_election;
-  
   /**
    * Constructs a new Adversary from the specified Election.
    * 
