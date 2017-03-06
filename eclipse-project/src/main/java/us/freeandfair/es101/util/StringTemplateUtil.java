@@ -34,19 +34,19 @@ public final class StringTemplateUtil {
    */
   // no need for cross-platform file separators because ST handles them properly
   private static final String TEMPLATE_PATH = "us/freeandfair/es101/templates/";
-  
+
   /**
    * The cache of already-loaded templates.
    */
   private static final Map<String, STGroup> LOADED = new HashMap<String, STGroup>();
-  
+
   /**
    * Private constructor to prevent instantiation of this class.
    */
   private StringTemplateUtil() {
     // do nothing
   }
-  
+
   /**
    * Gets one of our StringTemplate groups.
    * 
@@ -54,7 +54,7 @@ public final class StringTemplateUtil {
    * @return The group.
    */
   public static synchronized STGroup loadGroup(final String the_name) {
-    STGroup result = LOADED.get(the_name);
+    STGroup result = LOADED.get(TEMPLATE_PATH + the_name);
     if (result == null) {
       try {
         result = new STGroupFile(TEMPLATE_PATH + the_name + ".stg", '$', '$');
@@ -62,10 +62,10 @@ public final class StringTemplateUtil {
       } catch (final STException e) {
         throw new RuntimeException("Unable to load template group " + the_name, e);
       }
-    } 
+    }
     return result;
   }
-  
+
   /**
    * Gets one of our StringTemplates.
    * 
@@ -82,6 +82,7 @@ public final class StringTemplateUtil {
         throw new RuntimeException("Unable to load default template group.");
       }
     }
+
     return group.getInstanceOf(the_name);
   }
 }

@@ -40,6 +40,9 @@ public class Election {
   /** The adversary. */
   protected Adversary my_adversary;
   
+  /** The manipulation. */
+  protected Manipulation my_manipulation;
+  
   /** The voting systems in use. */
   protected Collection<VotingSystem> my_voting_systems;
   
@@ -62,5 +65,6 @@ public class Election {
     my_candidates = the_candidates;
     my_votes = new ArrayList<Vote>();
     my_tally = new Tally(my_candidates);
+    my_adversary = new Adversary(this);
   }
 }

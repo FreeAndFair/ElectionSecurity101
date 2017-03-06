@@ -110,9 +110,10 @@ public class Main {
     final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
     while (st_voting_systems.hasMoreTokens()) {
       try {
-      voting_systems.add((VotingSystem) 
-                         Class.forName(st_voting_systems.nextToken()).newInstance());
-      } catch (final Exception e) {
+        voting_systems.add((VotingSystem) 
+                           Class.forName(st_voting_systems.nextToken()).newInstance());
+      } catch (final ClassCastException | ClassNotFoundException | IllegalAccessException |
+                     InstantiationException e) {
         // ignoring malformed classnames
       }
     }
@@ -174,6 +175,8 @@ public class Main {
     // register the top-level adversary UI
     get(my_election.my_adversary.schema(), (the_request, the_response) ->
         my_election.my_adversary.action(the_request, the_response));
+    get(my_election.my_adversary.schema(), 
+        (the_req, the_resp) -> my_election.my_adversary.action(the_req, the_resp));
   }
   
   /**
