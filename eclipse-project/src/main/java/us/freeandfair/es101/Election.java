@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * A formal indication of choices in one or more contests.
  *  
@@ -55,6 +57,14 @@ public class Election {
   /** The tally. */
   protected Tally my_tally;
   
+  /**
+   * Create and initialize a new instance of Election.
+   * @param the_name the name of this election.
+   * @param the_date the date this election begins.
+   * @param the_voting_systems the voting systems supported in this election.
+   * @param the_candidates vying for a seat in this election.
+   */
+  @Pure
   public Election(final String the_name,
                   final String the_date,
                   final Collection<VotingSystem> the_voting_systems,
