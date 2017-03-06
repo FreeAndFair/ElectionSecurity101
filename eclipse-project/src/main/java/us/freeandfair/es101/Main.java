@@ -70,7 +70,7 @@ public class Main {
   /**
    * The logger.
    */
-  private static final Logger LOGGER = LogManager.getLogger(LOGGER_NAME);
+  public static final Logger LOGGER = LogManager.getLogger(LOGGER_NAME);
 
   /**
    * The properties loaded from the properties file.
