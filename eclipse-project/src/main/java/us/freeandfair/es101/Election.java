@@ -64,6 +64,7 @@ public class Election {
    * @param the_date the date this election begins.
    * @param the_voting_systems the voting systems supported in this election.
    * @param the_candidates vying for a seat in this election.
+   * @param the_queue the queue of voter actions that have taken place.
    */
   @Pure
   public Election(final String the_name,
@@ -73,6 +74,7 @@ public class Election {
                   final Queue<VoterAction> the_queue) {
     my_name = the_name;
     my_date = the_date;
+    my_voting_system_choice = new VotingSystemChoice(this);
     my_voting_systems = the_voting_systems;
     my_candidates = the_candidates;
     my_votes = new ArrayList<Vote>();
