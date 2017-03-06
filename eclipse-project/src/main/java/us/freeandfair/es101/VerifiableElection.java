@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * An election scheme whereby one or more formal properties of the election can be 
  * independently checked by voters or election officials.
@@ -22,5 +24,13 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VerifiableElection extends VotingSystem {
+  /**
+   * Create an end-to-end verifiable voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public VerifiableElection(final Election the_election) {
+    super(the_election);
+  }
 
 }

@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * An election carried out, in whole or in part, using the Internet
  * for the transmission of votes.
@@ -22,5 +24,13 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class InternetElection extends VotingSystem {
+  /**
+   * Create a internet voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public InternetElection(final Election the_election) {
+    super(the_election);
+  }
 
 }

@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * A direct recording electronic voting system which has a VVPAT.
  *  
@@ -21,5 +23,13 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class DREWithVVPAT extends VotingSystem {
+  /**
+   * Create a DRE with VVPAT voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public DREWithVVPAT(final Election the_election) {
+    super(the_election);
+  }
 
 }

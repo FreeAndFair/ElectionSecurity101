@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import java.util.Collection;
+
 /**
  * A voting system using no digital assistance in which all votes are manually counted.
  *  
@@ -20,6 +22,18 @@ package us.freeandfair.es101;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class HandCount extends VotingSystem {
+public class HandCount extends Tally {
+
+  /**
+   * @todo <description>
+   * @todo <explanation>
+   * @param the_candidates @todo
+   */
+  public HandCount(final Collection<String> the_candidates) {
+    super(the_candidates);
+    // todo Auto-generated constructor stub
+    assert false;
+    //@ assert false;
+  }
 
 }

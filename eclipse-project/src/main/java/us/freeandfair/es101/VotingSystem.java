@@ -26,11 +26,18 @@ import spark.Response;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystem extends UserInterface {
-  /** The voter's user interface of this voting system. */
-  protected UserInterface my_voter_ui;
-  /** The adversary's user interface of this voting system. */
-  protected UserInterface my_adversary_ui;
+  /** The election for which this voting system is in use. */
+  protected Election my_election;
   
+  /**
+   * Create a new voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public VotingSystem(final Election the_election) {
+    my_election = the_election;
+  }
+
   /* (non-Javadoc)
    * @see us.freeandfair.es101.UserInterface#action(spark.Request, spark.Response)
    */

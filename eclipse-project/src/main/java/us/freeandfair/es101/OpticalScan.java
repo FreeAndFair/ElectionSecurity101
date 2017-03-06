@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
 /**
  * A voting system that uses a digital system to automatically interpret voter intent 
  * from marked paper ballots.
@@ -22,5 +24,13 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class OpticalScan extends VotingSystem {
+  /**
+   * Create an optical scan voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public OpticalScan(final Election the_election) {
+    super(the_election);
+  }
 
 }

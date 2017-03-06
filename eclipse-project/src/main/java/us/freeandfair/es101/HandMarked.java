@@ -23,12 +23,20 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class HandMarked extends VotingSystem {
+  /**
+   * Create a hand-marked and hand-counted voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public HandMarked(final Election the_election) {
+    super(the_election);
+  }
 
   /* (non-Javadoc)
    * @see us.freeandfair.es101.UserInterface#schema()
    */
   @Pure @Override
   public String schema() {
-    return "hand-marked";
+    return "/hand-marked";
   }
 }
