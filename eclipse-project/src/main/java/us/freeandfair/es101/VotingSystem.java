@@ -94,7 +94,7 @@ public class VotingSystem extends UserInterface {
   public boolean canManipulateVote() {
     return true;
   }
-<<<<<<< HEAD
+
   
   /**
    * @return true if an adversary can see the vote for this system, 
@@ -103,7 +103,4 @@ public class VotingSystem extends UserInterface {
   public boolean canSeeVote() {
     return true;
   }
-=======
-
->>>>>>> branch 'master' of git@github.com:FreeAndFair/ElectionSecurity101.git
 }
