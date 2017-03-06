@@ -111,8 +111,10 @@ public class Main {
     final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
     while (st_voting_systems.hasMoreTokens()) {
       try {
-        voting_systems.add((VotingSystem) 
-                           Class.forName(st_voting_systems.nextToken()).newInstance());
+        String votingSystemName = st_voting_systems.nextToken();
+        Class votingSystemClass = Class.forName(votingSystemName);
+        VotingSystem votingSystem = (VotingSystem)votingSystemClass.newInstance();
+        voting_systems.add(votingSystem);
       } catch (final ClassCastException | ClassNotFoundException | IllegalAccessException |
                      InstantiationException e) {
         // ignoring malformed classnames
@@ -122,11 +124,15 @@ public class Main {
     while (st_candidates.hasMoreTokens()) {
       candidates.add(st_candidates.nextToken());
     }
-    return new Election(the_properties.getProperty("name"),
-                        the_properties.getProperty("date"),
-                        voting_systems,
-                        candidates, 
-                        my_voter_action_queue);
+    Election result = new Election(the_properties.getProperty("name"),
+                                   the_properties.getProperty("date"),
+                                   voting_systems,
+                                   candidates,
+                                   my_voter_action_queue);
+    for (VotingSystem vs: voting_systems) {
+      vs.setElection(result);
+    }
+    return result;
   }
 
   /**
@@ -177,9 +183,6 @@ public class Main {
     // register the top-level adversary UI
     get(my_election.my_adversary.schema(), (the_request, the_response) ->
         my_election.my_adversary.action(the_request, the_response));
-    // register the top-level adversary UI
-    get(my_election.my_adversary.schema(), 
-        (the_req, the_resp) -> my_election.my_adversary.action(the_req, the_resp));
     // register the top-level manipulation UI
     get(my_election.my_manipulation.schema(),
         (the_req, the_resp) -> my_election.my_manipulation.action(the_req, the_resp));
