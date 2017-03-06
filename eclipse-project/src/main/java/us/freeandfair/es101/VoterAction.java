@@ -22,6 +22,11 @@ package us.freeandfair.es101;
  */
 public class VoterAction {
   /**
+   * The next unique ID to be assigned.
+   */
+  private static long NEXT_ID = Long.MIN_VALUE;
+      
+  /**
    * The voting system that the voter used.
    */
   protected VotingSystem my_voting_system;
@@ -35,4 +40,25 @@ public class VoterAction {
    * The vote after manipulation by the adversary.
    */
   protected Vote my_manipulated_vote;
+  
+  /**
+   * The unique ID of this voter action.
+   */
+  protected final long my_id;
+  
+  /**
+   * Construct a new VoterAction.
+   */
+  public VoterAction() {
+    my_id = getNextID();
+  }
+  
+  /**
+   * @return The next unique ID.
+   */
+  private static synchronized long getNextID() {
+    final long result = NEXT_ID;
+    NEXT_ID = NEXT_ID + 1;
+    return result;
+  }
 }

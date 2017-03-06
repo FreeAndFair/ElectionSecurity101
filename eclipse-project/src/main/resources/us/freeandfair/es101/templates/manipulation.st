@@ -1,2 +1,2 @@
-manipulation(election) ::= <<
+manipulation(election, voter_action) ::= <<
 >>
