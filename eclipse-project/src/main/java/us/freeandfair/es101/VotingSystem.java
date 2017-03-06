@@ -13,14 +13,16 @@
 
 package us.freeandfair.es101;
 
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import org.jmlspecs.annotation.Nullable;
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
 import spark.Request;
 import spark.Response;
 import us.freeandfair.es101.util.StringTemplateUtil;
-
-import java.util.Queue;
 
 /**
  * The operational means by which a voter captures their contest choices.
@@ -30,18 +32,23 @@ import java.util.Queue;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystem extends UserInterface {
-  /** The election for which this voting system is in use. */
-  protected Election my_election;
-  
   /** The voter action queue on which this voting system can enqueue votes. */
   protected Queue<VoterAction> my_queue;
   
   /**
-   * Create a new voting system for an election.
-   * @param the_election the election for which this voting system is in use.
+   * Create a new voting system.
    */
   @Pure
-  public VotingSystem(final Election the_election) {
+  public VotingSystem() {
+    super(null);
+    my_queue = new ConcurrentLinkedQueue<VoterAction>();
+  }
+  
+  /**
+   * Assign this voting system to that election.
+   * @param the_election to which to assign this voting system.
+   */
+  public void setElection(final Election the_election) {
     my_election = the_election;
   }
   

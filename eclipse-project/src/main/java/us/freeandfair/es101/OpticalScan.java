@@ -26,11 +26,10 @@ import org.jmlspecs.annotation.Pure;
 public class OpticalScan extends VotingSystem {
   /**
    * Create an optical scan voting system for an election.
-   * @param the_election the election for which this voting system is in use.
    */
   @Pure
-  public OpticalScan(final Election the_election) {
-    super(the_election);
+  public OpticalScan() {
+    // empty
   }
 
 }

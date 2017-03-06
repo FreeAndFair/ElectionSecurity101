@@ -26,11 +26,10 @@ import org.jmlspecs.annotation.Pure;
 public class InternetElection extends VotingSystem {
   /**
    * Create a internet voting system for an election.
-   * @param the_election the election for which this voting system is in use.
    */
   @Pure
-  public InternetElection(final Election the_election) {
-    super(the_election);
+  public InternetElection() {
+    // empty
   }
 
 }

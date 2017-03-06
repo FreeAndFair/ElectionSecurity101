@@ -25,11 +25,10 @@ import org.jmlspecs.annotation.Pure;
 public class DREWithVVPAT extends VotingSystem {
   /**
    * Create a DRE with VVPAT voting system for an election.
-   * @param the_election the election for which this voting system is in use.
    */
   @Pure
-  public DREWithVVPAT(final Election the_election) {
-    super(the_election);
+  public DREWithVVPAT() {
+    // empty
   }
 
 }

@@ -13,6 +13,7 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Nullable;
 import org.jmlspecs.annotation.Pure;
 
 import spark.Request;
@@ -31,6 +32,15 @@ public class UserInterface {
   protected Election my_election;
   
   /**
+   * Create a new UI for the election.
+   * @param the_election the election for this UI.
+   */
+  @Pure
+  public UserInterface(final Election the_election) {
+    my_election = the_election;
+  }
+  
+  /**
    * @return the URL schema prefix to which this UI responds.  This base 
    * abstract class returns an empty string.
    */
@@ -46,8 +56,6 @@ public class UserInterface {
    */
   //@ public normal_behavior ensures \result.equals("");
   @Pure public String action(final Request the_request, final Response the_response) {
-    assert false;
-    //@ assert false;
     return "";
   }
 }

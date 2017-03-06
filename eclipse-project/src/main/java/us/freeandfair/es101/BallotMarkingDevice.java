@@ -26,11 +26,10 @@ import org.jmlspecs.annotation.Pure;
 public class BallotMarkingDevice extends VotingSystem {
   /**
    * Create a ballot marking device voting system for an election.
-   * @param the_election the election for which this voting system is in use.
    */
   @Pure
-  public BallotMarkingDevice(final Election the_election) {
-    super(the_election);
+  public BallotMarkingDevice() {
+    // empty
   }
 
 }

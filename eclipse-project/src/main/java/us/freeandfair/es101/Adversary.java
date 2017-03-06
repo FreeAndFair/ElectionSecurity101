@@ -29,12 +29,12 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class Adversary extends UserInterface {
   /**
-   * Constructs a new Adversary from the specified Election.
-   * 
-   * @param the_election The election.
+   * Constructs a new adversary for the election.
+   * @param the_election the election in question.
    */
+  @Pure
   public Adversary(final Election the_election) {
-    my_election = the_election;
+    super(the_election);
   }
   
   /** 

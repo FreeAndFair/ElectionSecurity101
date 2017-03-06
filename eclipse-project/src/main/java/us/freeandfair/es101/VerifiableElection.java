@@ -26,11 +26,10 @@ import org.jmlspecs.annotation.Pure;
 public class VerifiableElection extends VotingSystem {
   /**
    * Create an end-to-end verifiable voting system for an election.
-   * @param the_election the election for which this voting system is in use.
    */
   @Pure
-  public VerifiableElection(final Election the_election) {
-    super(the_election);
+  public VerifiableElection() {
+    // empty
   }
 
 }
