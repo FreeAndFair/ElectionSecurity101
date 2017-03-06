@@ -101,6 +101,7 @@ public class Main {
   /**
    * Parse all properties specified for this election and build the election instance.
    * @param the_properties the properties that specify the election.
+   * @return a new instance of Election configured per the passed properties.
    */
   @Pure private Election parseProperties(final Properties the_properties) {
     final StringTokenizer st_voting_systems = 
@@ -164,12 +165,22 @@ public class Main {
       LOGGER.info("could not read port number from properties, using default port");
     }
     port(port_number);
-    get("/", (the_req, the_resp) -> rootPage());
-    // for every voting system choice, create a callback for their schema
+    // the top-level for the whole application
+    get("/", (the_request, the_response) -> rootPage());
+        // register the top-level voting system choice UI
+    get(my_election.my_voting_system_choice.schema(), (the_request, the_response) ->
+        my_election.my_voting_system_choice.action(the_request, the_response));
+    // for every voting system choice, create a callback for their schema and UI
     my_election.my_voting_systems.iterator().forEachRemaining(vs -> 
-        get(vs.schema(), (the_req, the_resp) -> vs.action(the_req, the_resp)));
+        get(vs.schema(), (the_request, the_response) -> 
+                         vs.action(the_request, the_response)));
+    // register the top-level adversary UI
+    get(my_election.my_adversary.schema(), (the_request, the_response) ->
+        my_election.my_adversary.action(the_request, the_response));
+    // register the top-level adversary UI
     get(my_election.my_adversary.schema(), 
         (the_req, the_resp) -> my_election.my_adversary.action(the_req, the_resp));
+    // register the top-level manipulation UI
     get(my_election.my_manipulation.schema(),
         (the_req, the_resp) -> my_election.my_manipulation.action(the_req, the_resp));
   }

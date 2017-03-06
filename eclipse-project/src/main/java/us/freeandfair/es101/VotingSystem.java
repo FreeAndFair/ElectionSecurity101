@@ -13,6 +13,11 @@
 
 package us.freeandfair.es101;
 
+import org.jmlspecs.annotation.Pure;
+
+import spark.Request;
+import spark.Response;
+
 import java.util.Queue;
 
 /**
@@ -23,11 +28,28 @@ import java.util.Queue;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystem extends UserInterface {
-  /** The voter's user interface of this voting system. */
-  protected UserInterface my_voter_ui;
+  /** The election for which this voting system is in use. */
+  protected Election my_election;
   
-  /** The adversary's user interface of this voting system. */
-  protected UserInterface my_adversary_ui;
+  /**
+   * Create a new voting system for an election.
+   * @param the_election the election for which this voting system is in use.
+   */
+  @Pure
+  public VotingSystem(final Election the_election) {
+    my_election = the_election;
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#action(spark.Request, spark.Response)
+   */
+  @Pure @Override
+  public String action(final Request the_request, final Response the_response) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.action(the_request, the_response);
+  }  
   
   /** The voter action queue on which this voting system can enqueue votes. */
   protected Queue<VoterAction> my_queue;
@@ -47,6 +69,7 @@ public class VotingSystem extends UserInterface {
   public boolean canManipulateVote() {
     return true;
   }
+<<<<<<< HEAD
   
   /**
    * @return true if an adversary can see the vote for this system, 
@@ -55,4 +78,7 @@ public class VotingSystem extends UserInterface {
   public boolean canSeeVote() {
     return true;
   }
+=======
+
+>>>>>>> branch 'master' of git@github.com:FreeAndFair/ElectionSecurity101.git
 }
