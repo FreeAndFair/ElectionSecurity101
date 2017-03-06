@@ -174,17 +174,17 @@ public class Main {
     // the top-level for the whole application
     get("/", (the_request, the_response) -> rootPage());
         // register the top-level voting system choice UI
-    get(my_election.my_voting_system_choice.schema(), (the_request, the_response) ->
+    get(my_election.my_voting_system_choice.getSchema(), (the_request, the_response) ->
         my_election.my_voting_system_choice.action(the_request, the_response));
     // for every voting system choice, create a callback for their schema and UI
     my_election.my_voting_systems.iterator().forEachRemaining(vs -> 
-        get(vs.schema(), (the_request, the_response) -> 
+        get(vs.getSchema(), (the_request, the_response) -> 
                          vs.action(the_request, the_response)));
     // register the top-level adversary UI
-    get(my_election.my_adversary.schema(), (the_request, the_response) ->
+    get(my_election.my_adversary.getSchema(), (the_request, the_response) ->
         my_election.my_adversary.action(the_request, the_response));
     // register the top-level manipulation UI
-    get(my_election.my_manipulation.schema(),
+    get(my_election.my_manipulation.getSchema(),
         (the_req, the_resp) -> my_election.my_manipulation.action(the_req, the_resp));
   }
   

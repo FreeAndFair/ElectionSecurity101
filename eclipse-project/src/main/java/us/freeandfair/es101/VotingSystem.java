@@ -44,6 +44,16 @@ public class VotingSystem extends UserInterface {
     my_queue = new ConcurrentLinkedQueue<VoterAction>();
   }
   
+  @Pure
+  public String getName() {
+    return "";
+  }
+  
+  @Pure
+  public String getUsageRegions() {
+    return "";
+  }
+  
   /**
    * Assign this voting system to that election.
    * @param the_election to which to assign this voting system.
@@ -76,12 +86,13 @@ public class VotingSystem extends UserInterface {
   @Pure
   protected ST votingSystemPageSetup() {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", true);
+    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "15");
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");
     voting_system_template.add("election", my_election);
     voting_system_template.add("explanation", explanationText());
+    voting_system_template.add("schema", getSchema());
     page_template.add("body", voting_system_template.render());
     return page_template;
   }

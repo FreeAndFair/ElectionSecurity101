@@ -21,5 +21,4 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman 
  */
 public class Candidate {
-
 }

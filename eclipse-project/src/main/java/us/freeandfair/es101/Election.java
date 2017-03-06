@@ -89,4 +89,18 @@ public class Election {
   public Tally getTally() {
     return my_tally;
   }
+  
+  /**
+   * @return the collection of voting systems in use for this election.
+   */
+  public Collection<VotingSystem> getVotingSystems() {
+    return my_voting_systems;
+  }
+  
+  /**
+   * @return the collection of candidates for this election.
+   */
+  public Collection<String> getCandidates() {
+    return my_candidates;
+  }
 }

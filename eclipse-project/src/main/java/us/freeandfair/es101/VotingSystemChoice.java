@@ -42,26 +42,25 @@ public class VotingSystemChoice extends UserInterface {
    * @see us.freeandfair.es101.UserInterface#my_url_schema()
    */
   @Pure @Override
-  public String schema() {
+  public String getSchema() {
     return "/voting_system_choice";
   }
 
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.UserInterface#action()
-   */
   /**
     * Display the choices that the voter has to choose which a voting system to use.
+    * @see us.freeandfair.es101.UserInterface#action()
     */
   @Override
   public String action(final Request the_request, final Response the_response) {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
-    page_template.add("enable_refresh", false);
+    page_template.add("enable_results", true);
+    page_template.add("enable_refresh", true);
     page_template.add("refresh", "15");
-    final ST voting_system_choice_template = 
-        StringTemplateUtil.loadTemplate("voting_system_choice");
-    voting_system_choice_template.add("voting_systems", my_election.my_voting_systems);
-    page_template.add("body", voting_system_choice_template.render());
+    final ST voter_template =
+        StringTemplateUtil.loadTemplate("voter");
+    // voter_template.inspect();
+    voter_template.add("election", my_election);
+    page_template.add("body", voter_template.render());
     return page_template.render();
   }
 }

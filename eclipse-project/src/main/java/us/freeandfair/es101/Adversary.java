@@ -37,21 +37,20 @@ public class Adversary extends UserInterface {
     super(the_election);
   }
   
-  /** 
-   * @return The schema for the adversary interface. 
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#my_url_schema()
    */
-  @Pure public String schema() {
+  @Pure @Override
+  public String getSchema() {
     return "/adversary";
   }
-  
+
   /**
-   * Handle an HTTP request.
-   * 
-   * @param the_request The HTTP request.
-   * @param the_response The HTTP response.
-   * @return The data to return in response.
+   * Display the top-level UI of the adversary.
+   * @see us.freeandfair.es101.UserInterface#action()
    */
-  @Pure public String action(final Request the_request, final Response the_response) {
+  @Pure @Override
+  public String action(final Request the_request, final Response the_response) {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);

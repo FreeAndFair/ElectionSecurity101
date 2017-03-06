@@ -1,4 +1,4 @@
-adversary(election) ::= <<
+voter(election) ::= <<
 <div align="center">
 <b>$election.my_name$</b><br/>
 <i>$election.my_date$</i>
@@ -8,6 +8,6 @@ $tally(election.tally.legitimateTally)$</p>
 <p>The current <b>hacked results</b> of this election are:
 $tally(election.tally.hackedTally)$</p>
 
-<h2><a href="/manipulation">Manipulate a Vote</a></h2>
+<p>$voting_system_choice(election.votingSystems)$</p>
 </div>
 >>

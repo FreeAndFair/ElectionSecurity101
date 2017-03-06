@@ -41,6 +41,11 @@ public final class StringTemplateUtil {
   private static final Map<String, STGroup> LOADED = new HashMap<String, STGroup>();
 
   /**
+   * Are we debugging templates?
+   */
+  private static boolean DEBUG_TEMPLATES = true;
+  
+  /**
    * Private constructor to prevent instantiation of this class.
    */
   private StringTemplateUtil() {
@@ -81,7 +86,10 @@ public final class StringTemplateUtil {
       } catch (final STException e) {
         throw new RuntimeException("Unable to load default template group.");
       }
+    } else if (DEBUG_TEMPLATES) {
+      group.trackCreationEvents = true;
     }
+
 
     return group.getInstanceOf(the_name);
   }

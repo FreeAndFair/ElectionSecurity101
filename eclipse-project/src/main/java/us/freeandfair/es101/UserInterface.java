@@ -45,7 +45,7 @@ public class UserInterface {
    * abstract class returns an empty string.
    */
   //@ public normal_behavior ensures \result.equals("");
-  @Pure public String schema() {
+  @Pure public String getSchema() {
     return "";
   }
 

@@ -1,4 +1,4 @@
-voting_system(voting_system_data) := <<
+voting_system(election,explanation,schema) ::= <<
 <div align="center">
 
 <b>$election.my_name$</b><br/>
@@ -13,9 +13,9 @@ $explanation$
 
 <table border=0>
 <th><td>Choose a Candidate</td></th>
-$election.my_candidates:{ candidate |
-  <tr><td><a href="/$voting_system_data.schema$?vote=\"$candidate.name$\"">$candidate.name$</a></td></tr>
- }
+$election.candidates:{ candidate |
+  <tr><td><a href="$schema$?vote=\"$candidate$\"">$candidate$</a></td></tr>
+ }$
  </table>
 </div>
 >>

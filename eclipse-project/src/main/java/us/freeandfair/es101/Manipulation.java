@@ -58,7 +58,7 @@ public class Manipulation extends UserInterface {
   /** 
    * @return The schema for the adversary interface. 
    */
-  @Pure public String schema() {
+  @Pure public String getSchema() {
     return "/manipulation";
   }
   
