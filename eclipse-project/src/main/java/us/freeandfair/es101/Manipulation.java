@@ -34,11 +34,6 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class Manipulation extends UserInterface {
   /**
-   * The queue of voter actions.
-   */
-  protected final Queue<VoterAction> my_queue;
-  
-  /**
    * The table of voter action manipulations that are in progress.
    */
   private final Map<Long, VoterAction> my_in_progress;
@@ -50,8 +45,7 @@ public class Manipulation extends UserInterface {
    * @param the_queue The queue of voter actions.
    */
   public Manipulation(final Election the_election, final Queue<VoterAction> the_queue) {
-    super(the_election);
-    my_queue = the_queue;
+    super(the_election, the_queue);
     my_in_progress = Collections.synchronizedMap(new HashMap<Long, VoterAction>());
   }
   
@@ -121,7 +115,7 @@ public class Manipulation extends UserInterface {
   public String handleTimeout(final Request the_request, final Response the_response) {
     if (the_request.queryParams().contains("id")) {
       try {
-        long l = Long.parseLong(the_request.queryParams("id"));
+        final long l = Long.parseLong(the_request.queryParams("id"));
         if (my_in_progress.containsKey(l)) {
           // re-queue the vote whose manipulation timed out
           my_queue.offer(my_in_progress.get(l));
@@ -137,7 +131,7 @@ public class Manipulation extends UserInterface {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    String refresh_string = "0; /adversary";
+    final String refresh_string = "0; /adversary";
     page_template.add("refresh", refresh_string);
     final ST manipulation_template = StringTemplateUtil.loadTemplate("manipulation");
     manipulation_template.add("election", my_election);
@@ -156,7 +150,7 @@ public class Manipulation extends UserInterface {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    String refresh_string = "0; /adversary";
+    final String refresh_string = "0; /adversary";
     page_template.add("refresh", refresh_string);
     final ST manipulation_template = StringTemplateUtil.loadTemplate("manipulation");
     manipulation_template.add("election", my_election);

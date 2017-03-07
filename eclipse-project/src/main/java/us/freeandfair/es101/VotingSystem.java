@@ -14,9 +14,7 @@
 package us.freeandfair.es101;
 
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
-import org.jmlspecs.annotation.Nullable;
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
@@ -31,24 +29,26 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class VotingSystem extends UserInterface {
-  /** The voter action queue on which this voting system can enqueue votes. */
-  protected Queue<VoterAction> my_queue;
-  
+public class VotingSystem extends UserInterface { 
   /**
    * Create a new voting system.
    */
   @Pure
   public VotingSystem() {
-    super(null);
-    my_queue = new ConcurrentLinkedQueue<VoterAction>();
+    super(null, null);
   }
   
+  /**
+   * @return the colloquial name of this voting system.
+   */
   @Pure
   public String getName() {
     return "";
   }
-  
+
+  /**
+   * @return the regions of the country in which this voting system is used today.
+   */
   @Pure
   public String getUsageRegions() {
     return "";
@@ -60,6 +60,14 @@ public class VotingSystem extends UserInterface {
    */
   public void setElection(final Election the_election) {
     my_election = the_election;
+  }
+  
+  /**
+   * Assign a queue of voter actions to this voting system.
+   * @param the_queue is the queue of actions.
+   */
+  public void setQueue(final Queue<VoterAction> the_queue) {
+    my_queue = the_queue;
   }
   
   /**
@@ -75,7 +83,17 @@ public class VotingSystem extends UserInterface {
    */
   @Pure @Override
   public String action(final Request the_request, final Response the_response) {
-    return votingSystemPageSetup().render();
+    final boolean timeout = the_request.queryParams().contains("timeout");
+    
+    String result = "";
+    
+    if (timeout) {
+      result = my_election.my_voting_system_choice.action(the_request, the_response);
+    } else {
+      result = votingSystemPageSetup().render();
+    }
+    
+    return result;
   }  
 
   /**
@@ -85,10 +103,15 @@ public class VotingSystem extends UserInterface {
    */
   @Pure
   protected ST votingSystemPageSetup() {
+    final VoterAction va = my_queue.poll();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "15");
+    String refresh_string = "15; /" + getSchema();
+    if (va != null) {
+      refresh_string = "120;/" + getSchema() + "?timeout";
+    }
+    page_template.add("refresh", refresh_string);
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");
     voting_system_template.add("election", my_election);
     voting_system_template.add("explanation", explanationText());

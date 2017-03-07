@@ -24,12 +24,48 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class BallotMarkingDevice extends VotingSystem {
-  /**
-   * Create a ballot marking device voting system for an election.
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.UserInterface#schema()
    */
-  @Pure
-  public BallotMarkingDevice() {
-    // empty
+  @Pure @Override
+  public String getSchema() {
+    return "/ballot-marking-device";
   }
 
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#explanationText()
+   */
+  @Pure @Override
+  protected String explanationText() {
+    return "A hand-marked ballot!";
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#canManipulateReceipt()
+   */
+  @Pure @Override
+  public boolean canManipulateReceipt() {
+    return false;
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#canManipulateVote()
+   */
+  @Pure @Override
+  public boolean canManipulateVote() {
+    return false;
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#getName()
+   */
+  @Pure @Override
+  public String getName() {
+    return "Hand-Marked!";
+  }
+  
+  @Pure @Override
+  public String getUsageRegions() {
+    return "New Hampshire and Idaho";
+  }
 }

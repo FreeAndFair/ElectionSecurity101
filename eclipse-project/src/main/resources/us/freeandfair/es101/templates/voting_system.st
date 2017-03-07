@@ -7,9 +7,9 @@ voting_system(election,explanation,schema) ::= <<
 <p>Explanation</p><br/>
 <i>
 $explanation$
-</i> 
+</i>
 
-<b>Pick one of the following choices:</b>
+<p><b>Pick one of the following choices:</b></p>
 
 <table border=0>
 <th><td>Choose a Candidate</td></th>
