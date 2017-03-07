@@ -40,7 +40,7 @@ public class Tally {
    * The hacked tally values.
    */
   protected final SortedMap<String, Integer> my_hacked_tally;
- 
+
   /**
    * Construct a new, zeroed Tally.
    * 
@@ -76,11 +76,10 @@ public class Tally {
    * @param the_manipulated_vote The manipulated vote.
    */
   public void addVote(final String the_original_vote, final String the_manipulated_vote) {
-    if (my_legitimate_tally.containsKey(the_original_vote)) {
+    if (my_legitimate_tally.containsKey(the_original_vote) &&
+        my_hacked_tally.containsKey(the_manipulated_vote)) {
       my_legitimate_tally.put(the_original_vote, 
                               my_legitimate_tally.get(the_original_vote) + 1);
-    }
-    if (my_hacked_tally.containsKey(the_manipulated_vote)) {
       my_hacked_tally.put(the_manipulated_vote, 
                           my_hacked_tally.get(the_manipulated_vote) + 1);
     }

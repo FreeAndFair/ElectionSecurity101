@@ -17,10 +17,10 @@ $endif$
 
 <p>The current <b>legitimate results</b> of this election are:
 $tally(election.tally.legitimateTally)$</p>
-<p>The current <b>hacked results</b> of this election are:
+<p>The current <b>manipulated results</b> of this election are:
 $tally(election.tally.hackedTally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
-$election.receiptManipulationCount$ manipulated receipts.</p>
+$election.receiptManipulationCount$ manipulated receipts/VVPATs.</p>
 <h2><a href="/">Thanks for Participating!</a></h2>
 </div>
 >>

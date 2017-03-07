@@ -24,7 +24,7 @@ public class VoterAction {
   /**
    * The next unique ID to be assigned.
    */
-  private static long NEXT_ID = Long.MIN_VALUE;
+  private static long NEXT_ID = 0L;
       
   /**
    * The voting system that the voter used.
