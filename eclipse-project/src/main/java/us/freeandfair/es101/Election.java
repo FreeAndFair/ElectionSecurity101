@@ -153,7 +153,8 @@ public class Election {
    * @param the_voting_action the voting action to record.
    */
   public synchronized void recordVoterAction(final VoterAction the_voting_action) {
-    String log_string = "Recorded Vote: Voter Intent = '" + the_voting_action.my_vote + "'";
+    String log_string = "Recorded Vote: ID = " + the_voting_action.getID() + 
+                        ", Voter Intent = '" + the_voting_action.my_vote + "'";
     my_vote_count = my_vote_count + 1;
     if (the_voting_action.isVoteManipulated()) {
       my_vote_manipulation_count = my_vote_manipulation_count + 1;
