@@ -204,6 +204,6 @@ public class VotingSystem extends UserInterface {
    * @return receipt data for the specified VoterAction in this voting system.
    */
   public String getReceipt(final VoterAction the_voter_action) {
-    return String.valueOf("Ballot #" + the_voter_action.getID());
+    return "Ballot #" + the_voter_action.getID();
   }
 }
