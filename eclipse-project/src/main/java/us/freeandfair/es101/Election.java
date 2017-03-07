@@ -107,6 +107,20 @@ public class Election {
   }
   
   /**
+   * @return the vote manipulation count.
+   */
+  public long getVoteManipulationCount() {
+    return my_vote_manipulation_count;
+  }
+  
+  /**
+   * @return the receipt manipulation count.
+   */
+  public long getReceiptManipulationCount() {
+    return my_receipt_manipulation_count;
+  }
+  
+  /**
    * Record a voter action; this records the vote in the tally, and stores the
    * voter action for logging purposes.
    */

@@ -103,14 +103,10 @@ public class VotingSystem extends UserInterface {
    */
   @Pure
   protected ST votingSystemPageSetup() {
-    final VoterAction va = my_queue.poll();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    String refresh_string = "15; /" + getSchema();
-    if (va != null) {
-      refresh_string = "120;/" + getSchema() + "?timeout";
-    }
+    final String refresh_string = "120; /";
     page_template.add("refresh", refresh_string);
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");
     voting_system_template.add("election", my_election);
