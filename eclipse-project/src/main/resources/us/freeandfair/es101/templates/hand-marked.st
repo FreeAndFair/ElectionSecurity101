@@ -1,8 +1,4 @@
-hand-marked(election) ::= <<
-<div align="center">
-<b>$election.my_name$</b><br/>
-<i>$election.my_date$</i>
-
+hand-marked() ::= <<
 <h2>Hand-Counting Hand-Marked Paper Ballots</h2>
 
 <p><b>Great choice!</b></p>
@@ -21,6 +17,4 @@ a million ballots in about twelve hours.</p>
 <p>Also, training is key.  Well-trained volunteers only make one mistake in 
 every 10,000 votes.  Badly trained volunteers make one mistake every 100 
 votes.</p>
-
-</div>
 >>
