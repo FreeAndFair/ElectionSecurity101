@@ -14,6 +14,7 @@
 package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
+import org.stringtemplate.v4.ST;
 
 /**
  * An election scheme whereby one or more formal properties of the election can be 
@@ -24,12 +25,107 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VerifiableElection extends VotingSystem {
-  /**
-   * Create an end-to-end verifiable voting system for an election.
-   */
-  @Pure
-  public VerifiableElection() {
-    // empty
+  @Override
+  public String getAfterVotingText() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getAfterVotingText();
   }
 
+  @Override
+  public String getExplanationText() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getExplanationText();
+  }
+
+  @Override
+  public String getName() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getName();
+  }
+
+  @Override
+  public String getReceipt(final VoterAction the_voter_action) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getReceipt(the_voter_action);
+  }
+
+  @Override
+  public String getReceiptName() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getReceiptName();
+  }
+
+  @Override
+  public String getUsageRegions() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getUsageRegions();
+  }
+
+  @Override
+  public boolean isReceiptGenerated() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.isReceiptGenerated();
+  }
+
+  @Override
+  public boolean isReceiptManipulable() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.isReceiptManipulable();
+  }
+
+  @Override
+  public boolean isVoteManipulable() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.isVoteManipulable();
+  }
+
+  @Override
+  public boolean isVoteVisible() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.isVoteVisible();
+  }
+
+  @Override
+  protected ST iVotedPageSetup(String the_vote) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.iVotedPageSetup(the_vote);
+  }
+
+  @Override
+  protected ST votingSystemPageSetup() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.votingSystemPageSetup();
+  }
+
+  @Override
+  protected ST votingSystemThankYouPageSetup() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.votingSystemThankYouPageSetup();
+  }
 }
