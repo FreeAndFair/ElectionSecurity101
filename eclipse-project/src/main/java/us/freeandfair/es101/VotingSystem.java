@@ -134,7 +134,7 @@ public class VotingSystem extends UserInterface {
       i_voted_template.add("election", my_election);
       i_voted_template.add("voter_action", va);
       page_template.add("body", i_voted_template.render());
-    } else {
+    } else {  
       // invalid vote
       final ST error_occurred = StringTemplateUtil.loadTemplate("error_occurred");
       page_template.add("body", error_occurred.render());
