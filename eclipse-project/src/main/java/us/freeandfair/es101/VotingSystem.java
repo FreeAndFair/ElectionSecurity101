@@ -40,7 +40,7 @@ public class VotingSystem extends UserInterface {
    */
   @Pure
   public VotingSystem() {
-    super(null);
+    super(null, null);
     my_queue = new ConcurrentLinkedQueue<VoterAction>();
   }
   
@@ -101,7 +101,7 @@ public class VotingSystem extends UserInterface {
    * @return true if an adversary can manipulate the receipt for this system, 
    * false otherwise. 
    * */
-  public boolean canManipulateReceipt() {
+  public boolean isReceiptManipulable() {
     return true;
   }
   
@@ -109,7 +109,7 @@ public class VotingSystem extends UserInterface {
    * @return true if an adversary can manipulate the vote for this system, 
    * false otherwise. 
    */
-  public boolean canManipulateVote() {
+  public boolean isVoteManipulable() {
     return true;
   }
   
@@ -117,7 +117,7 @@ public class VotingSystem extends UserInterface {
    * @return true if an adversary can see the vote for this system, 
    * false otherwise.
    */
-  public boolean canSeeVote() {
+  public boolean isVoteVisible() {
     return true;
   }
 }

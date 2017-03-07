@@ -14,7 +14,7 @@ $explanation$
 <table border=0>
 <th><td>Choose a Candidate</td></th>
 $election.candidates:{ candidate |
-  <tr><td><a href="$schema$?vote=\"$candidate$\"">$candidate$</a></td></tr>
+  <tr><td><a href="$schema$?vote=$candidate$">$candidate$</a></td></tr>
  }$
  </table>
 </div>

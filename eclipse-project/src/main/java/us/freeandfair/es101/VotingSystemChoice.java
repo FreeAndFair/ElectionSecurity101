@@ -35,7 +35,7 @@ public class VotingSystemChoice extends UserInterface {
    */
   @Pure
   public VotingSystemChoice(final Election the_election) {
-    super(the_election);
+    super(the_election, null);
   }
   
   /* (non-Javadoc)

@@ -31,7 +31,7 @@ public class Voter {
   /**
    * @return the choice the voter makes in the election.
    */
-  @Pure public Vote vote() {
+  @Pure public String vote() {
     assert false;
     //@ assert false;
     my_voting_system.action(null, null);

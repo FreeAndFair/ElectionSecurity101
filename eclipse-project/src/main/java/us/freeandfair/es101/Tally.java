@@ -61,7 +61,7 @@ public class Tally {
    * 
    * @param the_vote The vote.
    */
-  public void addUnmanipulatedVote(final Vote the_vote) {
+  public void addUnmanipulatedVote(final String the_vote) {
     assert false;
     //@ assert false;
   }
@@ -72,7 +72,7 @@ public class Tally {
    * @param the_original_vote The vote.
    * @param the_manipulated_vote The manipulated vote.
    */
-  public void addVote(final Vote the_original_vote, final Vote the_manipulated_vote) {
+  public void addVote(final String the_original_vote, final String the_manipulated_vote) {
     assert false;
     //@ assert false;
   }

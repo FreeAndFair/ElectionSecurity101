@@ -34,7 +34,7 @@ public class Adversary extends UserInterface {
    */
   @Pure
   public Adversary(final Election the_election) {
-    super(the_election);
+    super(the_election, null);
   }
   
   /* (non-Javadoc)

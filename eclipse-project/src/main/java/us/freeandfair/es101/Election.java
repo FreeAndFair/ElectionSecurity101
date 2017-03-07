@@ -52,11 +52,14 @@ public class Election {
   /** The candidates. */
   protected Collection<String> my_candidates;
   
-  /** The votes that have been cast. */
-  protected List<Vote> my_votes;
-  
   /** The tally. */
   protected Tally my_tally;
+  
+  /** The number of votes that were manipulated. */
+  protected long my_vote_manipulation_count;
+  
+  /** The number of receipts that were manipulated. */
+  protected long my_receipt_manipulation_count;
   
   /**
    * Create and initialize a new instance of Election.
@@ -77,7 +80,6 @@ public class Election {
     my_voting_system_choice = new VotingSystemChoice(this);
     my_voting_systems = the_voting_systems;
     my_candidates = the_candidates;
-    my_votes = new ArrayList<Vote>();
     my_tally = new Tally(my_candidates);
     my_adversary = new Adversary(this);
     my_manipulation = new Manipulation(this, the_queue);
@@ -102,5 +104,18 @@ public class Election {
    */
   public Collection<String> getCandidates() {
     return my_candidates;
+  }
+  
+  /**
+   * Record a voter action; this records the vote in the tally, and stores the
+   * voter action for logging purposes.
+   */
+  public synchronized void recordVoterAction(final VoterAction the_voting_action) {
+    if (the_voting_action.isVoteManipulated()) {
+      my_vote_manipulation_count = my_vote_manipulation_count + 1;
+      my_tally.addVote(the_voting_action.my_vote, the_voting_action.my_manipulated_vote);
+    } else {
+      my_tally.addUnmanipulatedVote(the_voting_action.my_vote);
+    }
   }
 }

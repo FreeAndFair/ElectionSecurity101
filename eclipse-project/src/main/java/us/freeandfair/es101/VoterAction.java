@@ -34,12 +34,17 @@ public class VoterAction {
   /**
    * The vote that the voter cast.
    */
-  protected Vote my_vote;
+  protected String my_vote;
   
   /**
    * The vote after manipulation by the adversary.
    */
-  protected Vote my_manipulated_vote;
+  protected String my_manipulated_vote;
+  
+  /**
+   * The receipt after manipulation by the adversary.
+   */
+  protected String my_manipulated_receipt;
   
   /**
    * The unique ID of this voter action.
@@ -47,10 +52,19 @@ public class VoterAction {
   protected final long my_id;
   
   /**
-   * Construct a new VoterAction.
+   * Construct a new VoterAction with the specified voting system and vote. The 
+   * specified vote is used as the vote that the voter cast, and is also used as
+   * the initial setting for the manipulated vote and manipulated receipt.
+   * 
+   * @param the_voting_system The voting system.
+   * @param the_vote The vote.
    */
-  public VoterAction() {
+  public VoterAction(final VotingSystem the_voting_system, final String the_vote) {
     my_id = getNextID();
+    my_vote = the_vote;
+    my_manipulated_vote = my_vote;
+    my_manipulated_receipt = my_vote;
+    my_voting_system = the_voting_system;
   }
   
   /**
@@ -60,5 +74,19 @@ public class VoterAction {
     final long result = NEXT_ID;
     NEXT_ID = NEXT_ID + 1;
     return result;
+  }
+  
+  /**
+   * @return true if the vote in this VoterAction has been manipulated, false otherwise.
+   */
+  public boolean isVoteManipulated() {
+    return !my_vote.equals(my_manipulated_vote);
+  }
+ 
+  /**
+   * @return true if the receipt in this VoterAction has been manipulated, false otherwise.
+   */
+  public boolean isReceiptManipulated() {
+    return !my_vote.equals(my_manipulated_receipt);
   }
 }
