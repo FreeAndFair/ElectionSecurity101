@@ -14,6 +14,9 @@
 package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
+import org.stringtemplate.v4.ST;
+
+import us.freeandfair.es101.util.StringTemplateUtil;
 
 /**
  * An election carried out, in whole or in part, using the Internet
@@ -24,12 +27,65 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class InternetElection extends VotingSystem {
-  /**
-   * Create a internet voting system for an election.
-   */
-  @Pure
-  public InternetElection() {
-    // empty
+  @Pure @Override
+  public String getAfterVotingText() {
+    return super.getAfterVotingText() +
+        "\nYou just gave your vote to the bad guys!";
   }
 
+  @Pure @Override
+  public String getExplanationText() {
+    return StringTemplateUtil.loadTemplate("internet_election").render();
+  }
+
+  @Pure @Override
+  public String getName() {
+    return "Internet Voting";
+  }
+
+  @Pure @Override
+  public String getReceipt(final VoterAction the_voter_action) {
+    return "We really really promise that we recorded that you voted in our server logs.";
+  }
+
+  @Pure @Override
+  public String getReceiptName() {
+    return "server log entry";
+  }
+
+  @Pure @Override
+  public String getUsageRegions() {
+    return "This kind of voting system has been experimented with and rejected by " +
+           "numerous governments around the world, but is being used in around two dozen " +
+           " states in the U.S.A. to collect votes from overseas Americans and military " + 
+           "personnel.  And in Alaska, any citizen can vote over the internet!";
+  }
+
+  @Pure @Override
+  public boolean isReceiptGenerated() {
+    return true;
+  }
+
+  @Pure @Override
+  public boolean isReceiptManipulable() {
+    return true;
+  }
+
+  @Pure @Override
+  public boolean isVoteManipulable() {
+    return true;
+  }
+
+  @Pure @Override
+  public boolean isVoteVisible() {
+    return true;
+  }
+
+  @Pure @Override
+  protected ST iVotedPageSetup(final String the_vote) {
+    final ST i_voted_template = super.iVotedPageSetup(the_vote);
+    i_voted_template.add("message", 
+                         "Good luck in trusting the outcome of this election!");
+    return i_voted_template;
+  }
 }

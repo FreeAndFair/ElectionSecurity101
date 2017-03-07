@@ -83,7 +83,7 @@ public class VotingSystem extends UserInterface {
    */
   @Pure
   public String getAfterVotingText() {
-    return "";
+    return "Thank you for voting!  Make sure you get an 'I Voted Today' sticker!";
   }
   
   /* (non-Javadoc)
@@ -104,16 +104,6 @@ public class VotingSystem extends UserInterface {
     return result;
   }  
 
-  /**
-   * Create the general template for thanking the voter for voting.  Its contents
-   * are customized via queries on subclasses.
-   * @return the string template on which to build.
-   */
-  @Pure
-  protected ST votingSystemThankYouPageSetup() {
-    return null;
-  }
-  
   /**
    * Create the general "I Voted" page that voting system subclasses will customize,
    * and casts the appropriate vote.

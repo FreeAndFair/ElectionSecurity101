@@ -16,6 +16,8 @@ package us.freeandfair.es101;
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
+import us.freeandfair.es101.util.StringTemplateUtil;
+
 /**
  * An election scheme whereby one or more formal properties of the election can be 
  * independently checked by voters or election officials.
@@ -25,107 +27,65 @@ import org.stringtemplate.v4.ST;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VerifiableElection extends VotingSystem {
-  @Override
+  @Pure @Override
   public String getAfterVotingText() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getAfterVotingText();
+    return super.getAfterVotingText() +
+        "\nDo not forget to use your receipt to check that your vote was counted correctly!";
   }
 
-  @Override
+  @Pure @Override
   public String getExplanationText() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getExplanationText();
+    return StringTemplateUtil.loadTemplate("verifiable_election").render();
   }
 
-  @Override
+  @Pure @Override
   public String getName() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getName();
+    return "End-to-End Verifiable Election";
   }
 
-  @Override
+  @Pure @Override
   public String getReceipt(final VoterAction the_voter_action) {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getReceipt(the_voter_action);
+    return Integer.toHexString(super.getReceipt(the_voter_action).hashCode());
   }
 
-  @Override
+  @Pure @Override
   public String getReceiptName() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getReceiptName();
+    return "cryptographic receipt";
   }
 
-  @Override
+  @Pure @Override
   public String getUsageRegions() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getUsageRegions();
+    return "System like this have been experimented with in Tacoma Park, MD and " +
+      "Austin, TX is about to start working on such a system and intends to make it " +
+      "available to the entire U.S.A.";
   }
 
-  @Override
+  @Pure @Override
   public boolean isReceiptGenerated() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.isReceiptGenerated();
+    return true;
   }
 
-  @Override
+  @Pure @Override
   public boolean isReceiptManipulable() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.isReceiptManipulable();
+    return false;
   }
 
-  @Override
+  @Pure @Override
   public boolean isVoteManipulable() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.isVoteManipulable();
+    return false;
   }
 
-  @Override
+  @Pure @Override
   public boolean isVoteVisible() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.isVoteVisible();
+    return false;
   }
 
-  @Override
-  protected ST iVotedPageSetup(String the_vote) {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.iVotedPageSetup(the_vote);
-  }
-
-  @Override
-  protected ST votingSystemPageSetup() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.votingSystemPageSetup();
-  }
-
-  @Override
-  protected ST votingSystemThankYouPageSetup() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.votingSystemThankYouPageSetup();
+  @Pure @Override
+  protected ST iVotedPageSetup(final String the_vote) {
+    final ST i_voted_template = super.iVotedPageSetup(the_vote);
+    i_voted_template.add("message", 
+                         "Don't forget to check your receipt after the election to ensure " +
+                         "that your vote was included in the election results!");
+    return i_voted_template;
   }
 }

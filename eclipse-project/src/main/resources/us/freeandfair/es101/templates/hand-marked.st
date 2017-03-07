@@ -17,4 +17,16 @@ a million ballots in about twelve hours.</p>
 <p>Also, training is key.  Well-trained volunteers only make one mistake in 
 every 10,000 votes.  Badly trained volunteers make one mistake every 100 
 votes.</p>
+
+<p>Another drawback of hand-marked paper ballots is that election official have
+to either print enough ballots before the election for all voters, and have to
+have printed ballots available in all of the different spoken languages used in
+a jurisdiction.  It is not unusual that tens of thousands of ballots are 
+recycled after each election!</p>
+
+<p>Finally, because you have voted by-hand, you may have made a mistake
+in filling out your ballot.  If you have done so---such as voting for too
+many candidates in a race (what is known as overvoting) or forgetting to
+vote for enough candidates in a race (which is known as undervoting), then
+your vote for that race will not be counted.</p>
 >>

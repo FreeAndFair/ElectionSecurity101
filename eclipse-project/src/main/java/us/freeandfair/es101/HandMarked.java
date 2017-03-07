@@ -25,14 +25,6 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class HandMarked extends VotingSystem {
-  @Override
-  public String getAfterVotingText() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getAfterVotingText();
-  }
-
   @Pure @Override
   public String getExplanationText() {
     return StringTemplateUtil.loadTemplate("hand-marked").render();
@@ -43,22 +35,6 @@ public class HandMarked extends VotingSystem {
     return "Hand-Marked and Hand-Counted";
   }
 
-  @Override
-  public String getReceipt(VoterAction the_voter_action) {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getReceipt(the_voter_action);
-  }
-
-  @Override
-  public String getReceiptName() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.getReceiptName();
-  }
-  
   @Pure @Override
   public String getSchema() {
     return "/hand-marked";
@@ -69,12 +45,9 @@ public class HandMarked extends VotingSystem {
     return "A few handfuls of very small counties in New Hampshire, Maine, Georgia, Idaho, and elsewhere.";
   }
 
-  @Override
+  @Pure @Override
   public boolean isReceiptGenerated() {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.isReceiptGenerated();
+    return false;
   }
 
   @Pure @Override
