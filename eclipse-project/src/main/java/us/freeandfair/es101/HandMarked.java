@@ -15,8 +15,7 @@ package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
 
-import spark.Request;
-import spark.Response;
+import us.freeandfair.es101.util.StringTemplateUtil;
 
 /**
  * A paper ballot that is hand-marked by a voter to capture their contest choices.
@@ -25,55 +24,69 @@ import spark.Response;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class HandMarked extends VotingSystem {  
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.UserInterface#schema()
-   */
+public class HandMarked extends VotingSystem {
+  @Override
+  public String getAfterVotingText() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getAfterVotingText();
+  }
+
+  @Pure @Override
+  public String getExplanationText() {
+    return StringTemplateUtil.loadTemplate("hand-marked").render();
+  }
+
+  @Pure @Override
+  public String getName() {
+    return "Hand-Marked and Hand-Counted";
+  }
+
+  @Override
+  public String getReceipt(VoterAction the_voter_action) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getReceipt(the_voter_action);
+  }
+
+  @Override
+  public String getReceiptName() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.getReceiptName();
+  }
+  
   @Pure @Override
   public String getSchema() {
     return "/hand-marked";
   }
 
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#explanationText()
-   */
   @Pure @Override
-  public String getExplanationText() {
-    return "A hand-marked ballot!";
+  public String getUsageRegions() {
+    return "A few handfuls of very small counties in New Hampshire, Maine, Georgia, Idaho, and elsewhere.";
   }
 
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#isReceiptManipulable()
-   */
+  @Override
+  public boolean isReceiptGenerated() {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.isReceiptGenerated();
+  }
+
   @Pure @Override
   public boolean isReceiptManipulable() {
     return false;
   }
 
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#isVoteManipulable()
-   */
   @Pure @Override
   public boolean isVoteManipulable() {
     return false;
   }
 
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#getName()
-   */
-  @Pure @Override
-  public String getName() {
-    return "Hand-Marked!";
-  }
-  
-  @Pure @Override
-  public String getUsageRegions() {
-    return "New Hampshire and Idaho";
-  }
-
-  /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#isVoteVisible()
-   */
   @Pure @Override
   public boolean isVoteVisible() {
     return true;
