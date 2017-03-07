@@ -28,6 +28,11 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class InternetElection extends VotingSystem {
   @Pure @Override
+  public String getSchema() {
+    return "/internet_election";
+  }
+  
+  @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
         "\nYou just gave your vote to the bad guys!";
@@ -79,13 +84,5 @@ public class InternetElection extends VotingSystem {
   @Pure @Override
   public boolean isVoteVisible() {
     return true;
-  }
-
-  @Pure @Override
-  protected ST iVotedPageSetup(final String the_vote) {
-    final ST i_voted_template = super.iVotedPageSetup(the_vote);
-    i_voted_template.add("message", 
-                         "Good luck in trusting the outcome of this election!");
-    return i_voted_template;
   }
 }
