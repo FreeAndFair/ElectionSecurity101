@@ -8,7 +8,7 @@ but which unable to withstand the security threats of the 21st century.
 You have put your election in the hands of state-level adversaries
 like the Russia, China, and North Korea.</p>
 
-<p>You use a computer to mark up and submit a digital ballot.  The election
+<p>You use a computer or a smartphone to mark up and submit a digital ballot.  The election
 authorities, or some internet voting company you have never heard of,
 run a proprietary system that no one has ever examined to collect votes
 and announce the election's results.</p>
