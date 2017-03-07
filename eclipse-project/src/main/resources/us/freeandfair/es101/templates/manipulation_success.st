@@ -11,6 +11,8 @@ $if(vote_change)$
   $endif$
 $elseif(receipt_change)$
   <h2>You've manipulated a receipt!</h2>
+$else$
+  <h2>You did not manipulate either the vote or the receipt.</h2>
 $endif$
 
 <p>The current <b>legitimate results</b> of this election are:

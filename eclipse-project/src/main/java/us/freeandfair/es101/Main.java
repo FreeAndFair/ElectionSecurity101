@@ -132,6 +132,7 @@ public class Main {
                                          my_voter_action_queue);
     for (VotingSystem vs: voting_systems) {
       vs.setElection(result);
+      vs.setQueue(my_voter_action_queue);
     }
     return result;
   }

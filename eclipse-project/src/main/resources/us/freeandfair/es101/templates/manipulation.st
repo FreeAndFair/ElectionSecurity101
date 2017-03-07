@@ -10,7 +10,9 @@ $else$
 You can't even see who they voted for!</p>
 $endif$
 
-<form action="/manipulation?id=$voter_action.ID$" method="GET">
+<form action="/manipulation" method="GET">
+<input type="hidden" name="id" value="$voter_action.ID$" />
+<input type="hidden" name="manipulate" />
 $if(voter_action.votingSystem.voteManipulable)$
   $if(voter_action.votingSystem.receiptManipulable)$
     <!-- can manipulate both vote and receipt -->

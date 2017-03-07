@@ -83,12 +83,12 @@ public class VotingSystem extends UserInterface {
    */
   @Pure @Override
   public String action(final Request the_request, final Response the_response) {
-    final boolean timeout = the_request.queryParams().contains("timeout");
+    final boolean vote = the_request.queryParams().contains("vote");
 
     String result = "";
     
-    if (timeout) {
-      result = my_election.my_voting_system_choice.action(the_request, the_response);
+    if (vote) {
+      result = iVotedPageSetup(the_request.queryParams("vote")).render();
     } else {
       result = votingSystemPageSetup().render();
     }
@@ -107,6 +107,34 @@ public class VotingSystem extends UserInterface {
   }
   
   /**
+   * Create the general "I Voted" page that voting system subclasses will customize,
+   * and casts the appropriate vote.
+   * 
+   * @param the_vote The vote cast by the voter, if any.
+   * @return the template on which to build.
+   */
+  protected ST iVotedPageSetup(final String the_vote) {
+    ST page_template;
+    page_template = StringTemplateUtil.loadTemplate("page");
+    page_template.add("enable_results", false);
+    page_template.add("enable_refresh", true);
+    page_template.add("refresh", "30; /");
+    if (the_vote != null && my_election.getCandidates().contains(the_vote)) {
+      final VoterAction va = new VoterAction(this, the_vote);
+      my_queue.offer(va);
+      final ST i_voted_template = StringTemplateUtil.loadTemplate("i_voted");
+      i_voted_template.add("election", my_election);
+      i_voted_template.add("voter_action", va);
+      page_template.add("body", i_voted_template.render());
+    } else {
+      // invalid vote
+      final ST error_occurred = StringTemplateUtil.loadTemplate("error_occurred");
+      page_template.add("body", error_occurred.render());
+    }
+    return page_template;
+  }
+  
+  /**
    * Create the general template voting system page from which all voting system
    * subclasses will customize.
    * @return the string template on which to build.
@@ -116,8 +144,7 @@ public class VotingSystem extends UserInterface {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    final String refresh_string = "120; /";
-    page_template.add("refresh", refresh_string);
+    page_template.add("refresh", "120; /");
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");
     voting_system_template.add("election", my_election);
     voting_system_template.add("explanation", explanationText());
@@ -155,5 +182,19 @@ public class VotingSystem extends UserInterface {
    */
   public String getReceiptName() {
     return "receipt";
+  }
+  
+  /**
+   * @return true if a receipt is generated in this voting system, false otherwise.
+   */
+  public boolean isReceiptGenerated() {
+    return false;
+  }
+  
+  /**
+   * @return receipt data for the specified VoterAction in this voting system.
+   */
+  public String getReceipt(final VoterAction the_voter_action) {
+    return String.valueOf("Ballot #" + the_voter_action.getID());
   }
 }
