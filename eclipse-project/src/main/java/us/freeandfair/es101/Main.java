@@ -144,14 +144,12 @@ public class Main {
    */
   private String rootPage() {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", true);
-    page_template.add("results", "<h2 align=\"center\">No Results Yet</h2>");
+    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "30");
-    page_template.
-        add("body", "Welcome to Free & Fair Election Security 101. " +
-                    "Are you a <a href=\"voting_system_choice\">voter</a> or an " +
-                    "<a href=\"/adversary\">adversary</a>?");
+    final ST dashboard_template = StringTemplateUtil.loadTemplate("dashboard");
+    dashboard_template.add("election", my_election);
+    page_template.add("body", dashboard_template.render());
     return page_template.render();
   }
 
