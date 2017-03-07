@@ -62,8 +62,11 @@ public class Tally {
    * @param the_vote The vote.
    */
   public void addUnmanipulatedVote(final String the_vote) {
-    assert false;
-    //@ assert false;
+    if (my_legitimate_tally.containsKey(the_vote) &&
+        my_hacked_tally.containsKey(the_vote)) {
+      my_legitimate_tally.put(the_vote, my_legitimate_tally.get(the_vote) + 1);
+      my_hacked_tally.put(the_vote, my_hacked_tally.get(the_vote) + 1);
+    }
   }
   
   /**
@@ -73,8 +76,14 @@ public class Tally {
    * @param the_manipulated_vote The manipulated vote.
    */
   public void addVote(final String the_original_vote, final String the_manipulated_vote) {
-    assert false;
-    //@ assert false;
+    if (my_legitimate_tally.containsKey(the_original_vote)) {
+      my_legitimate_tally.put(the_original_vote, 
+                              my_legitimate_tally.get(the_original_vote) + 1);
+    }
+    if (my_hacked_tally.containsKey(the_manipulated_vote)) {
+      my_hacked_tally.put(the_manipulated_vote, 
+                          my_hacked_tally.get(the_manipulated_vote) + 1);
+    }
   }
   
   /**

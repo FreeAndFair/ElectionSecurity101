@@ -121,11 +121,20 @@ public class Election {
    * @param the_voting_action the voting action to record.
    */
   public synchronized void recordVoterAction(final VoterAction the_voting_action) {
+    String log_string = "Recorded Vote: Voter Intent = '" + the_voting_action.my_vote + "'";
     if (the_voting_action.isVoteManipulated()) {
       my_vote_manipulation_count = my_vote_manipulation_count + 1;
+      log_string = log_string + ", Manipulated Vote = '" + 
+                   the_voting_action.my_manipulated_vote + "'";
       my_tally.addVote(the_voting_action.my_vote, the_voting_action.my_manipulated_vote);
     } else {
       my_tally.addUnmanipulatedVote(the_voting_action.my_vote);
     }
+    if (the_voting_action.isReceiptManipulated()) {
+      log_string = log_string + ", Manipulated Receipt = '" + 
+                   the_voting_action.my_manipulated_receipt + "'";
+      my_receipt_manipulation_count = my_receipt_manipulation_count + 1;
+    }
+    Main.LOGGER.info(log_string);
   }
 }
