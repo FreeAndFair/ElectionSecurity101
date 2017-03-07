@@ -130,6 +130,22 @@ public class Election {
   public long getVoteCount() {
     return my_vote_count;
   }
+
+  /**
+   * @return the name of this election.
+   */
+  @Pure
+  public String getName() {
+    return my_name;
+  }
+  
+  /**
+   * @return the date of this election.
+   */
+  @Pure
+  public String getDate() {
+    return my_date;
+  }
   
   /**
    * Record a voter action; this records the vote in the tally, and stores the
@@ -138,6 +154,7 @@ public class Election {
    */
   public synchronized void recordVoterAction(final VoterAction the_voting_action) {
     String log_string = "Recorded Vote: Voter Intent = '" + the_voting_action.my_vote + "'";
+    my_vote_count = my_vote_count + 1;
     if (the_voting_action.isVoteManipulated()) {
       my_vote_manipulation_count = my_vote_manipulation_count + 1;
       log_string = log_string + ", Manipulated Vote = '" + 

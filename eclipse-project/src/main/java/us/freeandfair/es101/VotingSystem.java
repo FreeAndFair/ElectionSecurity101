@@ -124,7 +124,7 @@ public class VotingSystem extends UserInterface {
       i_voted_template.add("election", my_election);
       i_voted_template.add("voter_action", va);
       page_template.add("body", i_voted_template.render());
-    } else {
+    } else {  
       // invalid vote
       final ST error_occurred = StringTemplateUtil.loadTemplate("error_occurred");
       page_template.add("body", error_occurred.render());
@@ -194,6 +194,6 @@ public class VotingSystem extends UserInterface {
    * @return receipt data for the specified VoterAction in this voting system.
    */
   public String getReceipt(final VoterAction the_voter_action) {
-    return String.valueOf("Ballot #" + the_voter_action.getID());
+    return "Ballot #" + the_voter_action.getID();
   }
 }

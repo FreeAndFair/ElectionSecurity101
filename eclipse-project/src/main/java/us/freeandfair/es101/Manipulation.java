@@ -15,8 +15,10 @@ package us.freeandfair.es101;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
@@ -34,9 +36,19 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class Manipulation extends UserInterface {
   /**
+   * The timeout after which a vote is returned to the queue.
+   */
+  private static final int TIMEOUT = 180 * 1000; // 3 minutes
+  
+  /**
    * The table of voter action manipulations that are in progress.
    */
   private final Map<Long, VoterAction> my_in_progress;
+  
+  /**
+   * The table of times that voter action manipulations started.
+   */
+  private final Map<Long, Long> my_start_times;
   
   /**
    * Constructs a new Manipulation from the specified Election.
@@ -47,6 +59,7 @@ public class Manipulation extends UserInterface {
   public Manipulation(final Election the_election, final Queue<VoterAction> the_queue) {
     super(the_election, the_queue);
     my_in_progress = Collections.synchronizedMap(new HashMap<Long, VoterAction>());
+    my_start_times = Collections.synchronizedMap(new HashMap<Long, Long>());
   }
   
   /** 
@@ -81,13 +94,33 @@ public class Manipulation extends UserInterface {
   }
   
   /**
+   * Handle votes that have timed out.
+   */
+  private synchronized void handleTimeouts() {
+    final Set<Long> removed_ids = new HashSet<Long>();
+    for (long id : my_start_times.keySet()) {
+      if (System.currentTimeMillis() - my_start_times.get(id) > TIMEOUT) {
+        // return that vote to the queue
+        my_queue.offer(my_in_progress.get(id));
+        removed_ids.add(id);
+      }
+    }
+    for (long id : removed_ids) {
+      my_start_times.remove(id);
+      my_in_progress.remove(id);
+      Main.LOGGER.info("returning ballot #" + id + " to queue after timeout.");
+    }
+  }
+  
+  /**
    * Handle an HTTP request for the initial manipulator setup.
    * 
    * @param the_request The HTTP request.
    * @param the_response The HTTP response.
    * @return The data to return in response.
    */
-  public String handleInitialAction(final Request the_request, final Response the_response) {
+  public synchronized String handleInitialAction(final Request the_request, final Response the_response) {
+    handleTimeouts();
     final VoterAction va = my_queue.poll();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
@@ -96,6 +129,7 @@ public class Manipulation extends UserInterface {
     if (va != null) {
       refresh_string = "120;/manipulation?id=" + va.my_id + "&timeout";
       my_in_progress.put(va.my_id, va);
+      my_start_times.put(va.my_id, System.currentTimeMillis());
     }
     page_template.add("refresh", refresh_string);
     final ST manipulation_template = StringTemplateUtil.loadTemplate("manipulation");
@@ -112,7 +146,7 @@ public class Manipulation extends UserInterface {
    * @param the_response The HTTP response.
    * @return The data to return in response.
    */
-  public String handleTimeout(final Request the_request, final Response the_response) {
+  public synchronized String handleTimeout(final Request the_request, final Response the_response) {
     if (the_request.queryParams().contains("id")) {
       try {
         final long id = Long.parseLong(the_request.queryParams("id"));
@@ -120,15 +154,17 @@ public class Manipulation extends UserInterface {
           // re-queue the vote whose manipulation timed out
           my_queue.offer(my_in_progress.get(id));
           my_in_progress.remove(id);
-          Main.LOGGER.info("manipulation of ballot id " + id + " timed out, re-enqueuing");
+          my_start_times.remove(id);
+          Main.LOGGER.info("returning ballot #" + id + " to queue after explicit timeout.");
         } else {
-          Main.LOGGER.info("attempt to time out an unmanipulated ballot, id " + id);
+          Main.LOGGER.info("attempt to time out an unmanipulated ballot, #" + id);
         }
       } catch (final NumberFormatException e) {
-        Main.LOGGER.info("attempt to time out an invalid ballot, id " + 
+        Main.LOGGER.info("attempt to time out an invalid ballot, #" + 
                          the_request.queryParams("id"));
       }
     }
+    handleTimeouts();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
@@ -147,7 +183,7 @@ public class Manipulation extends UserInterface {
    * @param the_response The HTTP response.
    * @return The data to return in response.
    */
-  public String handleManipulate(final Request the_request, final Response the_response) {
+  public synchronized String handleManipulate(final Request the_request, final Response the_response) {
     boolean vote_change = false;
     boolean receipt_change = false;
     
@@ -164,6 +200,7 @@ public class Manipulation extends UserInterface {
                 !new_vote.equals(va.my_vote)) {
               va.my_manipulated_vote = new_vote;
               vote_change = true;
+              Main.LOGGER.info("changed ballot #" + id + " vote from " + va.my_vote + " to " + new_vote);
             } else if (!new_vote.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change vote (" + va.my_vote + 
                                ") to invalid value " + new_vote);
@@ -177,6 +214,7 @@ public class Manipulation extends UserInterface {
                 !new_receipt.equals(va.my_vote)) {
               va.my_manipulated_receipt = new_receipt;
               receipt_change = true;
+              Main.LOGGER.info("changed ballot #" + id + " receipt from " + va.my_vote + " to " + new_receipt);
             } else if (!new_receipt.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change receipt (" + va.my_vote +
                                ") to invalid value " + new_receipt);
@@ -186,6 +224,7 @@ public class Manipulation extends UserInterface {
           // cast the vote
           my_election.recordVoterAction(va);
           my_in_progress.remove(id);
+          my_start_times.remove(id);
         } else {
           Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + id);
         }
@@ -194,6 +233,7 @@ public class Manipulation extends UserInterface {
                          the_request.queryParams("id"));
       }
     }
+    handleTimeouts();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);

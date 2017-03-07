@@ -1,18 +1,20 @@
 dashboard(election) ::= <<
 <div align="center">
-<b>$election.my_name$</b>
-<i>$election.my_date$</i>
+<h2>$election.name$ - $election.date$</h2>
 
-<p>$election.voteCount$ votes have been cast in this election.</p>
+<h3><em>Candidates:</em> $election.candidates:{ candidate | &nbsp; &nbsp; &nbsp; $candidate$ }$</h3>
 
-<p>Unfortunately, adversaries have manipulated $election.manipulatedVoteCount$ votes and
-$election.manipulatedReceiptCount$ voter receipts/VVPATs!</p>
+<p>$election.voteCount$ votes have been cast in this election. Adversaries have manipulated 
+$election.voteManipulationCount$ votes and $election.receiptManipulationCount$ 
+voter receipts/VVPATs.</p>
 
 <p>The current <b>legitimate results</b> of this election are:
 $tally(election.tally.legitimateTally)$</p>
 <p>
-However, the current <b>hacked results</b> of this election are:
+The current <b>hacked results</b> of this election are:
 $tally(election.tally.hackedTally)$
 </p>
+
+<h3>You can be a <a href="/voting_system_choice">voter</a> or an <a href="/adversary">adversary.</h3>
 </div>
 >>
