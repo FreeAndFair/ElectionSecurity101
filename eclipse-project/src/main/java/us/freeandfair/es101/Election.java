@@ -13,9 +13,7 @@
 
 package us.freeandfair.es101;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Queue;
 
 import org.jmlspecs.annotation.Pure;
@@ -106,6 +104,7 @@ public class Election {
   /**
    * Record a voter action; this records the vote in the tally, and stores the
    * voter action for logging purposes.
+   * @param the_voting_action the voting action to record.
    */
   public synchronized void recordVoterAction(final VoterAction the_voting_action) {
     if (the_voting_action.isVoteManipulated()) {

@@ -115,7 +115,7 @@ public class Manipulation extends UserInterface {
   public String handleTimeout(final Request the_request, final Response the_response) {
     if (the_request.queryParams().contains("id")) {
       try {
-        long id = Long.parseLong(the_request.queryParams("id"));
+        final long id = Long.parseLong(the_request.queryParams("id"));
         if (my_in_progress.containsKey(id)) {
           // re-queue the vote whose manipulation timed out
           my_queue.offer(my_in_progress.get(id));
@@ -125,7 +125,8 @@ public class Manipulation extends UserInterface {
           Main.LOGGER.info("attempt to time out an unmanipulated ballot, id " + id);
         }
       } catch (final NumberFormatException e) {
-        Main.LOGGER.info("attempt to time out an invalid ballot, id " + the_request.queryParams("id"));
+        Main.LOGGER.info("attempt to time out an invalid ballot, id " + 
+            the_request.queryParams("id"));
       }
     }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
@@ -147,35 +148,39 @@ public class Manipulation extends UserInterface {
    * @return The data to return in response.
    */
   public String handleManipulate(final Request the_request, final Response the_response) {
-    boolean status = false;
+    final boolean status = false;
     boolean vote_change = false;
     boolean receipt_change = false;
     
     if (the_request.queryParams().contains("id")) {
-      long id;
+      final long id;
       try {
         id = Long.parseLong(the_request.queryParams("id"));
         if (my_in_progress.containsKey(id)) {
           final VoterAction va = my_in_progress.get(id);
           // check for a vote change
           if (the_request.queryParams().contains("vote")) {
-            String new_vote = the_request.queryParams("vote");
-            if (my_election.getCandidates().contains(new_vote) && !new_vote.equals(va.my_vote)) {
+            final String new_vote = the_request.queryParams("vote");
+            if (my_election.getCandidates().contains(new_vote) && 
+                !new_vote.equals(va.my_vote)) {
               va.my_manipulated_vote = new_vote;
               vote_change = true;
             } else if (!new_vote.equals(va.my_vote)) {
-              Main.LOGGER.info("attempt to change vote (" + va.my_vote + ") to invalid value " + new_vote);
+              Main.LOGGER.info("attempt to change vote (" + va.my_vote + 
+                               ") to invalid value " + new_vote);
             }
           }
           
           // check for a receipt change
           if (the_request.queryParams().contains("receipt")) {
-            String new_receipt = the_request.queryParams("receipt");
-            if (my_election.getCandidates().contains(new_receipt) && !new_receipt.equals(va.my_vote)) {
+            final String new_receipt = the_request.queryParams("receipt");
+            if (my_election.getCandidates().contains(new_receipt) && 
+                !new_receipt.equals(va.my_vote)) {
               va.my_manipulated_receipt = new_receipt;
               receipt_change = true;
             } else if (!new_receipt.equals(va.my_vote)) {
-              Main.LOGGER.info("attempt to change receipt (" + va.my_vote + ") to invalid value " + new_receipt);
+              Main.LOGGER.info("attempt to change receipt (" + va.my_vote + 
+                               ") to invalid value " + new_receipt);
             }
           }
           
@@ -186,15 +191,17 @@ public class Manipulation extends UserInterface {
           Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + id);
         }
       } catch (final NumberFormatException e) {
-        Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + the_request.queryParams("id"));
+        Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + 
+            the_request.queryParams("id"));
       }
     }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    String refresh_string = "120; /adversary";
+    final String refresh_string = "120; /adversary";
     page_template.add("refresh", refresh_string);
-    final ST manipulation_success_template = StringTemplateUtil.loadTemplate("manipulation_success");
+    final ST manipulation_success_template = 
+        StringTemplateUtil.loadTemplate("manipulation_success");
     manipulation_success_template.add("election", my_election);
     page_template.add("body", manipulation_success_template.render());
     return page_template.render();
