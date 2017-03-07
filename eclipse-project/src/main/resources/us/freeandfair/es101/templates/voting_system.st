@@ -4,10 +4,8 @@ voting_system(election,explanation,schema) ::= <<
 <b>$election.my_name$</b><br/>
 <i>$election.my_date$</i>
 
-<p>Explanation</p><br/>
-<i>
+<h1>Explanation</h1>
 $explanation$
-</i>
 
 <p><b>Pick one of the following choices:</b></p>
 
