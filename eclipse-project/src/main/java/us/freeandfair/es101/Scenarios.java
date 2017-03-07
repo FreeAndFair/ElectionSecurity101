@@ -36,14 +36,14 @@ public class Scenarios {
    *             The ballot is inserted into the ballot box.
    */
   public void handMarkedAndCounted() {
-    my_election.my_voting_system_choice.action(null, null);
-    final String voting_system_choice = 
-        my_election.my_voting_system_choice.action(null, null);
-    assert "HAND-MARKED".equals(voting_system_choice);
-    final String vote = my_election.my_voter.vote();
-    my_election.my_manipulation.action(null, null);
-    // no manipulation
-    my_election.my_tally.addUnmanipulatedVote(vote);
+//    my_election.my_voting_system_choice.action(null, null);
+//    final String voting_system_choice = 
+//        my_election.my_voting_system_choice.action(null, null);
+//    assert "HAND-MARKED".equals(voting_system_choice);
+//    final String vote = my_election.my_voter.vote();
+//    my_election.my_manipulation.action(null, null);
+//    // no manipulation
+//    my_election.my_tally.addUnmanipulatedVote(vote);
     assert false;
     //@ assert false;
   }
