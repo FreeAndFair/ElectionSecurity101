@@ -84,7 +84,7 @@ public class VotingSystem extends UserInterface {
   @Pure @Override
   public String action(final Request the_request, final Response the_response) {
     final boolean timeout = the_request.queryParams().contains("timeout");
-    
+
     String result = "";
     
     if (timeout) {
@@ -96,6 +96,16 @@ public class VotingSystem extends UserInterface {
     return result;
   }  
 
+  /**
+   * Create the general template for thanking the voter for voting.  Its contents
+   * are customized via queries on subclasses.
+   * @return the string template on which to build.
+   */
+  @Pure
+  protected ST votingSystemThankYouPageSetup() {
+    return null;
+  }
+  
   /**
    * Create the general template voting system page from which all voting system
    * subclasses will customize.

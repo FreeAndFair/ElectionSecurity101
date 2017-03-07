@@ -72,17 +72,6 @@ public class HandMarked extends VotingSystem {
   }
 
   /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#action(spark.Request, spark.Response)
-   */
-  @Pure @Override
-  public String action(final Request the_request, final Response the_response) {
-    // todo Auto-generated method stub
-    assert false;
-    //@ assert false;
-    return super.action(the_request, the_response);
-  }
-
-  /* (non-Javadoc)
    * @see us.freeandfair.es101.VotingSystem#isVoteVisible()
    */
   @Pure @Override
