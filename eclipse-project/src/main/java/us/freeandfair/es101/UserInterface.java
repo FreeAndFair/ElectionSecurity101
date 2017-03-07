@@ -15,7 +15,6 @@ package us.freeandfair.es101;
 
 import java.util.Queue;
 
-import org.jmlspecs.annotation.Nullable;
 import org.jmlspecs.annotation.Pure;
 
 import spark.Request;
@@ -32,11 +31,11 @@ import spark.Response;
 public class UserInterface {
   /** The election associated with this UI. */
   protected Election my_election;
-  
+
   /**
    * The queue of voter actions.
    */
-  protected final Queue<VoterAction> my_queue;
+  protected Queue<VoterAction> my_queue;
   
   /**
    * Create a new UI for the election.

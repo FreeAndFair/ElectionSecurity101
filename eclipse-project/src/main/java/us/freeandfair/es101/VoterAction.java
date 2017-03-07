@@ -77,6 +77,20 @@ public class VoterAction {
   }
   
   /**
+   * @return the voting system for this VoterAction.
+   */
+  public VotingSystem getVotingSystem() {
+    return my_voting_system;
+  }
+  
+  /**
+   * @return the vote for this VoterAction.
+   */
+  public String getVote() {
+    return my_vote;
+  }
+  
+  /**
    * @return true if the vote in this VoterAction has been manipulated, false otherwise.
    */
   public boolean isVoteManipulated() {

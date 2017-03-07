@@ -15,6 +15,9 @@ package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
 
+import spark.Request;
+import spark.Response;
+
 /**
  * A paper ballot that is hand-marked by a voter to capture their contest choices.
  *  
@@ -22,11 +25,7 @@ import org.jmlspecs.annotation.Pure;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class HandMarked extends VotingSystem {
-  public String schema = "/hand-marked";
-  public String name = "Hand Marked Ballot";
-  public String usage_regions = "Usage Regions";
-  
+public class HandMarked extends VotingSystem {  
   /* (non-Javadoc)
    * @see us.freeandfair.es101.UserInterface#schema()
    */
@@ -44,18 +43,18 @@ public class HandMarked extends VotingSystem {
   }
 
   /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#canManipulateReceipt()
+   * @see us.freeandfair.es101.VotingSystem#isReceiptManipulable()
    */
   @Pure @Override
-  public boolean canManipulateReceipt() {
+  public boolean isReceiptManipulable() {
     return false;
   }
 
   /* (non-Javadoc)
-   * @see us.freeandfair.es101.VotingSystem#canManipulateVote()
+   * @see us.freeandfair.es101.VotingSystem#isVoteManipulable()
    */
   @Pure @Override
-  public boolean canManipulateVote() {
+  public boolean isVoteManipulable() {
     return false;
   }
 
@@ -70,5 +69,24 @@ public class HandMarked extends VotingSystem {
   @Pure @Override
   public String getUsageRegions() {
     return "New Hampshire and Idaho";
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#action(spark.Request, spark.Response)
+   */
+  @Pure @Override
+  public String action(final Request the_request, final Response the_response) {
+    // todo Auto-generated method stub
+    assert false;
+    //@ assert false;
+    return super.action(the_request, the_response);
+  }
+
+  /* (non-Javadoc)
+   * @see us.freeandfair.es101.VotingSystem#isVoteVisible()
+   */
+  @Pure @Override
+  public boolean isVoteVisible() {
+    return true;
   }
 }

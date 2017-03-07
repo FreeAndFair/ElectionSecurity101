@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import java.util.Queue;
+
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
@@ -32,10 +34,11 @@ public class VotingSystemChoice extends UserInterface {
   /**
    * Create a new UI for voting system choice for the election.
    * @param the_election the election in question.
+   * @param the_queue The queue of voter actions.
    */
   @Pure
-  public VotingSystemChoice(final Election the_election) {
-    super(the_election, null);
+  public VotingSystemChoice(final Election the_election, final Queue<VoterAction> the_queue) {
+    super(the_election, the_queue);
   }
   
   /* (non-Javadoc)

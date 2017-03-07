@@ -111,10 +111,11 @@ public class Main {
     final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
     while (st_voting_systems.hasMoreTokens()) {
       try {
-        String votingSystemName = st_voting_systems.nextToken();
-        Class votingSystemClass = Class.forName(votingSystemName);
-        VotingSystem votingSystem = (VotingSystem)votingSystemClass.newInstance();
-        voting_systems.add(votingSystem);
+        final String voting_system_name = st_voting_systems.nextToken();
+        final Class voting_system_class = Class.forName(voting_system_name);
+        final VotingSystem voting_system =
+            (VotingSystem) voting_system_class.newInstance();
+        voting_systems.add(voting_system);
       } catch (final ClassCastException | ClassNotFoundException | IllegalAccessException |
                      InstantiationException e) {
         // ignoring malformed classnames
@@ -124,11 +125,11 @@ public class Main {
     while (st_candidates.hasMoreTokens()) {
       candidates.add(st_candidates.nextToken());
     }
-    Election result = new Election(the_properties.getProperty("name"),
-                                   the_properties.getProperty("date"),
-                                   voting_systems,
-                                   candidates,
-                                   my_voter_action_queue);
+    final Election result = new Election(the_properties.getProperty("name"),
+                                         the_properties.getProperty("date"),
+                                         voting_systems,
+                                         candidates,
+                                         my_voter_action_queue);
     for (VotingSystem vs: voting_systems) {
       vs.setElection(result);
     }

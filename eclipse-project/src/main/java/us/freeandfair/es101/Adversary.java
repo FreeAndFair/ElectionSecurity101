@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import java.util.Queue;
+
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
@@ -31,10 +33,11 @@ public class Adversary extends UserInterface {
   /**
    * Constructs a new adversary for the election.
    * @param the_election the election in question.
+   * @param the_queue The queue of voter actions.
    */
   @Pure
-  public Adversary(final Election the_election) {
-    super(the_election, null);
+  public Adversary(final Election the_election, final Queue<VoterAction> the_queue) {
+    super(the_election, the_queue);
   }
   
   /* (non-Javadoc)

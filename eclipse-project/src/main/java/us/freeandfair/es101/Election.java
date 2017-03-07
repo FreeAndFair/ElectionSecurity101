@@ -77,11 +77,11 @@ public class Election {
                   final Queue<VoterAction> the_queue) {
     my_name = the_name;
     my_date = the_date;
-    my_voting_system_choice = new VotingSystemChoice(this);
+    my_voting_system_choice = new VotingSystemChoice(this, the_queue);
     my_voting_systems = the_voting_systems;
     my_candidates = the_candidates;
     my_tally = new Tally(my_candidates);
-    my_adversary = new Adversary(this);
+    my_adversary = new Adversary(this, the_queue);
     my_manipulation = new Manipulation(this, the_queue);
   }
 

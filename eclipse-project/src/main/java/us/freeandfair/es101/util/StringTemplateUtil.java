@@ -87,9 +87,8 @@ public final class StringTemplateUtil {
         throw new RuntimeException("Unable to load default template group.");
       }
     } else if (DEBUG_TEMPLATES) {
-      group.trackCreationEvents = true;
+      STGroup.trackCreationEvents = true;
     }
-
 
     return group.getInstanceOf(the_name);
   }

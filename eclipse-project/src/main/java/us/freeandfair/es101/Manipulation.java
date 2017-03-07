@@ -131,7 +131,7 @@ public class Manipulation extends UserInterface {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    String refresh_string = "0; /adversary";
+    final String refresh_string = "0; /adversary";
     page_template.add("refresh", refresh_string);
     final ST manipulation_template = StringTemplateUtil.loadTemplate("manipulation");
     manipulation_template.add("election", my_election);
