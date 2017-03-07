@@ -92,7 +92,7 @@ public class Manipulation extends UserInterface {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    String refresh_string = "15; /adversary";
+    String refresh_string = "10; /";
     if (va != null) {
       refresh_string = "120;/manipulation?id=" + va.my_id + "&timeout";
       my_in_progress.put(va.my_id, va);
@@ -126,7 +126,7 @@ public class Manipulation extends UserInterface {
         }
       } catch (final NumberFormatException e) {
         Main.LOGGER.info("attempt to time out an invalid ballot, id " + 
-            the_request.queryParams("id"));
+                         the_request.queryParams("id"));
       }
     }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
@@ -148,7 +148,6 @@ public class Manipulation extends UserInterface {
    * @return The data to return in response.
    */
   public String handleManipulate(final Request the_request, final Response the_response) {
-    final boolean status = false;
     boolean vote_change = false;
     boolean receipt_change = false;
     
@@ -179,7 +178,7 @@ public class Manipulation extends UserInterface {
               va.my_manipulated_receipt = new_receipt;
               receipt_change = true;
             } else if (!new_receipt.equals(va.my_vote)) {
-              Main.LOGGER.info("attempt to change receipt (" + va.my_vote + 
+              Main.LOGGER.info("attempt to change receipt (" + va.my_vote +
                                ") to invalid value " + new_receipt);
             }
           }
@@ -192,7 +191,7 @@ public class Manipulation extends UserInterface {
         }
       } catch (final NumberFormatException e) {
         Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + 
-            the_request.queryParams("id"));
+                         the_request.queryParams("id"));
       }
     }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
@@ -203,6 +202,8 @@ public class Manipulation extends UserInterface {
     final ST manipulation_success_template = 
         StringTemplateUtil.loadTemplate("manipulation_success");
     manipulation_success_template.add("election", my_election);
+    manipulation_success_template.add("vote_change", vote_change);
+    manipulation_success_template.add("receipt_change", receipt_change);
     page_template.add("body", manipulation_success_template.render());
     return page_template.render();
   }

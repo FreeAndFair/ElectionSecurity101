@@ -91,6 +91,13 @@ public class VoterAction {
   }
   
   /**
+   * @return the ID for this VoterAction.
+   */
+  public long getID() {
+    return my_id;
+  }
+  
+  /**
    * @return true if the vote in this VoterAction has been manipulated, false otherwise.
    */
   public boolean isVoteManipulated() {
