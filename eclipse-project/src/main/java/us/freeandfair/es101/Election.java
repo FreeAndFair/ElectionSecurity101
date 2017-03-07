@@ -36,10 +36,7 @@ public class Election {
   
   /** The UI for choosing a voting system. */
   protected UserInterface my_voting_system_choice;
-  
-  /** The voter. */
-  protected Voter my_voter;
-  
+
   /** The adversary. */
   protected Adversary my_adversary;
   
