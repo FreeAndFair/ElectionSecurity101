@@ -56,6 +56,9 @@ public class Election {
   /** The number of receipts that were manipulated. */
   protected long my_receipt_manipulation_count;
   
+  /** The total number of votes cast. */
+  protected long my_vote_count;
+  
   /**
    * Create and initialize a new instance of Election.
    * @param the_name the name of this election.
@@ -83,6 +86,7 @@ public class Election {
   /**
    * @return The tally for this election.
    */
+  @Pure
   public Tally getTally() {
     return my_tally;
   }
@@ -90,6 +94,7 @@ public class Election {
   /**
    * @return the collection of voting systems in use for this election.
    */
+  @Pure
   public Collection<VotingSystem> getVotingSystems() {
     return my_voting_systems;
   }
@@ -97,6 +102,7 @@ public class Election {
   /**
    * @return the collection of candidates for this election.
    */
+  @Pure
   public Collection<String> getCandidates() {
     return my_candidates;
   }
@@ -104,6 +110,7 @@ public class Election {
   /**
    * @return the vote manipulation count.
    */
+  @Pure
   public long getVoteManipulationCount() {
     return my_vote_manipulation_count;
   }
@@ -111,8 +118,17 @@ public class Election {
   /**
    * @return the receipt manipulation count.
    */
+  @Pure
   public long getReceiptManipulationCount() {
     return my_receipt_manipulation_count;
+  }
+  
+  /** 
+   * @return the vote count
+   */
+  @Pure
+  public long getVoteCount() {
+    return my_vote_count;
   }
   
   /**
