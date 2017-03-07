@@ -74,10 +74,18 @@ public class VotingSystem extends UserInterface {
    * @return text that explains this voting system's pros and cons. 
    */
   @Pure
-  protected String explanationText() {
+  public String getExplanationText() {
     return "";
   }
 
+  /**
+   * @return text that is presented after casting a ballot.
+   */
+  @Pure
+  public String getAfterVotingText() {
+    return "";
+  }
+  
   /* (non-Javadoc)
    * @see us.freeandfair.es101.UserInterface#action(spark.Request, spark.Response)
    */
@@ -137,7 +145,7 @@ public class VotingSystem extends UserInterface {
     page_template.add("refresh", "120; /");
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");
     voting_system_template.add("election", my_election);
-    voting_system_template.add("explanation", explanationText());
+    voting_system_template.add("explanation", getExplanationText());
     voting_system_template.add("schema", getSchema());
     page_template.add("body", voting_system_template.render());
     return page_template;

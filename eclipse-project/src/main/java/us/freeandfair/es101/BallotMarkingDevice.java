@@ -36,7 +36,7 @@ public class BallotMarkingDevice extends VotingSystem {
    * @see us.freeandfair.es101.VotingSystem#explanationText()
    */
   @Pure @Override
-  protected String explanationText() {
+  public String getExplanationText() {
     return "A hand-marked ballot!";
   }
 
