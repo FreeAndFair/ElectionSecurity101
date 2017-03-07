@@ -200,6 +200,7 @@ public class VotingSystem extends UserInterface {
   }
   
   /**
+   * @param the_voter_action the VoterAction for which we need a receipt.
    * @return receipt data for the specified VoterAction in this voting system.
    */
   public String getReceipt(final VoterAction the_voter_action) {
