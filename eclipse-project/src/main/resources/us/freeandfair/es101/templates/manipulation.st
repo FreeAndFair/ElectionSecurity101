@@ -50,7 +50,7 @@ $endif$
 
 </form>
 $else$
-<h3>Unfortunately, there are no votes to manipulate at this time.</h3>
+<h3>Unfortunately, there are no votes to hack at this time.</h3>
 <h3><a href="/">OK</a></h3>
 $endif$
 </div>
