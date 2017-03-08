@@ -45,25 +45,25 @@ public class InternetElection extends VotingSystem {
 
   @Pure @Override
   public String getName() {
-    return "Internet Voting";
+    return "Internet";
   }
 
   @Pure @Override
   public String getReceipt(final VoterAction the_voter_action) {
-    return "We really really promise that we recorded that you voted in our server logs.";
+    return "We really really promise that we recorded your vote properly in our server logs.";
   }
 
   @Pure @Override
   public String getReceiptName() {
-    return "server log entry";
+    return "Server Log Entry";
   }
 
   @Pure @Override
   public String getUsageRegions() {
     return "This kind of voting system has been experimented with and rejected by " +
            "numerous governments around the world, but is being used in around two dozen " +
-           " states in the U.S.A. to collect votes from overseas Americans and military " + 
-           "personnel.  And in Alaska, any citizen can vote over the internet!";
+           "states in the U.S.A. to collect votes from overseas Americans and military " + 
+           "personnel.  And in Alaska, any citizen can vote over the Internet!";
   }
 
   @Pure @Override

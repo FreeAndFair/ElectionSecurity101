@@ -1,13 +1,13 @@
 manipulation(election, voter_action) ::= <<
 <div align="center">
 $if(voter_action)$
-<p>The user chose a $voter_action.votingSystem.name$ voting system.
+<h3>The user voted using $voter_action.votingSystem.name$.
 
 $if(voter_action.votingSystem.voteVisible)$
-They voted for:</p>
-<h3>$voter_action.vote$</h3>
+They voted for:<br/>
+$voter_action.vote$</h3>
 $else$
-You can't even see who they voted for!</p>
+<br/>You can't even see who they voted for!</h3></p>
 $endif$
 
 <form action="/manipulation" method="GET">

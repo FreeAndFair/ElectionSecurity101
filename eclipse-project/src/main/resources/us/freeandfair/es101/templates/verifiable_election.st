@@ -1,4 +1,4 @@
-verifiable-election() ::= <<
+verifiable_election() ::= <<
 <h2>End-to-End Verifiable Election</h2>
 
 <p><b>Great choice!</b></p>
@@ -16,31 +16,31 @@ around the world, and is a hot topic of research in academia and industry.</p>
 
 <p>There are several good reasons to use verifiable elections technology. 
 Ballot marking devices guarantee that your ballot is completed correctly. They
-also can show ballots and instructions in any language---a very useful feature
-in some larger U.S. jurisdictions which must support nearly two dozen 
-languages!  Counting the votes also just takes a few minutes and is always
+can also show ballots and instructions in any language&mdash;a very useful feature
+in some larger U.S. jurisdictions that must support nearly two dozen 
+languages!  Counting the votes also takes just a few minutes and is always
 correct.</p>
 
 <p>The fact that there is a paper ballot that voters can see, read, and 
 understand is critical.  Moreover, authorities can always return to the paper
-record if there is a recount or audit.  
+record if there is a recount or audit.</p>
 
 <p>Finally, many of these systems have advanced auditing features built in that 
-can help authorities check on the integrity and accuracy of the election 
-quickly and inexpensively.</p>
+can help authorities quickly and inexpensively check on the integrity and 
+accuracy of the election.</p>
 
 <p>The drawbacks of voting using verifiable elections technology is that the
 cost of the election can be high.  Basically, every voter has to use a 
-computer with a touch-screen and a printer, both of which can be expensive 
-devices.  Also, many voters are unfamiliar or uncomfortable with technology---
-not everyone has a smartphone or tablet computer after all!</p>  
+computer with a touchscreen and a printer, both of which can be expensive 
+devices.  Also, many voters are unfamiliar or uncomfortable with 
+technology&mdash;after all, not everyone has a smartphone or tablet computer!</p>  
 
 <p>Finally, having
-to rely upon the fancy cryptography which is necessary, behind the scenes,
-to provide all of these 21st century features makes many uncomfortable.  After 
-all, now it is no longer the case that any voter can come to understand how an
-election works.  In fact, very few have the background to understand and vet
-the necessary cryptography and advanced computer science necessary to realize
+to rely upon the fancy cryptography that is necessary, behind the scenes,
+to provide all of these 21st century features makes many uncomfortable.  In 
+such a system,  it is no longer the case that any voter can come to understand 
+exactly how an election works.  In fact, very few have the background to understand 
+and vet the necessary cryptography and advanced computer science necessary to realize
 verifiable elections!</p>
 
 >>

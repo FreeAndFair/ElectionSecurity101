@@ -1,14 +1,16 @@
-i_voted(election, voter_action) ::= <<
+i_voted(election, voter_action, receipt) ::= <<
 <div align="center">
-<h3>You voted with a $voter_action.votingSystem.name$ voting system.</h3>
+<h3>You voted with: $voter_action.votingSystem.name$</h3>
 <p>$voter_action.votingSystem.afterVotingText$</p>
 
 $if(voter_action.votingSystem.receiptGenerated)$
   <h3>Your $voter_action.votingSystem.receiptName$:</h3>
-  <p>$voter_action.votingSystem.receipt$</p>
+  <p>$receipt$</p>
 $else$
-  <p>In this system, you do not receive any paper confirmation of your vote.</p>
+  <h3>In this system, you do not receive any confirmation of your vote.</h3>
 $endif$
+
+<br/>
 
 <p>The current <b>legitimate results</b> of this election are:
 $tally(election.tally.legitimateTally)$</p>

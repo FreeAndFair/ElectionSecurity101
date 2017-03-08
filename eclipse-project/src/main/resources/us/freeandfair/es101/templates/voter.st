@@ -1,7 +1,6 @@
 voter(election) ::= <<
 <div align="center">
-<b>$election.my_name$</b><br/>
-<i>$election.my_date$</i>
+<h2>$election.name$ - $election.date$</h2>
 
 <p>The current <b>legitimate results</b> of this election are:
 $tally(election.tally.legitimateTally)$</p>
