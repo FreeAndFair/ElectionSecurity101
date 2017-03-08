@@ -13,6 +13,7 @@
 
 package us.freeandfair.es101;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 import java.util.SortedMap;
@@ -25,7 +26,10 @@ import java.util.TreeMap;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class Tally {
+public class Tally implements Serializable {
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
   /**
    * The user interface that displays the tally.
    */

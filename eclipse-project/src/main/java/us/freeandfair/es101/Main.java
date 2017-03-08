@@ -91,6 +91,11 @@ public class Main {
   private final Election my_election;
   
   /**
+   * The timeout after which votes in the queue are cast.
+   */
+  private long my_vote_timeout = 0;
+  
+  /**
    * Constructs a new Main with the specified properties.
    * 
    * @param the_properties The properties.
@@ -106,6 +111,11 @@ public class Main {
    * @return a new instance of Election configured per the passed properties.
    */
   @Pure private Election parseProperties(final Properties the_properties) {
+    try {
+      my_vote_timeout = Long.parseLong(the_properties.getProperty("vote_timeout"));
+    } catch (final NumberFormatException e) {
+      // ignored
+    }
     final StringTokenizer st_voting_systems = 
         new StringTokenizer(the_properties.getProperty("voting_systems"), ",");
     final StringTokenizer st_candidates = 
@@ -147,17 +157,21 @@ public class Main {
    * @return The response data.
    */
   private String rootPage(final Request the_request, final Response the_response) {
-    if (the_request.queryParams().contains("timeout")) {
-      // no adversary action in a while, let's cast a queued ballot
-      final VoterAction va = my_voter_action_queue.poll();
+    // no adversary action in a while, let's cast a queued ballot
+    VoterAction va = my_voter_action_queue.peek();
+    while (va != null && System.currentTimeMillis() - va.getTimestamp() > my_vote_timeout) {
+      // note that this will cast _a_ vote if one is left on the queue, not necessarily
+      // _the_ vote that had the good timeout, if it's already been consumed
+      va = my_voter_action_queue.poll(); 
       if (va != null) {
         my_election.recordVoterAction(va);
       }
+      va = my_voter_action_queue.peek();
     }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "60; /?timeout");
+    page_template.add("refresh", "60");
     final ST dashboard_template = StringTemplateUtil.loadTemplate("dashboard");
     dashboard_template.add("election", my_election);
     page_template.add("body", dashboard_template.render());

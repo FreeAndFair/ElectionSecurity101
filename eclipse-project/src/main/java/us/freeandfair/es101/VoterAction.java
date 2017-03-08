@@ -52,6 +52,11 @@ public class VoterAction {
   protected final long my_id;
   
   /**
+   * The time when this voter action was last touched.
+   */
+  protected long my_timestamp;
+  
+  /**
    * Construct a new VoterAction with the specified voting system and vote. The 
    * specified vote is used as the vote that the voter cast, and is also used as
    * the initial setting for the manipulated vote and manipulated receipt.
@@ -65,6 +70,7 @@ public class VoterAction {
     my_manipulated_vote = my_vote;
     my_manipulated_receipt = my_vote;
     my_voting_system = the_voting_system;
+    my_timestamp = System.currentTimeMillis();
   }
   
   /**
@@ -109,5 +115,19 @@ public class VoterAction {
    */
   public boolean isReceiptManipulated() {
     return !my_vote.equals(my_manipulated_receipt);
+  }
+  
+  /**
+   * Updates the timestamp of this VoterAction to the current time.
+   */
+  public void updateTimestamp() {
+    my_timestamp = System.currentTimeMillis();
+  }
+  
+  /**
+   * @return the timestamp of this VoterAction.
+   */
+  public long getTimestamp() {
+    return my_timestamp;
   }
 }

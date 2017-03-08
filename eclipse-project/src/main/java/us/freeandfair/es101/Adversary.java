@@ -51,17 +51,10 @@ public class Adversary extends UserInterface {
    */
   @Pure @Override
   public String action(final Request the_request, final Response the_response) {
-    if (the_request.queryParams().contains("timeout")) {
-      // no adversary action in a while, let's cast a queued ballot
-      final VoterAction va = my_queue.poll();
-      if (va != null) {
-        my_election.recordVoterAction(va);
-      }
-    }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "60; /adversary?timeout");
+    page_template.add("refresh", "60; /");
     final ST adversary_template = StringTemplateUtil.loadTemplate("adversary");
     adversary_template.add("election", my_election);
     page_template.add("body", adversary_template.render());

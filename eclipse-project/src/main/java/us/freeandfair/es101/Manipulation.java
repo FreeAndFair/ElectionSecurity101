@@ -46,11 +46,6 @@ public class Manipulation extends UserInterface {
   private final Map<Long, VoterAction> my_in_progress;
   
   /**
-   * The table of times that voter action manipulations started.
-   */
-  private final Map<Long, Long> my_start_times;
-  
-  /**
    * Constructs a new Manipulation from the specified Election.
    * 
    * @param the_election The election.
@@ -59,7 +54,6 @@ public class Manipulation extends UserInterface {
   public Manipulation(final Election the_election, final Queue<VoterAction> the_queue) {
     super(the_election, the_queue);
     my_in_progress = Collections.synchronizedMap(new HashMap<Long, VoterAction>());
-    my_start_times = Collections.synchronizedMap(new HashMap<Long, Long>());
   }
   
   /** 
@@ -98,15 +92,14 @@ public class Manipulation extends UserInterface {
    */
   private synchronized void handleTimeouts() {
     final Set<Long> removed_ids = new HashSet<Long>();
-    for (long id : my_start_times.keySet()) {
-      if (System.currentTimeMillis() - my_start_times.get(id) > TIMEOUT) {
+    for (long id : my_in_progress.keySet()) {
+      if (System.currentTimeMillis() - my_in_progress.get(id).getTimestamp() > TIMEOUT) {
         // return that vote to the queue
         my_queue.offer(my_in_progress.get(id));
         removed_ids.add(id);
       }
     }
     for (long id : removed_ids) {
-      my_start_times.remove(id);
       my_in_progress.remove(id);
       Main.LOGGER.info("returning ballot #" + id + " to queue after timeout.");
     }
@@ -128,8 +121,8 @@ public class Manipulation extends UserInterface {
     String refresh_string = "10; /";
     if (va != null) {
       refresh_string = "120;/manipulation?id=" + va.my_id + "&timeout";
+      va.updateTimestamp();
       my_in_progress.put(va.my_id, va);
-      my_start_times.put(va.my_id, System.currentTimeMillis());
     }
     page_template.add("refresh", refresh_string);
     final ST manipulation_template = StringTemplateUtil.loadTemplate("manipulation");
@@ -154,7 +147,6 @@ public class Manipulation extends UserInterface {
           // re-queue the vote whose manipulation timed out
           my_queue.offer(my_in_progress.get(id));
           my_in_progress.remove(id);
-          my_start_times.remove(id);
           Main.LOGGER.info("returning ballot #" + id + " to queue after explicit timeout.");
         } else {
           Main.LOGGER.info("attempt to time out an unmanipulated ballot, #" + id);
@@ -224,7 +216,6 @@ public class Manipulation extends UserInterface {
           // cast the vote
           my_election.recordVoterAction(va);
           my_in_progress.remove(id);
-          my_start_times.remove(id);
         } else {
           Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + id);
         }
