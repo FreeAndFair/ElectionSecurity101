@@ -3,10 +3,7 @@ adversary(election) ::= <<
 <b>$election.my_name$</b><br/>
 <i>$election.my_date$</i>
 
-<p>The current <b>legitimate results</b> of this election are:
-$tally(election.tally.legitimateTally)$</p>
-<p>The current <b>hacked results</b> of this election are:
-$tally(election.tally.hackedTally)$</p>
+<p>$tally(election.tally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
 $election.receiptManipulationCount$ manipulated voter receipts/VVPATs.</p>
 

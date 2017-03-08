@@ -15,10 +15,7 @@ $else$
   <h2>You did not manipulate either the vote or the receipt.</h2>
 $endif$
 
-<p>The current <b>legitimate results</b> of this election are:
-$tally(election.tally.legitimateTally)$</p>
-<p>The current <b>manipulated results</b> of this election are:
-$tally(election.tally.hackedTally)$</p>
+<p>$tally(election.tally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
 $election.receiptManipulationCount$ manipulated receipts/VVPATs.</p>
 <h2><a href="/">Thanks for Participating!</a></h2>

@@ -8,12 +8,7 @@ dashboard(election) ::= <<
 $election.voteManipulationCount$ votes and $election.receiptManipulationCount$ 
 voter receipts/VVPATs.</p>
 
-<p>The current <b>legitimate results</b> of this election are:
-$tally(election.tally.legitimateTally)$</p>
-<p>
-The current <b>hacked results</b> of this election are:
-$tally(election.tally.hackedTally)$
-</p>
+<p>$tally(election.tally)$</p>
 
 <h3>You can be a <a href="/voting_system_choice">voter</a> or an <a href="/adversary">adversary.</h3>
 </div>
