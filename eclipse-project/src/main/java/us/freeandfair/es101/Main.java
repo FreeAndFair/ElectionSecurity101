@@ -33,10 +33,8 @@ import org.stringtemplate.v4.ST;
 
 import spark.Request;
 import spark.Response;
+import spark.Spark;
 import us.freeandfair.es101.util.StringTemplateUtil;
-
-import static spark.Spark.get;
-import static spark.Spark.port;
 
 /**
  * The main executable of the system. Starts the web server and an election
@@ -279,22 +277,24 @@ public class Main {
     } catch (final NumberFormatException e) {
       LOGGER.info("could not read port number from properties, using default port");
     }
-    port(port_number);
+    Spark.port(port_number);
+    // static files
+    Spark.staticFileLocation("/us/freeandfair/es101/static");
     // the top-level for the whole application
-    get("/", (the_request, the_response) -> rootPage(the_request, the_response));
-        // register the top-level voting system choice UI
-    get(my_election.my_voting_system_choice.getSchema(), (the_request, the_response) ->
-        my_election.my_voting_system_choice.action(the_request, the_response));
+    Spark.get("/", (the_request, the_response) -> rootPage(the_request, the_response));
+    // register the top-level voting system choice UI
+    Spark.get(my_election.my_voting_system_choice.getSchema(), (the_request, the_response) ->
+              my_election.my_voting_system_choice.action(the_request, the_response));
     // for every voting system choice, create a callback for their schema and UI
     my_election.my_voting_systems.iterator().forEachRemaining(vs -> 
-        get(vs.getSchema(), (the_request, the_response) -> 
-                         vs.action(the_request, the_response)));
+        Spark.get(vs.getSchema(), (the_request, the_response) -> 
+                  vs.action(the_request, the_response)));
     // register the top-level adversary UI
-    get(my_election.my_adversary.getSchema(), (the_request, the_response) ->
-        my_election.my_adversary.action(the_request, the_response));
+    Spark.get(my_election.my_adversary.getSchema(), (the_request, the_response) ->
+              my_election.my_adversary.action(the_request, the_response));
     // register the top-level manipulation UI
-    get(my_election.my_manipulation.getSchema(),
-        (the_req, the_resp) -> my_election.my_manipulation.action(the_req, the_resp));
+    Spark.get(my_election.my_manipulation.getSchema(), (the_request, the_response) -> 
+              my_election.my_manipulation.action(the_request, the_response));
   }
   
   /**

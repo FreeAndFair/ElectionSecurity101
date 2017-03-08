@@ -10,7 +10,7 @@ $if(voter_action.votingSystem.receiptGenerated)$
   <h3>Your $voter_action.votingSystem.receiptName$:</h3>
   <p>$receipt$</p>
 $else$
-  <h3>In this system, you do not receive any confirmation of your vote.</h3>
+  <h3>With $voter_action.votingSystem.name$, you do not receive any confirmation of your vote.</h3>
 $endif$
 
 <br/>
