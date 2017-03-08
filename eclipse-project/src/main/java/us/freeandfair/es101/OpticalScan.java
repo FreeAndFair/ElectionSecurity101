@@ -15,6 +15,8 @@ package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
 
+import us.freeandfair.es101.util.StringTemplateUtil;
+
 /**
  * A voting system that uses a digital system to automatically interpret voter intent 
  * from marked paper ballots.
@@ -24,12 +26,46 @@ import org.jmlspecs.annotation.Pure;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class OpticalScan extends VotingSystem {
-  /**
-   * Create an optical scan voting system for an election.
-   */
-  @Pure
-  public OpticalScan() {
-    // empty
+  @Pure @Override
+  public String getSchema() {
+    return "/optical_scan";
   }
 
+  @Pure @Override
+  public String getExplanationText() {
+    return StringTemplateUtil.loadTemplate("optical_scan").render();
+  }
+
+  @Pure @Override
+  public String getName() {
+    return "Optical Scan";
+  }
+
+  @Pure @Override
+  public String getUsageRegions() {
+    return "This kind of voting system has been experimented with and rejected by " +
+           "numerous governments around the world, but is being used in around two dozen " +
+           "states in the U.S.A. to collect votes from overseas Americans and military " + 
+           "personnel.  And in Alaska, any citizen can vote over the Internet!";
+  }
+
+  @Pure @Override
+  public boolean isReceiptGenerated() {
+    return false;
+  }
+
+  @Pure @Override
+  public boolean isReceiptManipulable() {
+    return false;
+  }
+
+  @Pure @Override
+  public boolean isVoteManipulable() {
+    return true;
+  }
+
+  @Pure @Override
+  public boolean isVoteVisible() {
+    return true;
+  }
 }
