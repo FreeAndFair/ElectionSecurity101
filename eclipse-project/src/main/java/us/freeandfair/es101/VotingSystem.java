@@ -83,7 +83,7 @@ public class VotingSystem extends UserInterface {
    */
   @Pure
   public String getAfterVotingText() {
-    return "Thank you for voting!  Make sure you get an 'I Voted Today' sticker!";
+    return "";
   }
   
   /* (non-Javadoc)
@@ -116,7 +116,7 @@ public class VotingSystem extends UserInterface {
     page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "30; /");
+    page_template.add("refresh", "60; /");
     if (the_vote != null && my_election.getCandidates().contains(the_vote)) {
       final VoterAction va = new VoterAction(this, the_vote);
       my_queue.offer(va);

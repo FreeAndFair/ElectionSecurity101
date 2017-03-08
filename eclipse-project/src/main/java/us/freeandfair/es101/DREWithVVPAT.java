@@ -33,7 +33,7 @@ public class DREWithVVPAT extends VotingSystem {
   @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
-        "<br/>You may have just given your vote to the bad guys!  <br/>Did you triple-check your " +
+        "You may have just given your vote to the bad guys!  <br/>Did you triple-check your " +
         "VVPAT?  Do you not know what that means?  Well, too bad!";
   }
 

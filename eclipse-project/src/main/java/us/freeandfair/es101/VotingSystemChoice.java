@@ -58,7 +58,7 @@ public class VotingSystemChoice extends UserInterface {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", true);
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "15");
+    page_template.add("refresh", "60; /?timeout");
     final ST voter_template =
         StringTemplateUtil.loadTemplate("voter");
     // voter_template.inspect();

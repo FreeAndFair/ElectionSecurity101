@@ -34,7 +34,7 @@ public class BallotMarkingDevice extends VotingSystem {
   @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
-        "\nAt least your vote is guaranteed to be filled out correctly!";
+        "Your vote is guaranteed to be filled out correctly!";
   }
 
   @Pure @Override
@@ -49,10 +49,9 @@ public class BallotMarkingDevice extends VotingSystem {
 
   @Pure @Override
   public String getUsageRegions() {
-    return "This kind of voting system has been experimented with and rejected by " +
-           "numerous governments around the world, but is being used in around two dozen " +
-           "states in the U.S.A. to collect votes from overseas Americans and military " + 
-           "personnel.  And in Alaska, any citizen can vote over the internet!";
+    return "Ballot marking devices are currently being used primarily by disabled voters. " + 
+           "A 21st-century ballot marking device is currently being designed by " +
+           "Los Angeles County.";
   }
 
   @Pure @Override

@@ -33,7 +33,7 @@ public class DRE extends VotingSystem {
   @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
-        "<br/>You just gave your vote to the bad guys!";
+        "You just gave your vote to the bad guys!";
   }
 
   @Pure @Override

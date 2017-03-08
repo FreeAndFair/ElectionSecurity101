@@ -14,7 +14,6 @@
 package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
-import org.stringtemplate.v4.ST;
 
 import us.freeandfair.es101.util.StringTemplateUtil;
 
@@ -35,7 +34,7 @@ public class InternetElection extends VotingSystem {
   @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
-        "\nYou just gave your vote to the bad guys!";
+        "You just gave your vote to the bad guys!";
   }
 
   @Pure @Override

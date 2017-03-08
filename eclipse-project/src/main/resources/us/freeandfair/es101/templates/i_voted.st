@@ -20,7 +20,7 @@ $tally(election.tally.hackedTally)$</p>
 $election.receiptManipulationCount$ manipulated receipts/VVPATs.</p>
 <p>Note that it takes some time for votes to be tallied, and your vote may not yet appear in these totals.</p>
 
-<h2><a href="/">Thank You for Voting!</a></h2>
+<h2><a href="/">Thank You for Voting! Make Sure You Get An "I Voted" Sticker!</a></h2>
 
 </div>
 >>
