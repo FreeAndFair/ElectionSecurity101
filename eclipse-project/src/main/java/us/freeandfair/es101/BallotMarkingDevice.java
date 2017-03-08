@@ -71,6 +71,6 @@ public class BallotMarkingDevice extends VotingSystem {
 
   @Pure @Override
   public boolean isVoteVisible() {
-    return false;
+    return true;
   }  
 }
