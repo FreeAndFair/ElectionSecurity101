@@ -11,6 +11,8 @@ voter receipts/VVPATs.</p>
 
 <p>$tally(election.tally)$</p>
 
-<h3>You can be a <a href="/voting_system_choice">voter</a> or an <a href="/adversary">adversary.</h3>
+<!-- <h3>You can be a <a href="/voting_system_choice">voter</a> or an 
+     <a href="/adversary">adversary.</h3> -->
+
 </div>
 >>

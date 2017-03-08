@@ -51,7 +51,8 @@ $endif$
 </form>
 $else$
 <h3>Unfortunately, there are no votes to hack at this time.</h3>
-<h3><a href="/">OK</a></h3>
+<button type="button"
+ onclick="window.location.href='/'">OK</button>
 $endif$
 </div>
 >>

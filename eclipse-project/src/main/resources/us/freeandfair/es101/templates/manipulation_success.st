@@ -18,6 +18,7 @@ $endif$
 <p>$tally(election.tally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
 $election.receiptManipulationCount$ manipulated records.</p>
-<h2><a href="/">Thanks for Participating!</a></h2>
+<button type="button"
+ onclick="window.location.href='/'">Thanks for Participating!</button>
 </div>
 >>

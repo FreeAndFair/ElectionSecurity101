@@ -1,4 +1,5 @@
 adversary(election) ::= <<
+
 <div align="center">
 <h2>$election.name$ &ndash; $election.date$</h2>
 <h3>$election.description$</h3>
@@ -7,6 +8,7 @@ adversary(election) ::= <<
 <p>There have been $election.voteManipulationCount$ manipulated votes and
 $election.receiptManipulationCount$ manipulated records.</p>
 
-<h2><a href="/manipulation">Hack a Vote!</a></h2>
+<button type="button" name="Hack" 
+ onclick="window.location.href='/manipulation'">Hack a Vote!</button>
 </div>
 >>

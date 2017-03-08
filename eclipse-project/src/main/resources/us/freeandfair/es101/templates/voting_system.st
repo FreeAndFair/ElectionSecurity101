@@ -7,7 +7,9 @@ voting_system(election,explanation,schema) ::= <<
 <table border=0>
 <tr><th align="center">Choose a Candidate</th></tr>
 $election.candidates:{ candidate |
-  <tr><td align="center"><a href="$schema$?vote=$candidate$">$candidate$</a></td></tr>
+  <tr><td align="center">
+      <button type="button"
+       onclick="window.location.href='$schema$?vote=$candidate$'">$candidate$</button></td></tr>
  }$
  </table>
  
