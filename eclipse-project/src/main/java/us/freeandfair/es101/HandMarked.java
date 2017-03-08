@@ -42,7 +42,8 @@ public class HandMarked extends VotingSystem {
 
   @Pure @Override
   public String getUsageRegions() {
-    return "A few handfuls of very small counties in New Hampshire, Maine, Georgia, Idaho, and elsewhere.";
+    return "A few handfuls of very small counties in New Hampshire, Maine, Georgia, Idaho, " +
+           "and elsewhere.";
   }
 
   @Pure @Override
