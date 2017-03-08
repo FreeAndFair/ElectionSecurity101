@@ -45,7 +45,7 @@ public class VerifiableElection extends VotingSystem {
 
   @Pure @Override
   public String getName() {
-    return "End-to-End Verifiable Election";
+    return "End-to-End Verifiable";
   }
 
   @Pure @Override
@@ -55,12 +55,12 @@ public class VerifiableElection extends VotingSystem {
 
   @Pure @Override
   public String getReceiptName() {
-    return "cryptographic receipt";
+    return "Cryptographic Receipt";
   }
 
   @Pure @Override
   public String getUsageRegions() {
-    return "System like this have been experimented with in Tacoma Park, MD and " +
+    return "System like this have been experimented with in Takoma Park, MD. " +
       "Austin, TX is about to start working on such a system and intends to make it " +
       "available to the entire U.S.A.";
   }
@@ -83,14 +83,5 @@ public class VerifiableElection extends VotingSystem {
   @Pure @Override
   public boolean isVoteVisible() {
     return false;
-  }
-
-  @Pure @Override
-  protected ST iVotedPageSetup(final String the_vote) {
-    final ST i_voted_template = super.iVotedPageSetup(the_vote);
-    i_voted_template.add("message", 
-                         "Don't forget to check your receipt after the election to ensure " +
-                         "that your vote was included in the election results!");
-    return i_voted_template;
   }
 }
