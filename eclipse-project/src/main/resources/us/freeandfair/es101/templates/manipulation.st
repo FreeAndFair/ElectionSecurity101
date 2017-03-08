@@ -18,11 +18,11 @@ $if(voter_action.votingSystem.voteManipulable)$
     <!-- can manipulate both vote and receipt -->
     <p>You can manipulate both their vote and their $voter_action.votingSystem.receiptName$!</p>
     <table border=0>
-    <th>Vote</th>
+    <th colspan="2" align="center">Vote</th>
     $manipulation_table_body(election, "vote")$
     </table>
     <table border=0>
-    <th>$voter_action.votingSystem.receiptName$</th>
+    <th colspan="2" align="center">$voter_action.votingSystem.receiptName$</th>
     $manipulation_table_body(election, "receipt")$
     </table>
     <input type="submit" value="Manipulate!">
@@ -30,7 +30,7 @@ $if(voter_action.votingSystem.voteManipulable)$
     <!-- can manipulate only vote -->
     <p>You can manipulate their vote, but not their $voter_action.votingSystem.receiptName$.</p>
     <table border=0>
-    <th>Vote</th>
+    <th colspan="2" align="center">Vote</th>
     $manipulation_table_body(election, "vote")$
     </table>
     <input type="submit" value="Manipulate!">
@@ -40,7 +40,7 @@ $elseif(voter_action.votingSystem.receiptManipulable)$
   <p>You can manipulate their $voter_action.votingSystem.receiptName$, but not their vote.</p>
    </table>
    <table border=0>
-   <th>$voter_action.votingSystem.receiptName$</th>
+   <th colspan="2" align="center">$voter_action.votingSystem.receiptName$</th>
    $manipulation_table_body(election, "receipt")$
    </table>
    <input type="submit" value="Manipulate!">

@@ -1,5 +1,5 @@
-manipulation_table_body(election, group) ::= <<
+manipulation_table_body(election, button_group) ::= <<
 $election.candidates:{ candidate |
-  <tr><td><input type="radio" name="$group$" value="$candidate$">$candidate$</input></td></tr>
+  <tr><td align="center"><input type="radio" name="$button_group$" value="$candidate$">&nbsp; $candidate$</input></td></tr>
  }$
 >>

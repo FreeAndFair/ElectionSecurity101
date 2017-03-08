@@ -28,6 +28,11 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class VerifiableElection extends VotingSystem {
   @Pure @Override
+  public String getSchema() {
+    return "/verifiable_election";
+  }
+  
+  @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
         "\nDo not forget to use your receipt to check that your vote was counted correctly!";

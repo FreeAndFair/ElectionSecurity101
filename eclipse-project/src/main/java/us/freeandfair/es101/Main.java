@@ -28,6 +28,8 @@ import org.apache.log4j.Logger;
 import org.jmlspecs.annotation.Pure;
 import org.stringtemplate.v4.ST;
 
+import spark.Request;
+import spark.Response;
 import us.freeandfair.es101.util.StringTemplateUtil;
 
 import static spark.Spark.get;
@@ -140,13 +142,22 @@ public class Main {
   /**
    * Handles an HTTP request for the root page.
    * 
+   * @param the_request The HTTP request.
+   * @param the_response The HTTP response.
    * @return The response data.
    */
-  private String rootPage() {
+  private String rootPage(final Request the_request, final Response the_response) {
+    if (the_request.queryParams().contains("timeout")) {
+      // no adversary action in a while, let's cast a queued ballot
+      final VoterAction va = my_voter_action_queue.poll();
+      if (va != null) {
+        my_election.recordVoterAction(va);
+      }
+    }
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "30");
+    page_template.add("refresh", "60; /?timeout");
     final ST dashboard_template = StringTemplateUtil.loadTemplate("dashboard");
     dashboard_template.add("election", my_election);
     page_template.add("body", dashboard_template.render());
@@ -172,7 +183,7 @@ public class Main {
     }
     port(port_number);
     // the top-level for the whole application
-    get("/", (the_request, the_response) -> rootPage());
+    get("/", (the_request, the_response) -> rootPage(the_request, the_response));
         // register the top-level voting system choice UI
     get(my_election.my_voting_system_choice.getSchema(), (the_request, the_response) ->
         my_election.my_voting_system_choice.action(the_request, the_response));
