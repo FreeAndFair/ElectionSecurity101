@@ -1,7 +1,7 @@
 manipulation(election, voter_action) ::= <<
 <div align="center">
 $if(voter_action)$
-<h3>The user voted using $voter_action.votingSystem.name$.
+<h3>The user voted using $voter_action.votingSystem.name$.<br/>
 
 $if(voter_action.votingSystem.voteVisible)$
 They voted for:<br/>
