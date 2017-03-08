@@ -43,10 +43,10 @@ public class OpticalScan extends VotingSystem {
 
   @Pure @Override
   public String getUsageRegions() {
-    return "This kind of voting system has been experimented with and rejected by " +
-           "numerous governments around the world, but is being used in around two dozen " +
-           "states in the U.S.A. to collect votes from overseas Americans and military " + 
-           "personnel.  And in Alaska, any citizen can vote over the Internet!";
+    return "All voting in Montana, North and South Dakota, Nebraska, " +
+           "New Mexico, Oklahoma, Iowa, Minnesota, Michigan, New York, Alabama, Maryland, " +
+           "Maine, New Hampshire, Vermont, Connecticut, Rhode Island, Maryland, and " + 
+           "Washington D.C., Washington, Colorado, and Oregon uses optical scan systems.";
   }
 
   @Pure @Override
