@@ -26,9 +26,14 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class DREWithVVPAT extends VotingSystem {
   @Pure @Override
+  public String getSchema() {
+    return "/dre_with_vvpat";
+  }
+  
+  @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
-        "\nYou may have just given your vote to the bad guys!  Did you triple-check your " +
+        "<br/>You may have just given your vote to the bad guys!  <br/>Did you triple-check your " +
         "VVPAT?  Do you not know what that means?  Well, too bad!";
   }
 
@@ -39,15 +44,15 @@ public class DREWithVVPAT extends VotingSystem {
 
   @Pure @Override
   public String getName() {
-    return "Direct Recording Electronic (DRE) Voting Machines with a Voter-Verifiable " +
+    return "Direct Recording Electronic (DRE) with Voter-Verifiable " +
            "Paper Audit Trail (VVPAT)";
   }
 
   @Pure @Override
   public String getReceipt(final VoterAction the_voter_action) {
-    return "===afw49778hfiuanf4i8ahfaufg48wf4a===\n" +
+    return "===afw49778hfiuanf4i8ahfaufg48wf4a===<br/>" +
            the_voter_action.my_manipulated_receipt +
-           "===92f8h4ounfh8sof42n28oj24oflsjf8===";
+           "<br/>===92f8h4ounfh8sof42n28oj24oflsjf8===";
   }
 
   @Pure @Override

@@ -14,7 +14,6 @@
 package us.freeandfair.es101;
 
 import org.jmlspecs.annotation.Pure;
-import org.stringtemplate.v4.ST;
 
 import us.freeandfair.es101.util.StringTemplateUtil;
 
@@ -29,7 +28,7 @@ import us.freeandfair.es101.util.StringTemplateUtil;
 public class VerifiableElection extends VotingSystem {
   @Pure @Override
   public String getSchema() {
-    return "/verifiable_election";
+    return "/e2e_verifiable";
   }
   
   @Pure @Override

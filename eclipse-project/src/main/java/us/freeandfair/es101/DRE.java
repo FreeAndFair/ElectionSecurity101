@@ -26,9 +26,14 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  */
 public class DRE extends VotingSystem {
   @Pure @Override
+  public String getSchema() {
+    return "/dre";
+  }
+  
+  @Pure @Override
   public String getAfterVotingText() {
     return super.getAfterVotingText() +
-        "\nYou just gave your vote to the bad guys!";
+        "<br/>You just gave your vote to the bad guys!";
   }
 
   @Pure @Override
@@ -38,17 +43,17 @@ public class DRE extends VotingSystem {
 
   @Pure @Override
   public String getName() {
-    return "Direct Recording Electronic (DRE) Voting Machines";
+    return "Direct Recording Electronic (DRE)";
   }
 
   @Pure @Override
   public String getReceipt(final VoterAction the_voter_action) {
-    return "We really really promise that we recorded that you voted in our DRE logs.";
+    return "We really really promise that we recorded your vote in our DRE logs.";
   }
 
   @Pure @Override
   public String getReceiptName() {
-    return "DRE log entry";
+    return "DRE Log Entry";
   }
 
   @Pure @Override

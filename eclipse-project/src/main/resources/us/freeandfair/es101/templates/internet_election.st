@@ -28,7 +28,7 @@ on your computer that changes the way that you voted without your noticing&mdash
 there is no way for the authorities to detect and mitigate the issue or 
 correct the election.</p>
 
-<p>Internet voting is the <b>least</b> secure type of voting system in use in the world 
+<p>Internet voting is the <b>least secure</b> type of voting system in use in the world 
 today.  This kind of voting system has been experimented with and rejected by
 numerous governments around the world, but is being used in around two dozen
 states in the U.S.A. to collect votes from overseas Americans and military 
