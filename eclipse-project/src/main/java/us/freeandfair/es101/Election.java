@@ -36,6 +36,9 @@ public class Election implements Serializable {
   /** The date of this election. */
   protected String my_date;
   
+  /** The description of this election. */
+  protected String my_description;
+  
   /** The UI for choosing a voting system. */
   protected UserInterface my_voting_system_choice;
 
@@ -67,6 +70,7 @@ public class Election implements Serializable {
    * Create and initialize a new instance of Election.
    * @param the_name the name of this election.
    * @param the_date the date this election begins.
+   * @param the_description the description of this election.
    * @param the_voting_systems the voting systems supported in this election.
    * @param the_candidates vying for a seat in this election.
    * @param the_queue the queue of voter actions that have taken place.
@@ -74,11 +78,13 @@ public class Election implements Serializable {
   @Pure
   public Election(final String the_name,
                   final String the_date,
+                  final String the_description,
                   final Collection<VotingSystem> the_voting_systems,
                   final Collection<String> the_candidates,
                   final Queue<VoterAction> the_queue) {
     my_name = the_name;
     my_date = the_date;
+    my_description = the_description;
     my_voting_system_choice = new VotingSystemChoice(this, the_queue);
     my_voting_systems = the_voting_systems;
     my_candidates = the_candidates;
@@ -149,6 +155,14 @@ public class Election implements Serializable {
   @Pure
   public String getDate() {
     return my_date;
+  }
+  
+  /**
+   * @return the description.
+   */
+  @Pure
+  public String getDescription() {
+    return my_description;
   }
   
   /**

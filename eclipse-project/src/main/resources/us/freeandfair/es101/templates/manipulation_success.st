@@ -17,7 +17,7 @@ $endif$
 
 <p>$tally(election.tally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
-$election.receiptManipulationCount$ manipulated receipts/VVPATs.</p>
+$election.receiptManipulationCount$ manipulated records.</p>
 <h2><a href="/">Thanks for Participating!</a></h2>
 </div>
 >>

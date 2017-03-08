@@ -15,7 +15,10 @@ package us.freeandfair.es101;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -96,6 +99,21 @@ public class Main {
   private long my_vote_timeout = 0;
   
   /**
+   * The timeout after which the system is checkpointed.
+   */
+  private long my_checkpoint_timeout = 180000;
+  
+  /**
+   * The last checkpoint time.
+   */
+  private long my_last_checkpoint_time = 0;
+  
+  /**
+   * The filesystem path where checkpoints should be written and read.
+   */
+  private String my_checkpoint_file;
+  
+  /**
    * Constructs a new Main with the specified properties.
    * 
    * @param the_properties The properties.
@@ -111,44 +129,109 @@ public class Main {
    * @return a new instance of Election configured per the passed properties.
    */
   @Pure private Election parseProperties(final Properties the_properties) {
+    Election result = null;
     try {
       my_vote_timeout = Long.parseLong(the_properties.getProperty("vote_timeout"));
     } catch (final NumberFormatException e) {
       // ignored
     }
-    final StringTokenizer st_voting_systems = 
-        new StringTokenizer(the_properties.getProperty("voting_systems"), ",");
-    final StringTokenizer st_candidates = 
-        new StringTokenizer(the_properties.getProperty("candidates"), ",");
-    final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
-    while (st_voting_systems.hasMoreTokens()) {
-      try {
-        final String voting_system_name = st_voting_systems.nextToken();
-        final Class voting_system_class = Class.forName(voting_system_name);
-        final VotingSystem voting_system =
-            (VotingSystem) voting_system_class.newInstance();
-        voting_systems.add(voting_system);
-      } catch (final ClassCastException | ClassNotFoundException | IllegalAccessException |
-                     InstantiationException e) {
-        // ignoring malformed classnames
+    try {
+      my_checkpoint_timeout = Long.parseLong(the_properties.getProperty("checkpoint_timeout"));
+    } catch (final NumberFormatException e) {
+      // ignored
+    }
+    if (the_properties.containsKey("checkpoint_file")) {
+      my_checkpoint_file = the_properties.getProperty("checkpoint_file");
+    }
+    // if there is an existing checkpoint of the election, read it and use it
+    if (my_checkpoint_file != null) {
+      final File cf = new File(my_checkpoint_file);
+      if (cf.isFile()) {
+        // try to read an Election object from the file
+        try {
+          final ObjectInputStream ois = new ObjectInputStream(new FileInputStream(cf));
+          final Election checkpoint = (Election) ois.readObject();
+          ois.close();
+          result = checkpoint;
+          // we need to load our queue
+          final VotingSystem vs = result.my_voting_systems.iterator().next();
+          my_voter_action_queue.addAll(vs.my_queue);
+          LOGGER.info("read checkpoint file at " + my_checkpoint_file);
+        } catch (final IOException | ClassNotFoundException | ClassCastException e) {
+          LOGGER.error("could not restore from checkpoint file at " +
+                       my_checkpoint_file + ": " + e);
+        }
+      } else {
+        LOGGER.info("no checkpoint file at " + my_checkpoint_file);
       }
+    } else {
+      LOGGER.info("no checkpoint file specified");
     }
-    final List<String> candidates = new ArrayList<String>();
-    while (st_candidates.hasMoreTokens()) {
-      candidates.add(st_candidates.nextToken());
+    if (result == null) {
+      final StringTokenizer st_voting_systems = 
+          new StringTokenizer(the_properties.getProperty("voting_systems"), ",");
+      final StringTokenizer st_candidates = 
+          new StringTokenizer(the_properties.getProperty("candidates"), ",");
+      final List<VotingSystem> voting_systems = new ArrayList<VotingSystem>();
+      while (st_voting_systems.hasMoreTokens()) {
+        try {
+          final String voting_system_name = st_voting_systems.nextToken();
+          final Class voting_system_class = Class.forName(voting_system_name);
+          final VotingSystem voting_system =
+              (VotingSystem) voting_system_class.newInstance();
+          voting_systems.add(voting_system);
+        } catch (final ClassCastException | ClassNotFoundException | 
+                       IllegalAccessException | InstantiationException e) {
+          // ignoring malformed classnames
+        }
+      }
+      final List<String> candidates = new ArrayList<String>();
+      while (st_candidates.hasMoreTokens()) {
+        candidates.add(st_candidates.nextToken());
+      }
+      result = new Election(the_properties.getProperty("name"),
+                            the_properties.getProperty("date"),
+                            the_properties.getProperty("description"),
+                            voting_systems,
+                            candidates,
+                            my_voter_action_queue);
     }
-    final Election result = new Election(the_properties.getProperty("name"),
-                                         the_properties.getProperty("date"),
-                                         voting_systems,
-                                         candidates,
-                                         my_voter_action_queue);
-    for (VotingSystem vs: voting_systems) {
+    for (VotingSystem vs: result.my_voting_systems) {
       vs.setElection(result);
       vs.setQueue(my_voter_action_queue);
     }
     return result;
   }
 
+  /**
+   * Checkpoints the state to the checkpoint file if the required time has elapsed from the 
+   * last checkpoint.
+   */
+  private synchronized void checkpoint() {
+    if (my_checkpoint_file != null &&
+        System.currentTimeMillis() - my_last_checkpoint_time > my_checkpoint_timeout) {
+      final File cf = new File(my_checkpoint_file);
+      if (!cf.exists()) {
+        try {
+          cf.createNewFile();
+        } catch (final IOException e) {
+          LOGGER.error("unable to create checkpoint file " + my_checkpoint_file + ": " + e);
+        }
+      }
+      if (cf.canWrite()) {
+        try {
+          final ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(cf));
+          oos.writeObject(my_election);
+          oos.close();
+          my_last_checkpoint_time = System.currentTimeMillis();
+          LOGGER.info("wrote checkpoint to " + my_checkpoint_file);
+        } catch (final IOException e) {
+          LOGGER.error("could not write checkpoint to " + my_checkpoint_file + ": " + e);
+        }
+      }
+    }
+  }
+  
   /**
    * Handles an HTTP request for the root page.
    * 
@@ -168,11 +251,12 @@ public class Main {
       }
       va = my_voter_action_queue.peek();
     }
+    checkpoint();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "60");
-    final ST dashboard_template = StringTemplateUtil.loadTemplate("dashboard");
+    final ST dashboard_template = StringTemplateUtil.loadTemplate("landing");
     dashboard_template.add("election", my_election);
     page_template.add("body", dashboard_template.render());
     return page_template.render();

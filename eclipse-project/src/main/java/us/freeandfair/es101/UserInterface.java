@@ -13,6 +13,7 @@
 
 package us.freeandfair.es101;
 
+import java.io.Serializable;
 import java.util.Queue;
 
 import org.jmlspecs.annotation.Pure;
@@ -28,7 +29,10 @@ import spark.Response;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class UserInterface {
+public class UserInterface implements Serializable {
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+  
   /** The election associated with this UI. */
   protected Election my_election;
 

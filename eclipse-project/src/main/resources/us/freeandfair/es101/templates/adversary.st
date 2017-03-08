@@ -1,12 +1,12 @@
 adversary(election) ::= <<
 <div align="center">
-<b>$election.my_name$</b><br/>
-<i>$election.my_date$</i>
+<h2>$election.name$ &ndash; $election.date$</h2>
+<h3>$election.description$</h3>
 
 <p>$tally(election.tally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
-$election.receiptManipulationCount$ manipulated voter receipts/VVPATs.</p>
+$election.receiptManipulationCount$ manipulated records.</p>
 
-<h2><a href="/manipulation">Manipulate a Vote</a></h2>
+<h2><a href="/manipulation">Hack a Vote!</a></h2>
 </div>
 >>

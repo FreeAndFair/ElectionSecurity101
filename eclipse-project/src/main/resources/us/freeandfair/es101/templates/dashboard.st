@@ -1,6 +1,7 @@
 dashboard(election) ::= <<
 <div align="center">
-<h2>$election.name$ - $election.date$</h2>
+<h2>$election.name$ &ndash; $election.date$</h2>
+<h3>$election.description$</h3>
 
 <h3><em>Candidates:</em> $election.candidates:{ candidate | &nbsp; &nbsp; &nbsp; $candidate$ }$</h3>
 

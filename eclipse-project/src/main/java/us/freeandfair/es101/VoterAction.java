@@ -13,6 +13,8 @@
 
 package us.freeandfair.es101;
 
+import java.io.Serializable;
+
 /**
  * Details about an action taken by the voter that is awaiting adversary interaction.
  *  
@@ -20,7 +22,10 @@ package us.freeandfair.es101;
  * @author Joseph Kiniry <kiniry@freeandfair.us>
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
-public class VoterAction {
+public class VoterAction implements Serializable {
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
   /**
    * The next unique ID to be assigned.
    */

@@ -1,5 +1,8 @@
 i_voted(election, voter_action, receipt) ::= <<
 <div align="center">
+<h2>$election.name$ &ndash; $election.date$</h2>
+<h3>$election.description$</h3>
+<br/>
 <h3>You voted with: $voter_action.votingSystem.name$</h3>
 <p>$voter_action.votingSystem.afterVotingText$</p>
 
@@ -14,7 +17,7 @@ $endif$
 
 <p>$tally(election.tally)$</p>
 <p>There have been $election.voteManipulationCount$ manipulated votes and
-$election.receiptManipulationCount$ manipulated receipts/VVPATs.</p>
+$election.receiptManipulationCount$ manipulated records.</p>
 <p>Note that it takes some time for votes to be tallied, and your vote may not yet appear in these totals.</p>
 
 <h2><a href="/">Thank You for Voting! Make Sure You Get An "I Voted" Sticker!</a></h2>
