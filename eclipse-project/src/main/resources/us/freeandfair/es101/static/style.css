@@ -1,0 +1,160 @@
+body	{	
+	font-size:	1em;
+	font-weight:	normal;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.58;
+	}	
+
+h1	{	
+	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
+	font-size-adjust:	.4;
+	font-size:	2.0em;
+	font-weight:	600;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	margin-left:	25%;
+	margin-right:	25%;
+	}	
+		
+h2	{	
+	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
+	font-size-adjust:	.4;
+	font-size:	1.75em;
+	font-weight:	500;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	margin-left:	30%;
+	margin-right:	30%;
+	}	
+		
+h3	{	
+	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
+	font-size-adjust:	.4;
+	font-size:	1.58em;
+	font-weight:	600;
+	font-style:	italic;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+h4	{	
+	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
+	font-size-adjust:	.4;
+	font-size:	1.33em;
+	font-weight:	600;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+h5	{	
+	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
+	font-size-adjust:	.4;
+	font-size:	1.17em;
+	font-weight:	600;
+	font-style:	italic;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+h6	{	
+	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
+	font-size-adjust:	.4;
+	font-size:	1em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	.1em;
+	font-variant:	small-caps
+	}	
+
+a, address, blockquote, body, cite, code, dd, del, dfn,		
+div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, iframe, img, kbd,		
+li, object, ol, p, q, samp, small, span, strong, sub, sup, ul, var, 		
+applet, big, center, dir, font, hr, menu, pre,		
+abbr, acronym, bdo, fieldset, ins, label	{	
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	text-decoration:	none;
+	border-color:	#999;
+	border-style:	none;
+	}	
+
+button  {
+    font-size:      1em;
+    color:	#ffb029;
+    background:	#09535f;
+        }
+
+body	{	
+	color:	#09535f;
+	background:	#ffb029;
+	}	
+		
+em	{	
+	font-style:	normal;
+	font-weight:	bold;
+	color:	#09535f;
+	background:	#ffb029;
+	}	
+		
+strong	{	
+	font-style:	italic;
+	background:	#ffb029;
+	font-weight:	bold;
+	color:	#09535f;
+	}	
+		
+em strong, strong em	{	
+	text-transform:	uppercase;
+	font-style:	normal;
+	font-weight:	bolder;
+	background:	#ffb029;
+	color:	#09535f;
+	}	
+		
+b	{
+	font-weight:	bold;
+	}
+	
+i	{
+	font-style:	italic;
+	}
+		
+body	{
+	margin-top:	1.58em;
+	margin-left:	15%;
+	margin-right:	15%;
+	margin-bottom:	1.58em;
+	padding-top:	0;
+	padding-left:	0;
+	padding-right:	0;
+	padding-bottom:	0;
+	border-top:	0;
+	border-left:	0;
+	border-bottom:	0;
+	border-right:	0;
+	width:	auto;
+	}
+	/* end body box */
+
+
+
+

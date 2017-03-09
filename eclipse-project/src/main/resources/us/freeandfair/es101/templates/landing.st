@@ -8,7 +8,8 @@ landing(election) ::= <<
 <button type="button" class="big_button" name="Hack"
  onclick="window.location.href='/adversary'">Hack!</button>
 
-<p>$election.voteCount$ votes have been cast in this election. $election.voteManipulationCount$ votes and 
+<p>$election.voteCount$ votes have been cast in this election.</p>
+<p>$election.voteManipulationCount$ votes and 
 $election.receiptManipulationCount$ records have been hacked.</p>
 </div>
 >>
