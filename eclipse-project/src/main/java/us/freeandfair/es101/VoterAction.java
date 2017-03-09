@@ -14,6 +14,7 @@
 package us.freeandfair.es101;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 /**
@@ -93,8 +94,10 @@ public class VoterAction implements Serializable {
    * static field to be higher than every VoterAction unserialized.
    * 
    * @param the_stream The object input stream.
+   * @throws IOException if there is a problem reading from the stream.
+   * @throws ClassNotFoundException if there is a serialization problem.
    */
-  private void readObject(java.io.ObjectInputStream the_stream)
+  private void readObject(final ObjectInputStream the_stream)
       throws IOException, ClassNotFoundException {
     the_stream.defaultReadObject();
     NEXT_ID = Math.max(NEXT_ID, my_id + 1);
