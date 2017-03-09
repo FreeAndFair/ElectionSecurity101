@@ -69,7 +69,12 @@ public class Main {
    * The maximum allowed port number.
    */
   public static final int MAX_PORT = 65535;
-
+  
+  /**
+   * The checkpoint timeout.
+   */
+  public static final long CHECKPOINT_TIMEOUT = 120000;
+  
   /**
    * The logger.
    */
@@ -93,17 +98,17 @@ public class Main {
   /**
    * The timeout after which votes in the queue are cast.
    */
-  private long my_vote_timeout = 0;
+  private long my_vote_timeout;
   
   /**
    * The timeout after which the system is checkpointed.
    */
-  private long my_checkpoint_timeout = 180000;
+  private long my_checkpoint_timeout = CHECKPOINT_TIMEOUT;
   
   /**
    * The last checkpoint time.
    */
-  private long my_last_checkpoint_time = 0;
+  private long my_last_checkpoint_time;
   
   /**
    * The filesystem path where checkpoints should be written and read.
@@ -140,7 +145,8 @@ public class Main {
     }
     if (the_properties.containsKey("template_group")) {
       StringTemplateUtil.setTemplateGroup(the_properties.getProperty("template_group"));
-      LOGGER.info("Using '" + the_properties.getProperty("template_group") + "' as template group.");
+      LOGGER.info("Using '" + the_properties.getProperty("template_group") + 
+                  "' as template group.");
     }
     if (the_properties.containsKey("checkpoint_file")) {
       my_checkpoint_file = the_properties.getProperty("checkpoint_file");
@@ -175,7 +181,7 @@ public class Main {
       while (st_voting_systems.hasMoreTokens()) {
         try {
           final String voting_system_name = st_voting_systems.nextToken();
-          final Class voting_system_class = Class.forName(voting_system_name);
+          final Class<?> voting_system_class = Class.forName(voting_system_name);
           final VotingSystem voting_system =
               (VotingSystem) voting_system_class.newInstance();
           voting_systems.add(voting_system);

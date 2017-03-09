@@ -25,6 +25,9 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class DRE extends VotingSystem {
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
   @Pure @Override
   public String getSchema() {
     return "/dre";

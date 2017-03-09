@@ -31,7 +31,7 @@ public class VoterAction implements Serializable {
   /**
    * The next unique ID to be assigned.
    */
-  private static long NEXT_ID = 0L;
+  private static long NEXT_ID;
       
   /**
    * The voting system that the voter used.

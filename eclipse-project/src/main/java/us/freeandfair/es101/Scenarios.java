@@ -21,9 +21,6 @@ package us.freeandfair.es101;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Scenarios {
-  /** The election related to these scenarios. */
-  private Election my_election;
-
   /**
    * The hand-marked and hand-counted scenario. 
    * @scenario Hand-marked and counted voting:

@@ -31,6 +31,9 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystemChoice extends UserInterface {
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
   /**
    * Create a new UI for voting system choice for the election.
    * @param the_election the election in question.
