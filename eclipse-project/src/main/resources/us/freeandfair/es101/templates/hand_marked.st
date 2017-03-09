@@ -1,4 +1,4 @@
-hand-marked() ::= <<
+hand_marked() ::= <<
 <h2>Hand-Marked and Hand-Counted Paper Ballots</h2>
 
 <p><b>Great choice!</b></p>

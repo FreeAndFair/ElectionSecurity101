@@ -27,7 +27,7 @@ import us.freeandfair.es101.util.StringTemplateUtil;
 public class HandMarked extends VotingSystem {
   @Pure @Override
   public String getExplanationText() {
-    return StringTemplateUtil.loadTemplate("hand-marked").render();
+    return StringTemplateUtil.loadTemplate("hand_marked").render();
   }
 
   @Pure @Override
@@ -37,7 +37,7 @@ public class HandMarked extends VotingSystem {
 
   @Pure @Override
   public String getSchema() {
-    return "/hand-marked";
+    return "/hand_marked";
   }
 
   @Pure @Override

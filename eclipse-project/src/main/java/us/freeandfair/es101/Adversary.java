@@ -52,7 +52,6 @@ public class Adversary extends UserInterface {
   @Pure @Override
   public String action(final Request the_request, final Response the_response) {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "60; /");
     final ST adversary_template = StringTemplateUtil.loadTemplate("adversary");

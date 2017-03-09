@@ -1,20 +1,17 @@
-page(enable_refresh, refresh, title, enable_results, results, body) ::= <<
+page(enable_refresh, refresh, body) ::= <<
 <html>
 <head>
 $if(enable_refresh)$
 <meta http-equiv="refresh" content="$refresh$">
 $endif$
-<title>$title$</title>
+<link rel="icon" href="/cropped-FF-favicon-01-32x32.png" sizes="32x32" />
+<link rel="icon" href="/cropped-FF-favicon-01-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="/cropped-FF-favicon-01-180x180.png" />
+<meta name="msapplication-TileImage" content="/cropped-FF-favicon-01-270x270.png" />
+<title>ES101</title>
 </head>
 <body>
-<h1>$title$</h1>
-
-$if(enable_results)$
-$results$
-$endif$
-
 $body$
-
 </body>
 </html>
 >>

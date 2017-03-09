@@ -138,6 +138,10 @@ public class Main {
     } catch (final NumberFormatException e) {
       // ignored
     }
+    if (the_properties.containsKey("template_group")) {
+      StringTemplateUtil.setTemplateGroup(the_properties.getProperty("template_group"));
+      LOGGER.info("Using '" + the_properties.getProperty("template_group") + "' as template group.");
+    }
     if (the_properties.containsKey("checkpoint_file")) {
       my_checkpoint_file = the_properties.getProperty("checkpoint_file");
     }
@@ -248,7 +252,6 @@ public class Main {
     }
     checkpoint();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "60");
     final ST dashboard_template = StringTemplateUtil.loadTemplate("landing");

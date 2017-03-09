@@ -13,10 +13,6 @@
 
 package us.freeandfair.es101.util;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,17 +35,23 @@ public final class StringTemplateUtil {
    * The path to all templates.
    */
   // no need for cross-platform file separators because ST handles them properly
-  private static final URL TEMPLATE_URL = ClassLoader.getSystemResource("us/freeandfair/es101/templates/");
+  public static final String DEFAULT_TEMPLATE_GROUP = 
+      "us/freeandfair/es101/templates/all_templates.stg";
 
   /**
-   * The cache of already-loaded templates.
+   * The cache of already-loaded template groups.
    */
-  private static final Map<URL, STGroup> LOADED = new HashMap<URL, STGroup>();
+  private static final Map<String, STGroup> LOADED = new HashMap<String, STGroup>();
 
   /**
    * Are we debugging templates?
    */
   private static boolean DEBUG_TEMPLATES = true;
+  
+  /**
+   * The actual template group in use.
+   */
+  private static String template_group = DEFAULT_TEMPLATE_GROUP;
   
   /**
    * Private constructor to prevent instantiation of this class.
@@ -59,43 +61,15 @@ public final class StringTemplateUtil {
   }
 
   /**
-   * Append a path to a base URL.
+   * Sets the template group to use. Must be either a directory path (relative or absolute)
+   * or a group file (ending with .stg) that includes all the templates.
    * 
-   * @param the_base_url The base URL.
-   * @param the_extra_path The path to append.
-   * @return The resulting URL, or null if one couldn't be created.
+   * @param the_template_group The template group path.
    */
-  public static URL concatenate(URL the_base_url, String the_extra_path) {
-    try {
-      final URI uri = the_base_url.toURI();
-      final String new_path = uri.getPath() + '/' + the_extra_path;
-      final URI new_uri = uri.resolve(new_path);
-      return new_uri.toURL();
-    } catch (final URISyntaxException | MalformedURLException e) {
-      return null;
-    }
+  public static synchronized void setTemplateGroup(final String the_template_group) {
+    template_group = the_template_group;
   }
   
-  /**
-   * Gets one of our StringTemplate groups.
-   * 
-   * @param the_name The name of the group (e.g., "shared").
-   * @return The group.
-   */
-  public static synchronized STGroup loadGroup(final String the_name) {
-    final URL load_url = concatenate(TEMPLATE_URL, the_name);
-    STGroup result = LOADED.get(load_url);
-    if (result == null) {
-      try {
-        result = new STGroupFile(load_url, "UTF-8", '$', '$');
-        LOADED.put(load_url, result);
-      } catch (final STException e) {
-        throw new RuntimeException("Unable to load template group " + the_name, e);
-      }
-    }
-    return result;
-  }
-
   /**
    * Gets one of our StringTemplates.
    * 
@@ -103,14 +77,19 @@ public final class StringTemplateUtil {
    * @return The template.
    */
   public static synchronized ST loadTemplate(final String the_name) {
-    STGroup group = LOADED.get(TEMPLATE_URL);
+    STGroup group = LOADED.get(template_group);
     if (group == null) {
       try {
-        group = new STGroupDir(TEMPLATE_URL, "UTF-8", '$', '$');
-        if (group.getInstanceOf("adversary") == null) {
-          Main.LOGGER.error("can't load templates!");
+        if (template_group.endsWith(".stg")) {
+          group = new STGroupFile(template_group, '$', '$');
+        } else {
+          // assume directory
+          group = new STGroupDir(template_group, '$', '$');
         }
-        LOADED.put(TEMPLATE_URL, group);
+        if (group.getInstanceOf("landing") == null) {
+          Main.LOGGER.error("can't load templates from group " + template_group + "!");
+        }
+        LOADED.put(template_group, group);
       } catch (final STException e) {
         throw new RuntimeException("Unable to load default template group.");
       }
