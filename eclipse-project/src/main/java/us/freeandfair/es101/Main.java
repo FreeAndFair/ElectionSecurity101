@@ -138,6 +138,10 @@ public class Main {
     } catch (final NumberFormatException e) {
       // ignored
     }
+    if (the_properties.containsKey("template_group")) {
+      StringTemplateUtil.setTemplateGroup(the_properties.getProperty("template_group"));
+      LOGGER.info("Using '" + the_properties.getProperty("template_group") + "' as template group.");
+    }
     if (the_properties.containsKey("checkpoint_file")) {
       my_checkpoint_file = the_properties.getProperty("checkpoint_file");
     }

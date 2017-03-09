@@ -35,7 +35,8 @@ public final class StringTemplateUtil {
    * The path to all templates.
    */
   // no need for cross-platform file separators because ST handles them properly
-  private static final String DEFAULT_TEMPLATE_GROUP = "us/freeandfair/es101/templates/all_templates.stg";
+  public static final String DEFAULT_TEMPLATE_GROUP = 
+      "us/freeandfair/es101/templates/all_templates.stg";
 
   /**
    * The cache of already-loaded template groups.
@@ -59,6 +60,16 @@ public final class StringTemplateUtil {
     // do nothing
   }
 
+  /**
+   * Sets the template group to use. Must be either a directory path (relative or absolute)
+   * or a group file (ending with .stg) that includes all the templates.
+   * 
+   * @param the_template_group The template group path.
+   */
+  public static synchronized void setTemplateGroup(final String the_template_group) {
+    template_group = the_template_group;
+  }
+  
   /**
    * Gets one of our StringTemplates.
    * 
