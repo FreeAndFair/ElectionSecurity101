@@ -112,7 +112,7 @@ public class VotingSystem extends UserInterface {
    * @return the template on which to build.
    */
   protected ST iVotedPageSetup(final String the_vote) {
-    ST page_template;
+    final ST page_template;
     page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
