@@ -57,6 +57,9 @@ public class Election implements Serializable {
   /** The tally. */
   protected Tally my_tally;
   
+  /** The voter action queue. */
+  protected Queue<VoterAction> my_queue;
+  
   /** The number of votes that were manipulated. */
   protected long my_vote_manipulation_count;
   
@@ -85,6 +88,7 @@ public class Election implements Serializable {
     my_name = the_name;
     my_date = the_date;
     my_description = the_description;
+    my_queue = the_queue;
     my_voting_system_choice = new VotingSystemChoice(this, the_queue);
     my_voting_systems = the_voting_systems;
     my_candidates = the_candidates;

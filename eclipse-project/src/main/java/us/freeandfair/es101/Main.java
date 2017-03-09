@@ -83,8 +83,7 @@ public class Main {
   /**
    * The queue of incoming voter actions.
    */
-  private final Queue<VoterAction> my_voter_action_queue = 
-      new ConcurrentLinkedQueue<VoterAction>();
+  private final Queue<VoterAction> my_voter_action_queue;
 
   /**
    * The election we're running.
@@ -119,6 +118,7 @@ public class Main {
   public Main(final Properties the_properties) {
     my_properties = the_properties;
     my_election = parseProperties(the_properties);
+    my_voter_action_queue = my_election.my_queue;
   }
   
   /**
@@ -151,9 +151,6 @@ public class Main {
           final Election checkpoint = (Election) ois.readObject();
           ois.close();
           result = checkpoint;
-          // we need to load our queue
-          final VotingSystem vs = result.my_voting_systems.iterator().next();
-          my_voter_action_queue.addAll(vs.my_queue);
           LOGGER.info("read checkpoint file at " + my_checkpoint_file);
         } catch (final IOException | ClassNotFoundException | ClassCastException e) {
           LOGGER.error("could not restore from checkpoint file at " +
@@ -192,11 +189,11 @@ public class Main {
                             the_properties.getProperty("description"),
                             voting_systems,
                             candidates,
-                            my_voter_action_queue);
-    }
-    for (VotingSystem vs: result.my_voting_systems) {
-      vs.setElection(result);
-      vs.setQueue(my_voter_action_queue);
+                            new ConcurrentLinkedQueue<VoterAction>());
+      for (VotingSystem vs: result.my_voting_systems) {
+        vs.setElection(result);
+        vs.setQueue(result.my_queue);
+      }
     }
     return result;
   }
