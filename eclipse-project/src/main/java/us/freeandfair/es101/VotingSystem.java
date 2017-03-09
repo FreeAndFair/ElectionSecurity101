@@ -114,7 +114,6 @@ public class VotingSystem extends UserInterface {
   protected ST iVotedPageSetup(final String the_vote) {
     ST page_template;
     page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "60; /");
     if (the_vote != null && my_election.getCandidates().contains(the_vote)) {
@@ -142,7 +141,6 @@ public class VotingSystem extends UserInterface {
   @Pure
   protected ST votingSystemPageSetup() {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "120; /");
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");

@@ -252,7 +252,6 @@ public class Main {
     }
     checkpoint();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     page_template.add("refresh", "60");
     final ST dashboard_template = StringTemplateUtil.loadTemplate("landing");
