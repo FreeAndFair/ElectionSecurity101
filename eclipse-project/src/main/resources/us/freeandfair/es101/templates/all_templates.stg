@@ -1,6 +1,5 @@
 import "adversary.st"
 import "ballot_marking_device.st"
-import "dashboard.st"
 import "dre_with_vvpat.st"
 import "dre.st"
 import "error_occurred.st"
