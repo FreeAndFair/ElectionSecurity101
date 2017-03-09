@@ -116,7 +116,6 @@ public class Manipulation extends UserInterface {
     handleTimeouts();
     final VoterAction va = my_queue.poll();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     String refresh_string = "10; /";
     if (va != null) {
@@ -158,7 +157,6 @@ public class Manipulation extends UserInterface {
     }
     handleTimeouts();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     final String refresh_string = "0; /adversary";
     page_template.add("refresh", refresh_string);
@@ -226,7 +224,6 @@ public class Manipulation extends UserInterface {
     }
     handleTimeouts();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_results", false);
     page_template.add("enable_refresh", true);
     final String refresh_string = "120; /adversary";
     page_template.add("refresh", refresh_string);
