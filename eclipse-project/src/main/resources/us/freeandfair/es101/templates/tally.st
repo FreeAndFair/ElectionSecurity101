@@ -1,10 +1,10 @@
 tally(tally_data) ::= <<
 <div align="center">
 <table>
-<tr><th colspan="3" class="large">Current Results</th></tr>
-<tr><th align="center">Candidate</th><th align="center">&nbsp;&nbsp;Legitimate&nbsp;&nbsp;<br/>Tally</th><th align="center">Hacked<br/>Tally</th></tr>
+<tr><th colspan="3" class="title"><b>Current Results</b></th></tr>
+<tr><th class="tally">Candidate</th><th class="tally">&nbsp;&nbsp;Legitimate&nbsp;&nbsp;<br/>Tally</th><th class="tally">Hacked<br/>Tally</th></tr>
 $tally_data.legitimateTally:{ candidate |
-  <tr><td align="center">$candidate$</td><td align="center">$tally_data.legitimateTally.(candidate)$</td><td align="center">$tally_data.hackedTally.(candidate)$</td></tr> 
+  <tr><td class="tally">$candidate$</td><td class="tally">$tally_data.legitimateTally.(candidate)$</td><td class="tally">$tally_data.hackedTally.(candidate)$</td></tr> 
  }$
 </table>
 </div>

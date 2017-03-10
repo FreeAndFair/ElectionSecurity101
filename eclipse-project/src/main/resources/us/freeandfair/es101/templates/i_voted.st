@@ -23,7 +23,7 @@ $tally(election.tally)$
 <p>Note that it takes some time for votes to be tallied, and your vote
 may not yet appear in these totals.</p>
 
-<button type="button"
+<button type="button" class="medium_button"
  onclick="window.location.href='/'">Thank You for Voting! Make Sure You Get An "I Voted" Sticker!</button>
 </div>
 >>

@@ -65,10 +65,10 @@ h2 {
 
 h3 { 
     text-align: center;
-    font-family: 'museo_sans300_italic', sans-serif;
+    font-family: 'museo_sans300', sans-serif;
     font-size-adjust: .4;
     font-size: 1.58em;
-    font-style: italic;
+    font-style: normal;
     font-weight: 600;
     letter-spacing: normal;
     margin-left: 10%;
@@ -93,10 +93,10 @@ h4 {
 
 h5 { 
     text-align: center;
-    font-family: 'museo_sans100_italic', sans-serif;
+    font-family: 'museo_sans100', sans-serif;
     font-size-adjust: .4;
     font-size: 1.17em;
-    font-style: italic;
+    font-style: normal;
     font-weight: 600;
     letter-spacing: normal;
     text-decoration: none;
@@ -145,6 +145,27 @@ button, input, select, option  {
     background: #09535f;
 }
 
+button.voting_system {
+	width: 100%;
+	height: 100%;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+button.big_button {
+	font-size: 2em;
+	text-align: center;
+	color: #ffb029;
+	background: #09535f;
+}
+
+button.medium_button {
+	font-size: 1.5em;
+	text-align: center;
+	color: #ffb029;
+	background: #09535f;
+}
+
 body { 
     color: #09535f;
     background: #ffb029;
@@ -183,25 +204,56 @@ i {
 td.system_button {
   height: 100%;
   border: 0;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
   text-align: center;
 }
 
 td.system_desc {
   text-align: left;
   border: 0;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
   margin-left: 16px;
   padding-left: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  vertical-align: center;
 }
  
-th.large {
+th.title {
+    text-align: center;
+    font-family: 'museo_sans500', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1.33em;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+    vertical-align: center;
+    padding-bottom: 16px;
+}
+
+th.tally {
     text-align: center;
     font-family: 'museo_sans300', sans-serif;
     font-size-adjust: .4;
     font-size: 1.33em;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+    vertical-align: center;
+    padding-bottom: 16px;
+}
+
+td.tally {
+    text-align: center;
+    font-family: 'museo_sans300', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1.16em;
     font-style: normal;
     font-weight: 600;
     letter-spacing: normal;
@@ -227,8 +279,8 @@ body {
     border-right: 0;
     border-top: 0;
     margin-bottom: 1.58em;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 1.58em;
     padding-bottom: 0;
     padding-left: 0;
