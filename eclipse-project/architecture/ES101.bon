@@ -1,0 +1,135 @@
+-- This ES101 system specification is written in the EBON
+-- specification language, based upon the BON specification language
+-- from Walden and Nerson.  See http://bon-method.com/ for more
+-- information about BON and http://kindsoftware.com/ for more
+-- information about EBON.  Tool support for EBON is provided by the
+-- BON compiler, bonc, and several other tools.  See
+-- https://github.com/kiniry/BON for more information.
+
+-- Informal Charts
+
+-- BON Domain Model
+
+system_chart ES101_SYSTEM
+indexing
+  authors: "Joseph Kiniry <kiniry@freeandfair.us>", "Daniel Zimmerman <dmz@freeandfair.us>";
+  organization: "Free & Fair";
+  keywords: "elections security", "education";
+  created: "Thu Mar 9 2017";
+  github: "https://github.com/FreeAndFair/ES101";
+explanation
+  "The Election Security 101 (ES101) product is a simple election system \
+ \ simulator that helps people learn \
+ \ about the pros and cons of the various ways we vote in the U.S.A."
+cluster ES101
+description
+  "The ES101 system."
+cluster ES101_FOUNDATIONS
+description
+  "Foundational concepts that extend throughout the project."
+end
+
+-- @todo kiniry 9 March 2017
+-- 
+
+cluster_chart ES101
+explanation
+  ""
+class ADVERSARY
+description ""
+class BALLOT_MARKING_DEVICE
+description ""
+class DRE
+description ""
+class DRE_WITH_VVPAT
+description ""
+class ELECTION
+description ""
+class HAND_MARKED
+description ""
+class HACKED_TALLY
+description ""
+class INTERNET_ELECTION
+description ""
+class MAIN
+description ""
+class MANIPULATION
+description ""
+class LEGITIMATE_TALLY
+description ""
+class OPTICAL_SCAN
+description ""
+class TALLY
+description ""
+class USER_INTERFACE
+description ""
+class VERIFIABLE_ELECTION
+description ""
+class VOTER_ACTION
+description ""
+class VOTING_SYSTEM
+description ""
+class VOTING_SYSTEM_CHOICE
+description ""
+end
+
+static_diagram ES101_ARCHITECTURE
+  -- This shows the overall architecture of the system.
+component
+  cluster ES101
+  cluster ES101_FOUNDATIONS
+  root class MAIN interfaced
+  -- @todo kiniry 9 March 2017 This is where I paused in writing specs.
+end
+
+static_diagram ES101_SUBTYPING
+  -- This diagram shows the main subtyping relationships.
+component
+  class ADVERSARY
+  class BALLOT_MARKING_DEVICE
+  class DRE
+  class DRE_WITH_VVPAT
+  class HACKED_TALLY
+  class HAND_MARKED
+  class HAND_MARKED
+  class INTERNET_ELECTION
+  class LEGITIMATE_TALLY
+  class OPTICAL_SCAN
+  class TALLY
+  class USER_INTERFACE
+  class VERIFIABLE_ELECTION
+  class VOTING_SYSTEM
+  class VOTING_SYSTEM_CHOICE
+
+  HAND_MARKED inherit VOTING_SYSTEM
+  OPTICAL_SCAN inherit VOTING_SYSTEM
+  DRE inherit VOTING_SYSTEM
+  INTERNET_ELECTION inherit VOTING_SYSTEM
+  DRE_WITH_VVPAT inherit VOTING_SYSTEM
+  BALLOT_MARKING_DEVICE inherit VOTING_SYSTEM
+  VERIFIABLE_ELECTION inherit VOTING_SYSTEM
+
+  VOTING_SYSTEM_CHOICE inherit USER_INTERFACE
+  ADVERSARY inherit USER_INTERFACE
+
+  LEGITIMATE_TALLY inherit TALLY
+  HACKED_TALLY inherit TALLY
+end
+
+static_diagram ES101_PERSISTENCE
+  -- This diagram shows which classes are persistent.
+component
+  class ELECTION persistent
+  class TALLY persistent
+  class USER_INTERFACE persistent
+  class VOTER_ACTION persistent
+end
+
+static_diagram ES101_REUSED
+  -- This diagram shows which classes are reused from our
+  -- elections domain model prelude.
+  -- See https://gitlab-ext.galois.com/FreeAndFair/Specifications
+component
+  class ELECTION reused
+  class CONTEST_RESULT reused
+end
