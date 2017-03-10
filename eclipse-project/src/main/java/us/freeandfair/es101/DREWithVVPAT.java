@@ -66,9 +66,8 @@ public class DREWithVVPAT extends VotingSystem {
   @Pure @Override
   public String getUsageRegions() {
     return "All voting in Utah and Nevada is on DREs with VVPAT.  Much of the voting that " +
-           "happens in California, Idaho, Alaska, Hawaii, Wyoming, Arizona, Missouri, " +
-           "Illinois, Wisconsin, Ohio, West Virginia, and North Carolina is on DREs with " +
-           "VVPAT. Some of the voting in Kansas, Arkansas, and Mississippi is on DREs with " +
+           "happens in AK, AZ, CA, ID, IL, HI, MO, NC, OH, WI, WV, and WY " +
+           "is on DREs with VVPAT. Some of the voting in AR, KS, and MS is on DREs with " +
            "VVPAT.";
   }
 

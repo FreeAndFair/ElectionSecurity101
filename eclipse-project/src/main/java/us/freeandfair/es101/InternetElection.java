@@ -65,7 +65,7 @@ public class InternetElection extends VotingSystem {
     return "This kind of voting system has been experimented with and rejected by " +
            "numerous governments around the world, but is being used in around two dozen " +
            "states in the U.S.A. to collect votes from overseas Americans and military " + 
-           "personnel.  And in Alaska, any citizen can vote over the Internet!";
+           "personnel.  In AK, any citizen can vote over the Internet!";
   }
 
   @Pure @Override

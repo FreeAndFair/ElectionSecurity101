@@ -46,10 +46,9 @@ public class OpticalScan extends VotingSystem {
 
   @Pure @Override
   public String getUsageRegions() {
-    return "All voting in Montana, North and South Dakota, Nebraska, " +
-           "New Mexico, Oklahoma, Iowa, Minnesota, Michigan, New York, Alabama, Maryland, " +
-           "Maine, New Hampshire, Vermont, Connecticut, Rhode Island, Maryland, and " + 
-           "Washington D.C., Washington, Colorado, and Oregon uses optical scan systems.";
+    return "All voting in AL, CO, CT, DC, IA, MD, ME, MI, MN, MT, ND, " +
+           "NE, NH, NM, NY, OK, OR, RI, SD, VT, and WA uses optical " +
+           "scan systems.";
   }
 
   @Pure @Override
