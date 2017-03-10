@@ -69,7 +69,12 @@ public class Main {
    * The maximum allowed port number.
    */
   public static final int MAX_PORT = 65535;
-
+  
+  /**
+   * The checkpoint timeout.
+   */
+  public static final long CHECKPOINT_TIMEOUT = 120000;
+  
   /**
    * The logger.
    */
@@ -98,7 +103,7 @@ public class Main {
   /**
    * The timeout after which the system is checkpointed.
    */
-  private long my_checkpoint_timeout = 180000;
+  private long my_checkpoint_timeout = CHECKPOINT_TIMEOUT;
   
   /**
    * The last checkpoint time.
@@ -176,7 +181,7 @@ public class Main {
       while (st_voting_systems.hasMoreTokens()) {
         try {
           final String voting_system_name = st_voting_systems.nextToken();
-          final Class voting_system_class = Class.forName(voting_system_name);
+          final Class<?> voting_system_class = Class.forName(voting_system_name);
           final VotingSystem voting_system =
               (VotingSystem) voting_system_class.newInstance();
           voting_systems.add(voting_system);

@@ -10,6 +10,7 @@
     font-style: normal;
 }
 
+<<<<<<< HEAD
 @font-face {
     font-family: 'museo_sans500_italic';
     src: url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.eot');
@@ -21,6 +22,83 @@
     font-weight: normal;
     font-style: normal;
 }
+=======
+h1	{	
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.4;
+	font-size:	2.0em;
+	font-weight:	600;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	margin-left:	25%;
+	margin-right:	25%;
+	}	
+		
+h2	{	
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.4;
+	font-size:	1.75em;
+	font-weight:	500;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	margin-left:	30%;
+	margin-right:	30%;
+	}	
+		
+h3	{	
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.4;
+	font-size:	1.58em;
+	font-weight:	600;
+	font-style:	italic;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+h4	{	
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.4;
+	font-size:	1.33em;
+	font-weight:	600;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+h5	{	
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.4;
+	font-size:	1.17em;
+	font-weight:	600;
+	font-style:	italic;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+h6	{	
+	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
+	font-size-adjust:	.4;
+	font-size:	1em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	.1em;
+	font-variant:	small-caps
+	}	
+>>>>>>> branch 'master' of git@github.com:FreeAndFair/ElectionSecurity101.git
 
 @font-face {
     font-family: 'museo_sans300';

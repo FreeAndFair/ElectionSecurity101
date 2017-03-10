@@ -14,6 +14,7 @@
 package us.freeandfair.es101;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 /**
@@ -30,7 +31,7 @@ public class VoterAction implements Serializable {
   /**
    * The next unique ID to be assigned.
    */
-  private static long NEXT_ID = 0L;
+  private static long NEXT_ID;
       
   /**
    * The voting system that the voter used.
@@ -93,10 +94,19 @@ public class VoterAction implements Serializable {
    * static field to be higher than every VoterAction unserialized.
    * 
    * @param the_stream The object input stream.
+<<<<<<< HEAD
    * @throws ClassNotFoundException if the class of a serialized object could not be found.
    * @throws IOException if an I/O error occurs.
+=======
+   * @throws IOException if there is a problem reading from the stream.
+   * @throws ClassNotFoundException if there is a serialization problem.
+>>>>>>> branch 'master' of git@github.com:FreeAndFair/ElectionSecurity101.git
    */
+<<<<<<< HEAD
   private void readObject(final java.io.ObjectInputStream the_stream)
+=======
+  private void readObject(final ObjectInputStream the_stream)
+>>>>>>> branch 'master' of git@github.com:FreeAndFair/ElectionSecurity101.git
       throws IOException, ClassNotFoundException {
     the_stream.defaultReadObject();
     NEXT_ID = Math.max(NEXT_ID, my_id + 1);

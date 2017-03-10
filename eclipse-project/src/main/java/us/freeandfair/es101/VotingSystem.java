@@ -30,6 +30,9 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class VotingSystem extends UserInterface { 
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
   /**
    * Create a new voting system.
    */
@@ -119,8 +122,8 @@ public class VotingSystem extends UserInterface {
     if (the_vote != null && my_election.getCandidates().contains(the_vote)) {
       final VoterAction va = new VoterAction(this, the_vote);
       my_queue.offer(va);
-      Main.LOGGER.info("Cast Ballot: ID = " + va.getID() + ", Voter Intent = '" + 
-                       the_vote + "'");
+      Main.LOGGER.info("Cast Ballot: ID = " + va.getID() + 
+                       ", Voter Intent = '" + the_vote + "'");
       final ST i_voted_template = StringTemplateUtil.loadTemplate("i_voted");
       i_voted_template.add("election", my_election);
       i_voted_template.add("voter_action", va);

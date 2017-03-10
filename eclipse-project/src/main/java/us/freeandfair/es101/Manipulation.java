@@ -35,6 +35,9 @@ import us.freeandfair.es101.util.StringTemplateUtil;
  * @author Daniel M. Zimmerman <dmz@freeandfair.us>
  */
 public class Manipulation extends UserInterface {
+  /** The serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
   /**
    * The timeout after which a vote is returned to the queue.
    */
@@ -112,7 +115,8 @@ public class Manipulation extends UserInterface {
    * @param the_response The HTTP response.
    * @return The data to return in response.
    */
-  public synchronized String handleInitialAction(final Request the_request, final Response the_response) {
+  public synchronized String handleInitialAction(final Request the_request,
+                                                 final Response the_response) {
     handleTimeouts();
     final VoterAction va = my_queue.poll();
     final ST page_template = StringTemplateUtil.loadTemplate("page");
@@ -192,8 +196,8 @@ public class Manipulation extends UserInterface {
                 !new_vote.equals(va.my_vote)) {
               va.my_manipulated_vote = new_vote;
               vote_change = true;
-              Main.LOGGER.info("changed ballot #" + id + " vote from " + va.my_vote + 
-                               " to " + new_vote);
+              Main.LOGGER.info("changed ballot #" + id + " vote from " + 
+                               va.my_vote + " to " + new_vote);
             } else if (!new_vote.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change vote (" + va.my_vote + 
                                ") to invalid value " + new_vote);
@@ -207,8 +211,8 @@ public class Manipulation extends UserInterface {
                 !new_receipt.equals(va.my_vote)) {
               va.my_manipulated_receipt = new_receipt;
               receipt_change = true;
-              Main.LOGGER.info("changed ballot #" + id + " receipt from " + va.my_vote + 
-                               " to " + new_receipt);
+              Main.LOGGER.info("changed ballot #" + id + " receipt from " +
+                               va.my_vote + " to " + new_receipt);
             } else if (!new_receipt.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change receipt (" + va.my_vote +
                                ") to invalid value " + new_receipt);

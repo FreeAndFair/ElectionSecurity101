@@ -1,10 +1,14 @@
 landing(election) ::= <<
 $header(election)$
 
+<<<<<<< HEAD
 <div align="center">
 <button type="button" name="Vote"
+=======
+<button type="button" class="big_button" name="Vote"
+>>>>>>> branch 'master' of git@github.com:FreeAndFair/ElectionSecurity101.git
  onclick="window.location.href='/voting_system_choice'">Vote!</button>
-<button type="button" name="Hack"
+<button type="button" class="big_button" name="Hack"
  onclick="window.location.href='/adversary'">Hack!</button>
 </div>
 
