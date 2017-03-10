@@ -1,5 +1,4 @@
 manipulation(election, voter_action) ::= <<
-$header(election)$
 
 $if(voter_action)$
 <h3>The voter used: $voter_action.votingSystem.name$<br/>
@@ -11,47 +10,29 @@ $else$
 You can't see who they voted for!</h3>
 $endif$
 
-<form action="/manipulation" method="GET">
-<input type="hidden" name="id" value="$voter_action.ID$" />
-<input type="hidden" name="manipulate" />
+<div align="center">
 $if(voter_action.votingSystem.voteManipulable)$
-  $if(voter_action.votingSystem.receiptManipulable)$
-    <!-- can manipulate both vote and receipt -->
-    <p>You can manipulate both their vote and their $voter_action.votingSystem.receiptName$!</p>
-    <p>
-    <div align="center">
-    <table>
-    <tr><th align="right">New Vote&nbsp;&nbsp</th>
-    <td>$manipulation_choice(election, "vote")$</td></tr>
-    <tr><th align="right">New $voter_action.votingSystem.receiptName$&nbsp;&nbsp;</th>
-    <td>$manipulation_choice(election, "receipt")$</td></tr>
-    </table>
-    </div>
-    </p>
-    <input type="submit" value="Manipulate!">
-  $else$
-    <!-- can manipulate only vote -->
-    <p>You can manipulate their vote, but not their $voter_action.votingSystem.receiptName$.</p>
-    <p>New Vote&nbsp;&nbsp
-    $manipulation_choice(election, "vote")$</p>
-    <input type="submit" value="Manipulate!">
-  $endif$
-$elseif(voter_action.votingSystem.receiptManipulable)$
-  <!-- can manipulate only receipt -->
-  <p>You can manipulate their $voter_action.votingSystem.receiptName$, but not their vote.</p>
-    <p>New $voter_action.votingSystem.receiptName$&nbsp;&nbsp
-    $manipulation_choice(election, "receipt")$</p>
-   <input type="submit" value="Manipulate!">
+  <h3>You can hack their vote!</h3>
+  <table>
+  $election.candidates:{ candidate |
+    <tr><td align="center">
+      <button type="button" style="width:100%"
+       onclick="window.location.href='/manipulation?id=$voter_action.ID$&manipulate&vote=$candidate$'">$candidate$</button></td></tr>
+  }$
+  </table>
 $else$
-  <!-- can't manipulate anything -->
-  <p>You can't manipulate anything!</p>
-  <input type="submit" value="OK">
+  <h3>You can't hack their vote!</h3>
+  <div align="center">
+  <button type="big_button"
+   onclick="window.location.href='/'">OK</button>
 $endif$
+</div>
 
-</form>
 $else$
+<div align="center">
 <h3>Unfortunately, there are no votes to hack at this time.</h3>
-<button type="button"
+<button type="big_button"
  onclick="window.location.href='/'">OK</button>
+</div>
 $endif$
 >>

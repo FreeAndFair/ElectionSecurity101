@@ -182,6 +182,7 @@ public class Manipulation extends UserInterface {
                                               final Response the_response) {
     boolean vote_change = false;
     boolean receipt_change = false;
+    boolean error = false;
     
     if (the_request.queryParams().contains("id")) {
       final long id;
@@ -201,6 +202,7 @@ public class Manipulation extends UserInterface {
             } else if (!new_vote.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change vote (" + va.my_vote + 
                                ") to invalid value " + new_vote);
+              error = true;
             }
           }
           
@@ -216,6 +218,7 @@ public class Manipulation extends UserInterface {
             } else if (!new_receipt.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change receipt (" + va.my_vote +
                                ") to invalid value " + new_receipt);
+              error = true;
             }
           }
           
@@ -224,23 +227,34 @@ public class Manipulation extends UserInterface {
           my_in_progress.remove(id);
         } else {
           Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + id);
+          error = true;
         }
       } catch (final NumberFormatException e) {
         Main.LOGGER.info("attempt to manipulate an invalid ballot, id " + 
                          the_request.queryParams("id"));
+        error = true;
       }
     }
     handleTimeouts();
-    final ST page_template = StringTemplateUtil.loadTemplate("page");
-    page_template.add("enable_refresh", true);
-    final String refresh_string = "120; /adversary";
-    page_template.add("refresh", refresh_string);
-    final ST manipulation_success_template = 
-        StringTemplateUtil.loadTemplate("manipulation_success");
-    manipulation_success_template.add("election", my_election);
-    manipulation_success_template.add("vote_change", vote_change);
-    manipulation_success_template.add("receipt_change", receipt_change);
-    page_template.add("body", manipulation_success_template.render());
-    return page_template.render();
+    ST result;
+    if (error) {
+      result = StringTemplateUtil.loadTemplate("page");
+      result.add("enable_refresh", true);
+      result.add("refresh", "30; /");
+      final ST error_template = StringTemplateUtil.loadTemplate("error_occurred");
+      result.add("body", error_template.render());
+    } else {
+      result = StringTemplateUtil.loadTemplate("page");
+      result.add("enable_refresh", true);
+      final String refresh_string = "120; /adversary";
+      result.add("refresh", refresh_string);
+      final ST manipulation_success_template = 
+          StringTemplateUtil.loadTemplate("manipulation_success");
+      manipulation_success_template.add("election", my_election);
+      manipulation_success_template.add("vote_change", vote_change);
+      manipulation_success_template.add("receipt_change", receipt_change);
+      result.add("body", manipulation_success_template.render());
+    }
+    return result.render();
   }
 }

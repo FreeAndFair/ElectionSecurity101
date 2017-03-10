@@ -1,6 +1,4 @@
 optical_scan() ::= <<
-<h2>Optical Scan</h2>
-
 <p><b>Very good choice!</b></p>
 
 <p>You are voting with the dominant voting system deployed in the U.S.A. today.

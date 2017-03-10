@@ -1,9 +1,7 @@
 adversary(election) ::= <<
-$header(election)$
-
-<p>$tally(election.tally)$</p>
-<p>There have been $election.voteManipulationCount$ manipulated votes and
-$election.receiptManipulationCount$ manipulated records.</p>
+$tally(election.tally)$
+<div align="center">
+<h4>$election.voteManipulationCount$ of $election.voteCount$ votes cast in this election have been hacked.</h4>
 
 <button type="button" class="big_button" name="Hack" 
  onclick="window.location.href='/manipulation'">Hack a Vote!</button>

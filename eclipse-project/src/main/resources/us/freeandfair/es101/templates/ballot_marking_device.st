@@ -1,6 +1,4 @@
 ballot_marking_device() ::= <<
-<h2>Ballot Marking Device (BMD)</h2>
-
 <p><b>Good choice!</b></p>
 
 <p>You are voting with a voting system that was initially designed for the

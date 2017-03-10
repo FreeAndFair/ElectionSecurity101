@@ -1,7 +1,4 @@
 dre_with_vvpat() ::= <<
-<h2>Direct Recording Electronic (DRE) Voting Machines with a 
-Voter-Verifiable Paper Audit Trail (VVPAT)</h2>
-
 <p><b>That's a pretty poor choice!</b></p>
 
 <p>You are voting with a voting system designed in the 20th century,

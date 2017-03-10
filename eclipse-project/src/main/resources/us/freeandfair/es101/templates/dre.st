@@ -1,6 +1,4 @@
 dre() ::= <<
-<h2>Direct Recording Electronic (DRE) Voting Machines</h2>
-
 <p><b>Terrible choice!</b></p>
 
 <p>You are voting with a voting system designed in the 20th century,

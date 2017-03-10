@@ -1,6 +1,4 @@
 verifiable_election() ::= <<
-<h2>End-to-End Verifiable Election</h2>
-
 <p><b>Great choice!</b></p>
 
 <p>You are voting with a voting system of the 21st century.  You make a ballot

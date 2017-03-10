@@ -4,19 +4,20 @@ manipulation_success(election, vote_change, receipt_change) ::= <<
 
 $if(vote_change)$
   $if(receipt_change)$  
-    <h2>You've manipulated a vote and a receipt!</h2>
+    <h2>You've hacked a vote and a receipt!</h2>
   $else$
-    <h2>You've manipulated a vote!</h2>
+    <h2>You've hacked a vote!</h2>
   $endif$
 $elseif(receipt_change)$
-  <h2>You've manipulated a receipt!</h2>
+  <h2>You've hacked a receipt!</h2>
 $else$
-  <h2>You did not manipulate either the vote or the receipt.</h2>
+  <h2>You chose not to hack the vote this time.</h2>
 $endif$
 
-<p>$tally(election.tally)$</p>
-<p>There have been $election.voteManipulationCount$ manipulated votes and
-$election.receiptManipulationCount$ manipulated records.</p>
+$tally(election.tally)$
+<h4>$election.voteManipulationCount$ of $election.voteCount$ votes cast in this election have been hacked.</h4>
+<div align="center">
 <button type="button" class="big_button"
  onclick="window.location.href='/'">Thanks for Participating!</button>
+</div>
 >>
