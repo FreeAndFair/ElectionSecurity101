@@ -1,8 +1,6 @@
 manipulation(election, voter_action) ::= <<
-<div align="center">
-<h2>$election.name$ &ndash; $election.date$</h2>
-<h3>$election.description$</h3>
-<br/>
+$header(election)$
+
 $if(voter_action)$
 <h3>The voter used: $voter_action.votingSystem.name$<br/>
 
@@ -21,12 +19,14 @@ $if(voter_action.votingSystem.voteManipulable)$
     <!-- can manipulate both vote and receipt -->
     <p>You can manipulate both their vote and their $voter_action.votingSystem.receiptName$!</p>
     <p>
-    <table border=0>
+    <div align="center">
+    <table>
     <tr><th align="right">New Vote&nbsp;&nbsp</th>
     <td>$manipulation_choice(election, "vote")$</td></tr>
     <tr><th align="right">New $voter_action.votingSystem.receiptName$&nbsp;&nbsp;</th>
     <td>$manipulation_choice(election, "receipt")$</td></tr>
     </table>
+    </div>
     </p>
     <input type="submit" value="Manipulate!">
   $else$
@@ -54,5 +54,4 @@ $else$
 <button type="button"
  onclick="window.location.href='/'">OK</button>
 $endif$
-</div>
 >>

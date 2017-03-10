@@ -1,5 +1,4 @@
 manipulation_success(election, vote_change, receipt_change) ::= <<
-<div align="center">
 <b>$election.my_name$</b><br/>
 <i>$election.my_date$</i>
 
@@ -20,5 +19,4 @@ $endif$
 $election.receiptManipulationCount$ manipulated records.</p>
 <button type="button"
  onclick="window.location.href='/'">Thanks for Participating!</button>
-</div>
 >>

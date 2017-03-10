@@ -1,6 +1,6 @@
 voting_system_choice(voting_systems) ::= <<
 <div align="center">
-<table border="1">
+<table>
 <tr><th colspan="2">Choose a Voting System</b></th></tr>
 $voting_systems:{ voting_system |
   <tr><td align="center" valign="center">

@@ -1,160 +1,232 @@
-body	{	
-	font-size:	1em;
-	font-weight:	normal;
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	font-family:	Verdana, Myriad Web, Syntax, sans-serif;
-	font-size-adjust:	.58;
-	}	
+@font-face {
+    font-family: 'museo_sans500';
+    src: url('/fonts/museosans_500_macroman/MuseoSans_500-webfont.eot');
+    src: url('/fonts/museosans_500_macroman/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/museosans_500_macroman/MuseoSans_500-webfont.woff2') format('woff2'),
+         url('/fonts/museosans_500_macroman/MuseoSans_500-webfont.woff') format('woff'),
+         url('/fonts/museosans_500_macroman/MuseoSans_500-webfont.ttf') format('truetype'),
+         url('/fonts/museosans_500_macroman/MuseoSans_500-webfont.svg#museo_sans500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-h1	{	
-	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
-	font-size-adjust:	.4;
-	font-size:	2.0em;
-	font-weight:	600;
-	font-style:	normal;
-	text-decoration:	none;
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	margin-left:	25%;
-	margin-right:	25%;
-	}	
-		
-h2	{	
-	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
-	font-size-adjust:	.4;
-	font-size:	1.75em;
-	font-weight:	500;
-	font-style:	normal;
-	text-decoration:	none;
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	margin-left:	30%;
-	margin-right:	30%;
-	}	
-		
-h3	{	
-	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
-	font-size-adjust:	.4;
-	font-size:	1.58em;
-	font-weight:	600;
-	font-style:	italic;
-	text-decoration:	none;
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	}	
-		
-h4	{	
-	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
-	font-size-adjust:	.4;
-	font-size:	1.33em;
-	font-weight:	600;
-	font-style:	normal;
-	text-decoration:	none;
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	}	
-		
-h5	{	
-	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
-	font-size-adjust:	.4;
-	font-size:	1.17em;
-	font-weight:	600;
-	font-style:	italic;
-	text-decoration:	none;
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	}	
-		
-h6	{	
-	font-family:	Georgia, Minion Web, Palatino, Book Antiqua, Utopia, Times New Roman, serif;
-	font-size-adjust:	.4;
-	font-size:	1em;
-	font-weight:	700;
-	font-style:	normal;
-	text-decoration:	none;
-	word-spacing:	normal;
-	letter-spacing:	.1em;
-	font-variant:	small-caps
-	}	
+@font-face {
+    font-family: 'museo_sans500_italic';
+    src: url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.eot');
+    src: url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.woff2') format('woff2'),
+         url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.woff') format('woff'),
+         url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.ttf') format('truetype'),
+         url('/fonts/museosans_500italic_macroman/MuseoSans_500_Italic-webfont.svg#museo_sans500_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-a, address, blockquote, body, cite, code, dd, del, dfn,		
-div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, iframe, img, kbd,		
-li, object, ol, p, q, samp, small, span, strong, sub, sup, ul, var, 		
-applet, big, center, dir, font, hr, menu, pre,		
-abbr, acronym, bdo, fieldset, ins, label	{	
-	word-spacing:	normal;
-	letter-spacing:	normal;
-	text-transform:	none;
-	text-decoration:	none;
-	border-color:	#999;
-	border-style:	none;
-	}	
+@font-face {
+    font-family: 'museo_sans300';
+    src: url('/fonts/museosans_300_macroman/MuseoSans_300-webfont.eot');
+    src: url('/fonts/museosans_300_macroman/MuseoSans_300-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/museosans_300_macroman/MuseoSans_300-webfont.woff2') format('woff2'),
+         url('/fonts/museosans_300_macroman/MuseoSans_300-webfont.woff') format('woff'),
+         url('/fonts/museosans_300_macroman/MuseoSans_300-webfont.ttf') format('truetype'),
+         url('/fonts/museosans_300_macroman/MuseoSans_300-webfont.svg#museo_sans300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-button  {
-    font-size:      1em;
-    color:	#ffb029;
-    background:	#09535f;
-        }
+@font-face {
+    font-family: 'museo_sans300_italic';
+    src: url('/fonts/museosans_300italic_macroman/MuseoSans_300_Italic-webfont.eot');
+    src: url('/fonts/museosans_300italic_macroman/MuseoSans_300_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/museosans_300italic_macroman/MuseoSans_300_Italic-webfont.woff2') format('woff2'),
+         url('/fonts/museosans_300italic_macroman/MuseoSans_300_Italic-webfont.woff') format('woff'),
+         url('/fonts/museosans_300italic_macroman/MuseoSans_300_Italic-webfont.ttf') format('truetype'),
+         url('/fonts/museosans_300italic_macroman/MuseoSans_300_Italic-webfont.svg#museo_sans300_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-body	{	
-	color:	#09535f;
-	background:	#ffb029;
-	}	
-		
-em	{	
-	font-style:	normal;
-	font-weight:	bold;
-	color:	#09535f;
-	background:	#ffb029;
-	}	
-		
-strong	{	
-	font-style:	italic;
-	background:	#ffb029;
-	font-weight:	bold;
-	color:	#09535f;
-	}	
-		
-em strong, strong em	{	
-	text-transform:	uppercase;
-	font-style:	normal;
-	font-weight:	bolder;
-	background:	#ffb029;
-	color:	#09535f;
-	}	
-		
-b	{
-	font-weight:	bold;
-	}
-	
-i	{
-	font-style:	italic;
-	}
-		
-body	{
-	margin-top:	1.58em;
-	margin-left:	15%;
-	margin-right:	15%;
-	margin-bottom:	1.58em;
-	padding-top:	0;
-	padding-left:	0;
-	padding-right:	0;
-	padding-bottom:	0;
-	border-top:	0;
-	border-left:	0;
-	border-bottom:	0;
-	border-right:	0;
-	width:	auto;
-	}
-	/* end body box */
+body { 
+    text-align: left;
+    font-family: 'museo_sans500', sans-serif;
+    font-size-adjust: .58;
+    font-size: 1em;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    word-spacing: normal;
+} 
 
+h1 { 
+    text-align: center;
+    font-family: 'museo_sans500', sans-serif;
+    font-size-adjust: .4;
+    font-size: 2.0em;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+} 
 
+h2 { 
+    text-align: center;
+    font-family: 'museo_sans500', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1.75em;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+} 
 
+h3 { 
+    text-align: center;
+    font-family: 'museo_sans300_italic', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1.58em;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: normal;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+} 
 
+h4 { 
+    text-align: center;
+    font-family: 'museo_sans300', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1.33em;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+} 
+
+h5 { 
+    text-align: center;
+    font-family: 'museo_sans100_italic', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1.17em;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: none;
+    word-spacing: normal;
+} 
+
+h6 { 
+    text-align: center;
+    font-family: 'museo_sans100', sans-serif;
+    font-size-adjust: .4;
+    font-size: 1em;
+    font-style: normal;
+    font-variant: small-caps
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-decoration: none;
+    word-spacing: normal;
+} 
+
+a, address, blockquote, body, cite, code, dd, del, dfn,  
+div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, iframe, img, kbd,  
+li, object, ol, p, q, samp, small, span, strong, sub, sup, ul, var,   
+applet, big, center, dir, font, hr, menu, pre,  
+abbr, acronym, bdo, fieldset, ins, label { 
+    word-spacing: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    text-decoration: none;
+    border-color: #999;
+    border-style: none;
+} 
+
+input[type=submit] {
+    border: 1px dotted #999;
+    color: #ffb029;
+    background: #09535f;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+button, input, select, option  {
+    font-size: 1em;
+    text-align: center;    
+    color: #ffb029;
+    background: #09535f;
+}
+
+body { 
+    color: #09535f;
+    background: #ffb029;
+} 
+
+em { 
+    font-style: normal;
+    font-weight: bold;
+    color: #09535f;
+    background: #ffb029;
+} 
+
+strong { 
+    font-style: italic;
+    background: #ffb029;
+    font-weight: bold;
+    color: #09535f;
+} 
+
+em strong, strong em { 
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bolder;
+    background: #ffb029;
+    color: #09535f;
+} 
+
+b {
+    font-weight: bold;
+}
+
+i {
+    font-style: italic;
+}
+
+col, colgroup, table, tbody, td, tfoot, th, thead, tr {
+    border: 1px solid black;
+    /* border-bottom: 0; */
+    /* border-top: 0; */
+    /* margin-bottom: 0; */
+    /* margin-top: 0; */
+    /* padding-bottom: 0; */
+    /* padding-top: 0; */
+    text-align: center;
+}
+
+body {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin-bottom: 1.58em;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1.58em;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    width: auto;
+}

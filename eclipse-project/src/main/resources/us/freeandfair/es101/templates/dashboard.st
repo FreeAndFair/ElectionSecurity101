@@ -1,7 +1,5 @@
 dashboard(election) ::= <<
-<div align="center">
-<h2>$election.name$ &ndash; $election.date$</h2>
-<h3>$election.description$</h3>
+$header(election)$
 
 <h3><em>Candidates:</em> $election.candidates:{ candidate | &nbsp; &nbsp; &nbsp; $candidate$ }$</h3>
 
@@ -13,6 +11,4 @@ voter receipts/VVPATs.</p>
 
 <!-- <h3>You can be a <a href="/voting_system_choice">voter</a> or an 
      <a href="/adversary">adversary.</h3> -->
-
-</div>
 >>
