@@ -138,7 +138,8 @@ public class Manipulation extends UserInterface {
    * @param the_response The HTTP response.
    * @return The data to return in response.
    */
-  public synchronized String handleTimeout(final Request the_request, final Response the_response) {
+  public synchronized String handleTimeout(final Request the_request,
+                                           final Response the_response) {
     if (the_request.queryParams().contains("id")) {
       try {
         final long id = Long.parseLong(the_request.queryParams("id"));
@@ -173,7 +174,8 @@ public class Manipulation extends UserInterface {
    * @param the_response The HTTP response.
    * @return The data to return in response.
    */
-  public synchronized String handleManipulate(final Request the_request, final Response the_response) {
+  public synchronized String handleManipulate(final Request the_request,
+                                              final Response the_response) {
     boolean vote_change = false;
     boolean receipt_change = false;
     
@@ -190,7 +192,8 @@ public class Manipulation extends UserInterface {
                 !new_vote.equals(va.my_vote)) {
               va.my_manipulated_vote = new_vote;
               vote_change = true;
-              Main.LOGGER.info("changed ballot #" + id + " vote from " + va.my_vote + " to " + new_vote);
+              Main.LOGGER.info("changed ballot #" + id + " vote from " + va.my_vote + 
+                               " to " + new_vote);
             } else if (!new_vote.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change vote (" + va.my_vote + 
                                ") to invalid value " + new_vote);
@@ -204,7 +207,8 @@ public class Manipulation extends UserInterface {
                 !new_receipt.equals(va.my_vote)) {
               va.my_manipulated_receipt = new_receipt;
               receipt_change = true;
-              Main.LOGGER.info("changed ballot #" + id + " receipt from " + va.my_vote + " to " + new_receipt);
+              Main.LOGGER.info("changed ballot #" + id + " receipt from " + va.my_vote + 
+                               " to " + new_receipt);
             } else if (!new_receipt.equals(va.my_vote)) {
               Main.LOGGER.info("attempt to change receipt (" + va.my_vote +
                                ") to invalid value " + new_receipt);
