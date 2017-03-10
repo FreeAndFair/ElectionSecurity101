@@ -1,6 +1,4 @@
 hand_marked() ::= <<
-<h2>Hand-Marked and Hand-Counted Paper Ballots</h2>
-
 <p><b>Great choice!</b></p>
 
 <p>You are voting with a normal paper ballot.  You get to hand-mark that
