@@ -93,15 +93,17 @@ public class VoterAction implements Serializable {
    * static field to be higher than every VoterAction unserialized.
    * 
    * @param the_stream The object input stream.
+   * @throws ClassNotFoundException if the class of a serialized object could not be found.
+   * @throws IOException if an I/O error occurs.
    */
-  private void readObject(java.io.ObjectInputStream the_stream)
+  private void readObject(final java.io.ObjectInputStream the_stream)
       throws IOException, ClassNotFoundException {
     the_stream.defaultReadObject();
     NEXT_ID = Math.max(NEXT_ID, my_id + 1);
   }
   
   /**
-   * @return the voting system for this VoterAction.
+   * @return The voting system for this VoterAction.
    */
   public VotingSystem getVotingSystem() {
     return my_voting_system;
