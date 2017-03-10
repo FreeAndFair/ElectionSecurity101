@@ -93,7 +93,7 @@ public class Main {
   /**
    * The timeout after which votes in the queue are cast.
    */
-  private long my_vote_timeout = 0;
+  private long my_vote_timeout;
   
   /**
    * The timeout after which the system is checkpointed.
@@ -103,7 +103,7 @@ public class Main {
   /**
    * The last checkpoint time.
    */
-  private long my_last_checkpoint_time = 0;
+  private long my_last_checkpoint_time;
   
   /**
    * The filesystem path where checkpoints should be written and read.
@@ -140,7 +140,8 @@ public class Main {
     }
     if (the_properties.containsKey("template_group")) {
       StringTemplateUtil.setTemplateGroup(the_properties.getProperty("template_group"));
-      LOGGER.info("Using '" + the_properties.getProperty("template_group") + "' as template group.");
+      LOGGER.info("Using '" + the_properties.getProperty("template_group") + 
+                  "' as template group.");
     }
     if (the_properties.containsKey("checkpoint_file")) {
       my_checkpoint_file = the_properties.getProperty("checkpoint_file");
