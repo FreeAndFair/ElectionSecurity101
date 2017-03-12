@@ -2,22 +2,18 @@ optical_scan() ::= <<
 <p><b>Very good choice!</b></p>
 
 <p>You are voting with the dominant voting system deployed in the U.S.A. today.
-To vote in an optical scan system, you mark a paper ballot either with a
-Ballot Marking Device (BMD) or by hand.  BMDs are most often used by
-disabled voters.  You then drop the ballot into a normal secure ballot box, or
+To vote in an optical scan system, you mark a paper ballot. 
+You then drop the ballot into a normal secure ballot box, or
 you put the ballot into a precinct scanner which double-checks that you filled 
 out the ballot correctly.</p>
 
-<p>Try voting with hand-marked ballots or a ballot marking device
-to learn more!</p>
-
-<p>When it is time to count the votes in this kind of election, optical scan 
-votes are scanned and a computer interprets the marks on the ballots, voting 
+<p>When it is time to count the votes in this kind of election, 
+a computer scans and interprets the marks on the ballots, voting 
 officials review the computer's interpretations, and a computer tallies the 
 results.</p>
 
 <p>This voting system is a fairly reliable, though complicated, choice.  Its 
-operation and security threats are fairly well-understood because people 
+operation and security threats are fairly well understood because people 
 have been voting on paper for centuries.  Moreover, since voting and scanning 
 are decoupled, voter privacy and anonymity is well-preserved.</p>
 
@@ -30,8 +26,7 @@ be well-formed and can be counted, so no voters are accidentally
 disenfranchised.  Moreover, there is a paper ballot record that can always be
 used in recounts or audits of close or contested elections.</p>
 
-<p>This voting system is the <b>best</b> voting system widely deployed in the
-U.S.A. today.  All voting in Montana, North and South Dakota, Nebraska, 
+<p> All voting in Montana, North and South Dakota, Nebraska, 
 New Mexico, Oklahoma, Iowa, Minnesota, Michigan, New York, Alabama, Maryland,
 Maine, New Hampshire, Vermont, Connecticut, Rhode Island, Maryland, and 
 Washington D.C. uses optical scan systems.</p>
@@ -43,5 +38,8 @@ election, can vote from home when and how they wish, and drop off their ballots
 in a secure ballot drop or put them in the mail.  Unfortunately, this means that
 elections officials cannot guarantee that each vote was filled out by exactly
 the right voter, nor can we be sure that voters were not coerced and did not sell their
-votes to the highest bidder.</p>  
+votes to the highest bidder.</p>
+
+<p> This voting system is the <em>best</em> voting system widely deployed in the
+U.S.A. today. </p> 
 >>

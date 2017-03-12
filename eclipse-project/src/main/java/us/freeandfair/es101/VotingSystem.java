@@ -118,7 +118,7 @@ public class VotingSystem extends UserInterface {
     final ST page_template;
     page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "180; /");
+    page_template.add("refresh", "240; /");
     if (the_vote != null && my_election.getCandidates().contains(the_vote)) {
       final VoterAction va = new VoterAction(this, the_vote);
       my_queue.offer(va);
@@ -147,7 +147,7 @@ public class VotingSystem extends UserInterface {
   protected ST votingSystemPageSetup() {
     final ST page_template = StringTemplateUtil.loadTemplate("page");
     page_template.add("enable_refresh", true);
-    page_template.add("refresh", "120; /");
+    page_template.add("refresh", "240; /");
     final ST voting_system_template = StringTemplateUtil.loadTemplate("voting_system");
     voting_system_template.add("election", my_election);
     voting_system_template.add("schema", getSchema());

@@ -63,9 +63,10 @@ public class InternetElection extends VotingSystem {
   @Pure @Override
   public String getUsageRegions() {
     return "This kind of voting system has been experimented with and rejected by " +
-           "numerous governments around the world, but is being used in around two dozen " +
-           "states in the U.S.A. to collect votes from overseas Americans and military " + 
-           "personnel.  In AK, any citizen can vote over the Internet!";
+           "numerous governments around the world, but is being used in Estonia. Around " +
+           "two dozen U.S. states collect votes from overseas Americans " +
+           "and military personnel using this kind of system.  In AK, any citizen can " +
+           "vote over the Internet!";
   }
 
   @Pure @Override

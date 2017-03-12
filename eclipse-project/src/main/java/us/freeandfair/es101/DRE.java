@@ -61,8 +61,9 @@ public class DRE extends VotingSystem {
 
   @Pure @Override
   public String getUsageRegions() {
-    return "All voting in DE, GA, LA, NJ, and SC is on DREs. " + 
-           "Much of the voting in FL, IN, KY, PA, TN, TX, and VA is on DREs.  Some " +
+    return "All voting in DE, GA, LA, NJ, NV, SC, UT is on DREs. " + 
+           "Much of the voting in AK, AZ, CA, FL, ID, IL, IN, HI, KY, " +
+           "MO, NC, OH, PA, TN, TX, WI, WV, WY, and VA is on DREs.  Some " +
            "voting in AR, KS and MS is on DREs.";
   }
 

@@ -62,8 +62,8 @@ public class VerifiableElection extends VotingSystem {
 
   @Pure @Override
   public String getUsageRegions() {
-    return "System like this have been experimented with in Takoma Park, MD. " +
-      "Austin, TX is about to start working on such a system and intends to make it " +
+    return "Takoma Park, MD has experimented with and end-to-end verifiable election system. " +
+      "Travis County, TX (Austin) is working on such a system and intends to make it " +
       "available to the entire U.S.A.";
   }
 

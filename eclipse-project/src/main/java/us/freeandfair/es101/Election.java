@@ -14,7 +14,10 @@
 package us.freeandfair.es101;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Queue;
 
 import org.jmlspecs.annotation.Pure;
@@ -118,7 +121,9 @@ public class Election implements Serializable {
    */
   @Pure
   public Collection<String> getCandidates() {
-    return my_candidates;
+    final List<String> result = new ArrayList<String>(my_candidates);
+    Collections.shuffle(result);
+    return result;
   }
   
   /**

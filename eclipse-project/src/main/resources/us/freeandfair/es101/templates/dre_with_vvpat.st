@@ -8,11 +8,11 @@ like Russia, China, and North Korea, or in the hands of untrustworthy
 elections officials or other political parties.</p>
 
 <p>You use an antique computer that no longer gets updates or security patches,
-created by a voting company you have never heard of, running a proprietary 
-system that no one has ever seriously examined, to collect votes
+created by a voting company you have probably never heard of, running a proprietary 
+system that no one has ever thoroughly examined, to collect votes
 and announce the election's results.</p>
 
-<p>Fortunately, there is a paper ballot record in the form of a 
+<p>Fortunately, there is a paper record in the form of a 
 "Voter-Verifiable Paper Audit Trail", or VVPAT for short.  This means that a 
 little slip of
 paper is printed with your vote on it.  It is behind a piece of dirty glass, 
