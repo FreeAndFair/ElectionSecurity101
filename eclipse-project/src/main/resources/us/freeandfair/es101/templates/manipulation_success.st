@@ -15,7 +15,8 @@ $else$
 $endif$
 
 $tally(election.tally)$
-<h4>$election.voteManipulationCount$ of $election.voteCount$ votes cast in this election have been hacked.</h4>
+<h4>$election.manipulatedVotePercentage$% of the $election.voteCount$ votes
+cast in this election have been hacked.</h4>
 <div align="center">
 <button type="button" class="big_button"
  onclick="window.location.href='/'">Thanks for Participating!</button>

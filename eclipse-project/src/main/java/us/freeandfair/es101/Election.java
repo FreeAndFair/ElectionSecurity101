@@ -151,6 +151,15 @@ public class Election implements Serializable {
   }
 
   /**
+   * @return the percentage of votes that were manipulated, rounded to 
+   * the nearest integer.
+   */
+  @Pure
+  public int getManipulatedVotePercentage() {
+    return (int) (100.0 * getVoteManipulationCount() / getVoteCount());
+  }
+  
+  /**
    * @return the name of this election.
    */
   @Pure

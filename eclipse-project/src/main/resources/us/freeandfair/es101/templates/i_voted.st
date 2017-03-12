@@ -18,7 +18,8 @@ $tally(election.tally)$
 
 <div align="center">
 
-<h4>$election.voteManipulationCount$ of $election.voteCount$ votes cast in this election have been hacked.</h4>
+<h4>$election.manipulatedVotePercentage$% of the $election.voteCount$ votes
+cast in this election have been hacked.</h4>
 
 <p>Note that it takes some time for votes to be tallied, and your vote
 may not yet appear in these totals.</p>

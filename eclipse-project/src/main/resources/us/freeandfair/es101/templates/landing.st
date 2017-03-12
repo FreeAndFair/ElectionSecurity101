@@ -9,6 +9,7 @@ $header(election)$
  onclick="window.location.href='/adversary'">Hack!</button>
 </div>
 
-<h4>$election.voteManipulationCount$ of $election.voteCount$ votes cast in this election have been hacked.</h4>
+<h4>$election.manipulatedVotePercentage$% of the $election.voteCount$ votes
+cast in this election have been hacked.</h4>
 </div>
 >>
