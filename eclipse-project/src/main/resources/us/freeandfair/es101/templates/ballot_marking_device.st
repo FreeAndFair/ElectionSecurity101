@@ -1,5 +1,5 @@
 ballot_marking_device() ::= <<
-<p><b>Good choice!</b></p>
+<p><b>Good choice of voting system!</b></p>
 
 <p>You are voting with a voting system that was initially designed for the
 disabled, as a Ballot Marking Device (BMD) permits physically disabled and

@@ -1,5 +1,5 @@
 hand_marked() ::= <<
-<p><b>Great choice!</b></p>
+<p><b>Great choice of voting system!</b></p>
 
 <p>You are voting with a normal paper ballot.  You get to hand-mark that
 ballot with a pencil or pen, and drop the ballot into a secure ballot box.</p>

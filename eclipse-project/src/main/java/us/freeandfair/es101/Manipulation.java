@@ -183,13 +183,14 @@ public class Manipulation extends UserInterface {
     boolean vote_change = false;
     boolean receipt_change = false;
     boolean error = false;
+    VoterAction va = null;
     
     if (the_request.queryParams().contains("id")) {
       final long id;
       try {
         id = Long.parseLong(the_request.queryParams("id"));
         if (my_in_progress.containsKey(id)) {
-          final VoterAction va = my_in_progress.get(id);
+          va = my_in_progress.get(id);
           // check for a vote change
           if (the_request.queryParams().contains("vote")) {
             final String new_vote = the_request.queryParams("vote");
@@ -251,6 +252,9 @@ public class Manipulation extends UserInterface {
       final ST manipulation_success_template = 
           StringTemplateUtil.loadTemplate("manipulation_success");
       manipulation_success_template.add("election", my_election);
+      if (va != null) {
+        manipulation_success_template.add("voting_system", va.getVotingSystem());
+      }
       manipulation_success_template.add("vote_change", vote_change);
       manipulation_success_template.add("receipt_change", receipt_change);
       result.add("body", manipulation_success_template.render());

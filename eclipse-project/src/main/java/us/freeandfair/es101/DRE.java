@@ -45,6 +45,12 @@ public class DRE extends VotingSystem {
   }
 
   @Pure @Override
+  public String getAfterManipulationText() {
+    return "Your hack might be detected if there is a paper trail and " +
+           "officials check the results against it.";
+  }
+  
+  @Pure @Override
   public String getName() {
     return "Direct Recording Electronic (DRE)";
   }

@@ -46,6 +46,12 @@ public class BallotMarkingDevice extends VotingSystem {
   }
 
   @Pure @Override
+  public String getAfterManipulationText() {
+    return "Your hack might be detected if officials check the " +
+           "results against the paper ballots.";
+  }
+  
+  @Pure @Override
   public String getName() {
     return "Ballot Marking Device";
   }

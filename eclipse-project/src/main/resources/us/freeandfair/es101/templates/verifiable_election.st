@@ -1,5 +1,5 @@
 verifiable_election() ::= <<
-<p><b>Great choice!</b></p>
+<p><b>Great choice of voting system!</b></p>
 
 <p>You are voting with a voting system of the 21st century.  You make a ballot
 using a ballot marking device.  That device produces a normal paper ballot as 

@@ -25,6 +25,6 @@ cast in this election have been hacked.</h4>
 may not yet appear in these totals.</p>
 
 <button type="button" class="medium_button"
- onclick="window.location.href='/'">Thank You for Voting! Make Sure You Get An "I Voted" Sticker!</button>
+ onclick="window.location.href='/'">Thank You for Voting!</button>
 </div>
 >>

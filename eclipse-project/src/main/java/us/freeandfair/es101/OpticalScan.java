@@ -40,6 +40,12 @@ public class OpticalScan extends VotingSystem {
   }
 
   @Pure @Override
+  public String getAfterManipulationText() {
+    return "Your hack might be detected if officials check the " +
+           "results against the paper ballots.";
+  }
+  
+  @Pure @Override
   public String getName() {
     return "Optical Scan";
   }

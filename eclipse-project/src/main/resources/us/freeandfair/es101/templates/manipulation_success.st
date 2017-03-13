@@ -1,4 +1,4 @@
-manipulation_success(election, vote_change, receipt_change) ::= <<
+manipulation_success(election, voting_system, vote_change, receipt_change) ::= <<
 <b>$election.my_name$</b><br/>
 <i>$election.my_date$</i>
 
@@ -6,7 +6,7 @@ $if(vote_change)$
   $if(receipt_change)$  
     <h2>You've hacked a vote and a receipt!</h2>
   $else$
-    <h2>You've hacked a vote!</h2>
+    <h2>You've hacked a vote!$if(voting_system)$ $voting_system.afterManipulationText$$endif$</h2>
   $endif$
 $elseif(receipt_change)$
   <h2>You've hacked a receipt!</h2>

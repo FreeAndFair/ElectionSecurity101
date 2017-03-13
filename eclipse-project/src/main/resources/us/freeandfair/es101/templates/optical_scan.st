@@ -1,5 +1,5 @@
 optical_scan() ::= <<
-<p><b>Very good choice!</b></p>
+<p><b>Very good choice of voting system!</b></p>
 
 <p>You are voting with the dominant voting system deployed in the U.S.A. today.
 To vote in an optical scan system, you mark a paper ballot. 

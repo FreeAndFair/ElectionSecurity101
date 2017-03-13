@@ -180,6 +180,14 @@ public class VotingSystem extends UserInterface {
   }
   
   /**
+   * @return additional explanatory text for after a successful manipulation,
+   *  if applicable.
+   */
+  public String getAfterManipulationText() {
+    return "";
+  }
+  
+  /**
    * @return the name of a "receipt" in this voting system.
    */
   public String getReceiptName() {
