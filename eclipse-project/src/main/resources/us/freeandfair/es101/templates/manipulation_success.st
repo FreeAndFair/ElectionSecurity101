@@ -10,8 +10,10 @@ $if(vote_change)$
   $endif$
 $elseif(receipt_change)$
   <h2>You've hacked a receipt!</h2>
-$else$
+$elseif(voting_system.voteManipulable)$
   <h2>You chose not to hack the vote this time.</h2>
+$else$
+  <h2>You could not hack the vote this time.</h2>
 $endif$
 
 $tally(election.tally)$
