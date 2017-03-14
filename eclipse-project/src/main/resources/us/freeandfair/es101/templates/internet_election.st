@@ -1,5 +1,5 @@
 internet_election() ::= <<
-<p><b>Terrible choice!</b></p>
+<p><b>Terrible choice of voting system!</b></p>
 
 <p>You are voting with a voting system designed in the 20th century,
 but unable to withstand the security threats of the 21st century.
